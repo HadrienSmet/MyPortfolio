@@ -1,5 +1,4 @@
 import { MutableRefObject, useEffect, useRef } from "react";
-// import { SyntheticEvent } from "../interfaces/models";
 
 type Props = {
     children: JSX.Element;
@@ -26,10 +25,7 @@ export const findDegree = (
 
 const useGradientBorder = (): MutableRefObject<HTMLDivElement> => {
     const ref = useRef() as MutableRefObject<HTMLDivElement>;
-    const { current } = ref;
 
-    if (current !== null) {
-    }
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
             const degree = findDegree(ref.current, e);

@@ -1,6 +1,8 @@
 .intro {
-    padding: 100px 0;
-    height: calc(100vh - 200px);
+    position: relative;
+    top: calc((100vh * 0.15) + 80px);
+    height: calc((100vh - 80px) * 0.7);
+    width: 80%;
     > div {
         height: calc(100% - 80px);
         display: flex;
@@ -12,7 +14,6 @@
         justify-content: center;
         align-items: center;
         gap: 10px;
-
     }
     &__details {
         height: 55%;

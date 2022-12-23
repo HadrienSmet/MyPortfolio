@@ -1,3 +1,3 @@
-export interface SyntheticEvent {
-    e: React.MouseEvent<HTMLElement>;
+export interface CursorContextInterface {
+    isCursorHover: boolean;
 }

@@ -1,0 +1,8 @@
+@function counterDuration($i) {
+    $duration: 0.2s + ($i * 0.2s);
+    @return $duration;
+}
+@function counterDelay($i, $duration, $gap) {
+    $delay: 0.5s + $duration + (($i - 1) * ($gap * 0.1s));
+    @return $delay;
+}

@@ -1,0 +1,43 @@
+@keyframes translateDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleFromX {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes increaseOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes increaseScale {
+    0% {
+        transform: scale(1) translate(-50%, -50%);
+    }
+    100% {
+        transform: scale(2) translate(-25%, -25%);
+    }
+}
+@keyframes decreaseScale {
+    0% {
+        transform: scale(2) translate(-25%, -25%);
+    }
+    100% {
+        transform: scale(1) translate(-50%, -50%);
+    }
+}

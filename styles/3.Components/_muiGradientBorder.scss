@@ -1,5 +1,8 @@
 .gradient {
-    border: 40px solid transparent;
+    border-radius: 35px;
+    border: 10px solid transparent;
+    border-top: 0px;
+    border-bottom: 0px;
     background: 
         linear-gradient($clr-1, $clr-1), 
         linear-gradient(

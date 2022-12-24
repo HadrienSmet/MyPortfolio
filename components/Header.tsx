@@ -1,14 +1,13 @@
-import { useDispatch } from "react-redux";
-import { setCursorState } from "../features/cursorState.slice";
+import { useMyCursorContext } from "./CursorContext";
 
 const Header = () => {
-    const dispatch = useDispatch();
+    const [, setIsCursorHover] = useMyCursorContext();
 
     const handleMouseEnter = () => {
-        dispatch(setCursorState(true));
+        setIsCursorHover(true);
     };
     const handleMouseLeave = () => {
-        dispatch(setCursorState(false));
+        setIsCursorHover(false);
     };
 
     return (

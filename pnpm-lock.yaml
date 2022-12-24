@@ -9,6 +9,7 @@ specifiers:
   eslint: 8.30.0
   eslint-config-next: 13.0.7
   next: 13.0.7
+  next-redux-wrapper: ^8.0.0
   react: 18.2.0
   react-dom: 18.2.0
   react-redux: ^8.0.5
@@ -26,6 +27,7 @@ dependencies:
   eslint: 8.30.0
   eslint-config-next: 13.0.7_lzzuuodtsqwxnvqeq4g4likcqa
   next: 13.0.7_3duxcpitbtplz62feflag7fwby
+  next-redux-wrapper: 8.0.0_myptqhtrt2etn3bpvzs3slkaw4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-redux: 8.0.5_6fpxtwwxc52cyvwzdgczt4jvpq
@@ -1550,6 +1552,18 @@ packages:
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+    dev: false
+
+  /next-redux-wrapper/8.0.0_myptqhtrt2etn3bpvzs3slkaw4:
+    resolution: {integrity: sha512-zKRdpvDeqNXQr1j5DUWwsB2fz6XpHR32iy2qJGItTKLsbLB9GvtxDL9b4mFCfhDvnzy5dw97UqMjWDpFY8h0zA==}
+    peerDependencies:
+      next: '>=9'
+      react: '*'
+      react-redux: '*'
+    dependencies:
+      next: 13.0.7_3duxcpitbtplz62feflag7fwby
+      react: 18.2.0
+      react-redux: 8.0.5_6fpxtwwxc52cyvwzdgczt4jvpq
     dev: false
 
   /next/13.0.7_3duxcpitbtplz62feflag7fwby:

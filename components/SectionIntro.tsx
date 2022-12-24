@@ -1,18 +1,15 @@
 import Image from "next/image";
-// import { useContext } from "react";
 import handsomeYoungDevelopper from "../assets/images/photo-cv_151222.jpg";
 import MuiGradientBorder from "../components/MuiGradientBorder";
-import { setCursorState } from "../features/cursorState.slice";
-import { useDispatch } from "react-redux";
+import { useMyCursorContext } from "./CursorContext";
 
 const SectionIntro = () => {
-    const dispatch = useDispatch();
-
+    const [, setIsCursorHover] = useMyCursorContext();
     const handleMouseEnter = () => {
-        dispatch(setCursorState(true));
+        setIsCursorHover(true);
     };
     const handleMouseLeave = () => {
-        dispatch(setCursorState(false));
+        setIsCursorHover(false);
     };
 
     return (

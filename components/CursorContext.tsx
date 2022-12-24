@@ -30,10 +30,8 @@ const CursorContext = ({ children }: any) => {
     const ref = useRef() as MutableRefObject<HTMLDivElement>;
 
     useEffect(() => {
-        console.log(isCursorHover);
         const handleMouseMove = (event: MouseEvent) => {
             if (isCursorHover) {
-                console.log("you succeeded to come here");
                 ref.current.setAttribute(
                     "style",
                     `

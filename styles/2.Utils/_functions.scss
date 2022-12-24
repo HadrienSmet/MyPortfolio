@@ -6,3 +6,7 @@
     $delay: 0.5s + $duration + (($i - 1) * ($gap * 0.1s));
     @return $delay;
 }
+@function getZIndex($i) {
+    $zindex: -(($i + 1) - 5);
+    @return $zindex;
+}

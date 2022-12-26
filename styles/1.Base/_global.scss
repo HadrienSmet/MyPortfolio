@@ -31,6 +31,11 @@ body {
         }
     }
 }
+body.opened {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
 main {
     margin: 0 150px;
     display: flex;

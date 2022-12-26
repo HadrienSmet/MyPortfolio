@@ -1,7 +1,14 @@
-import { MouseEvent, MutableRefObject, useRef } from "react";
+import {
+    MouseEvent,
+    MutableRefObject,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
 import { useMyCursorContext } from "./CursorContext";
 
 const Header = () => {
+    const [scrollY, setScrollY] = useState(0);
     const ref = useRef() as MutableRefObject<HTMLDivElement>;
     const [, setIsCursorHover] = useMyCursorContext();
 
@@ -14,12 +21,31 @@ const Header = () => {
     const handleButtonBehavior = (e: MouseEvent<HTMLButtonElement>) => {
         const navigation = document.querySelector("nav");
         const target = e.target as Element;
+
+        document.body.classList.toggle("opened");
         target.classList.toggle("opened");
         ref.current.classList.toggle("opened");
         navigation?.classList.toggle("opened");
         const isExpanded = target.getAttribute("aria-expanded") === "true";
         target.setAttribute("aria-expanded", !isExpanded ? "true" : "false");
     };
+    useEffect(() => {
+        const handleScroll = () => {
+            const header: HTMLElement | null =
+                document.querySelector(".header");
+
+            if (header !== null && window.scrollY < scrollY) {
+                header.style.top = "0";
+            } else if (header !== null && window.scrollY > scrollY) {
+                header.style.top = "-104px";
+            }
+            setScrollY(window.scrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [scrollY]);
 
     return (
         <header className="header">
@@ -32,7 +58,12 @@ const Header = () => {
                     onClick={handleButtonBehavior}
                     aria-label="Main Menu"
                 >
-                    <svg width="100" height="100" viewBox="0 0 100 100">
+                    <svg
+                        id="toggle-nav-button"
+                        width="100"
+                        height="100"
+                        viewBox="0 0 100 100"
+                    >
                         <path
                             className="line line1"
                             d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"

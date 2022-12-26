@@ -41,3 +41,11 @@
         transform: scale(1) translate(-50%, -50%);
     }
 }
+@keyframes toTheGround {
+    0% {
+        transform: translateY(-90vh) skewY(-10deg);
+    }
+    100% {
+        transform: translateY(0) skewY(-10deg);
+    }
+}

@@ -1,8 +1,9 @@
 import Link from "next/link";
-import React, { MouseEvent } from "react";
+import React, { MouseEvent, MutableRefObject, useRef } from "react";
 import { useMyCursorContext } from "./CursorContext";
 
 const Navigation = () => {
+    const navigationRef = useRef() as MutableRefObject<HTMLDivElement>;
     const [, setIsCursorHover] = useMyCursorContext();
 
     const handleMouseEnter = () => {
@@ -15,23 +16,18 @@ const Navigation = () => {
     const resetButtonBehavior = (
         e: MouseEvent<HTMLAnchorElement> | MouseEvent<HTMLLIElement>
     ) => {
-        const navigation = document.querySelector("nav");
         const defBar = document.querySelector(".header__default-bar");
         const button = document.querySelector("#toggle-nav-button");
-        console.log(button);
-
         document.body.classList.remove("opened");
         button?.classList.remove("opened");
         defBar?.classList.remove("opened");
-        navigation?.classList.remove("opened");
+        navigationRef.current.classList.remove("opened");
         const isExpanded = button?.getAttribute("aria-expanded") === "true";
-        console.log(isExpanded);
-
         button?.setAttribute("aria-expanded", !isExpanded ? "true" : "false");
     };
 
     return (
-        <nav>
+        <nav ref={navigationRef}>
             <ul>
                 <li
                     onClick={resetButtonBehavior}

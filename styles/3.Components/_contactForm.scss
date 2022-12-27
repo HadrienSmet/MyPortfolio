@@ -1,0 +1,89 @@
+.contact {
+    form {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 45px;
+        width: 100%;
+        height: 30vh;
+    }
+    &-form {
+        &__left-column {
+            height: 100%;
+            position: relative;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            > div {
+                width: 100%;
+                label {
+                    color: $fourth-color;
+                    text-transform: uppercase;
+                    font-size: $big-text;
+                    font-family: "graphic-fonts";
+                    padding: 5px 0;
+                }
+                > div {
+                    padding: 20px 0;
+                    &:hover {
+                        fieldset {
+                            border-color: $fifth-color !important;
+                        }
+                    }
+                }
+                div.Mui-focused {
+                    fieldset {
+                        border-color: $first-color !important;
+                    }
+                }
+            }   
+            fieldset {
+                border: 2px solid $fourth-color;
+            }
+            label.Mui-focused {
+                color: $first-color !important;
+            }
+            * {
+                cursor: none;
+            }
+        }
+        &__right-column {
+            height: 100%;
+            width: 40%;
+            div {
+                padding: 25px;
+                height: 100%;
+                &:hover {
+                    fieldset {
+                        border-color: $fifth-color !important;
+                    }
+                }
+            }
+            div.Mui-focused {
+                fieldset {
+                    border-color: $first-color !important;
+                }
+            }
+            label {
+                color: $fourth-color;
+                text-transform: uppercase;
+                font-size: $big-text;
+                font-family: "graphic-fonts";
+                padding: 5px 0;
+            }
+            label.Mui-focused {
+                color: $first-color !important;
+            }
+            fieldset {
+                border: 2px solid $fourth-color;
+                cursor: none;
+            }
+        }
+    }
+}
+.css-14lo706 {
+    font-size: 32px;
+}

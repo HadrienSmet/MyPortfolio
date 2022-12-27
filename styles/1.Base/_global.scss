@@ -7,7 +7,7 @@ html {
     padding: 0;
 }
 body {
-    cursor: none;
+    cursor: none !important;
     font-family: "main-fonts";
     box-sizing: border-box;
     &::-webkit-scrollbar {

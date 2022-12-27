@@ -9,7 +9,7 @@ import { useMyCursorContext } from "./CursorContext";
 
 const Header = () => {
     const [scrollY, setScrollY] = useState(0);
-    const ref = useRef() as MutableRefObject<HTMLDivElement>;
+    const defaultBarRef = useRef() as MutableRefObject<HTMLDivElement>;
     const [, setIsCursorHover] = useMyCursorContext();
 
     const handleMouseEnter = () => {
@@ -24,7 +24,7 @@ const Header = () => {
 
         document.body.classList.toggle("opened");
         target.classList.toggle("opened");
-        ref.current.classList.toggle("opened");
+        defaultBarRef.current.classList.toggle("opened");
         navigation?.classList.toggle("opened");
         const isExpanded = target.getAttribute("aria-expanded") === "true";
         target.setAttribute("aria-expanded", !isExpanded ? "true" : "false");
@@ -49,7 +49,7 @@ const Header = () => {
 
     return (
         <header className="header">
-            <div ref={ref} className="header__default-bar">
+            <div ref={defaultBarRef} className="header__default-bar">
                 <em>Hadri</em>
                 <button
                     className="menu"

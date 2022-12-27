@@ -1,100 +1,130 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import pictureAboutWork from "../assets/images/bestActor.jpg";
 import pictureAboutMe from "../assets/images/Margot-Robbie.jpg";
-
-export const tellMeRatio = (event: MouseEvent) => {
-    const windowWidth = window.innerWidth;
-
-    const ratioX = (event.clientX / windowWidth) * 100;
-    console.log(ratioX);
-};
+import { useMyCursorContext } from "./CursorContext";
 
 const SectionAbout = () => {
-    useEffect(() => {
-        const doubleImg: HTMLDivElement | null = document.querySelector(
-            ".about__double-img-container"
-        );
-        const firstImgContainer: HTMLDivElement | null = document.querySelector(
-            ".about__first-img-container"
-        );
-        const secondImgContainer: HTMLDivElement | null =
-            document.querySelector(".about__second-img-container");
-        const workLink: HTMLDivElement | null = document.querySelector(
-            ".about__dynamic-links__too-work"
-        );
-        const myLink: HTMLDivElement | null = document.querySelector(
-            ".about__dynamic-links__too-me"
-        );
-        const handlePictureOnMouseMove = (e: MouseEvent) => {
-            const windowWidth = window.innerWidth;
-            const ratioX = (e.clientX / windowWidth) * 100;
+    const doubleImgRef = useRef<HTMLDivElement | null>(null);
+    const firstImgContainerRef = useRef<HTMLDivElement | null>(null);
+    const secondImgContainerRef = useRef<HTMLDivElement | null>(null);
+    const workLinkRef = useRef<HTMLDivElement | null>(null);
+    const myLinkRef = useRef<HTMLDivElement | null>(null);
+    const [, setIsCursorHover] = useMyCursorContext();
 
-            if (doubleImg !== null) {
-                let translateInPx = 100 - 2 * ratioX;
-                doubleImg.style.setProperty(
-                    "--div-translation",
-                    `${translateInPx}px`
+    const handleMouseEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleMouseLeave = () => {
+        setIsCursorHover(false);
+    };
+
+    const handleDoubleImageTranslateX = (ratio: number) => {
+        if (doubleImgRef.current !== null) {
+            let translateInPx = 100 - 2 * ratio;
+            doubleImgRef.current.style.setProperty(
+                "--div-translation",
+                `${translateInPx}px`
+            );
+        }
+    };
+
+    const handleContainersWidth = (ratio: number) => {
+        if (
+            firstImgContainerRef.current !== null &&
+            secondImgContainerRef.current !== null
+        ) {
+            if (ratio <= 25) {
+                firstImgContainerRef.current.style.setProperty(
+                    "--first-div-width",
+                    `100%`
+                );
+                secondImgContainerRef.current.style.setProperty(
+                    "--second-div-width",
+                    `0%`
+                );
+            } else if (ratio >= 75) {
+                firstImgContainerRef.current.style.setProperty(
+                    "--first-div-width",
+                    `0%`
+                );
+                secondImgContainerRef.current.style.setProperty(
+                    "--second-div-width",
+                    `100%`
+                );
+            } else {
+                firstImgContainerRef.current.style.setProperty(
+                    "--first-div-width",
+                    `${100 - (ratio - 25) * 2}%`
+                );
+                secondImgContainerRef.current.style.setProperty(
+                    "--second-div-width",
+                    `${(ratio - 25) * 2}%`
                 );
             }
-            if (
-                firstImgContainer !== null &&
-                secondImgContainer !== null &&
-                myLink !== null &&
-                workLink !== null
-            ) {
-                if (ratioX <= 25) {
-                    firstImgContainer.style.setProperty(
-                        "--first-div-width",
-                        `100%`
-                    );
-                    secondImgContainer.style.setProperty(
-                        "--second-div-width",
-                        `0%`
-                    );
-                    workLink.style.setProperty("--work-opacity", "1");
-                    workLink.style.setProperty("--work-translateX", "-25px");
-                    myLink.style.setProperty("--my-opacity", "0");
-                } else if (ratioX >= 75) {
-                    firstImgContainer.style.setProperty(
-                        "--first-div-width",
-                        `0%`
-                    );
-                    secondImgContainer.style.setProperty(
-                        "--second-div-width",
-                        `100%`
-                    );
-                    workLink.style.setProperty("--work-opacity", "0");
-                    myLink.style.setProperty("--my-opacity", "1");
-                    myLink.style.setProperty("--my-transleX", "25px");
-                } else {
-                    firstImgContainer.style.setProperty(
-                        "--first-div-width",
-                        `${100 - (ratioX - 25) * 2}%`
-                    );
-                    secondImgContainer.style.setProperty(
-                        "--second-div-width",
-                        `${(ratioX - 25) * 2}%`
-                    );
-                    workLink.style.setProperty(
+        }
+    };
+
+    const handleLinksOpacity = (ratio: number) => {
+        if (myLinkRef.current !== null && workLinkRef.current !== null) {
+            if (ratio < 50) {
+                myLinkRef.current.style.setProperty("--my-opacity", "0");
+                if (ratio < 25) {
+                    workLinkRef.current.style.setProperty(
                         "--work-opacity",
-                        `${(100 - (ratioX - 25) * 2) / 100}`
+                        "1"
                     );
-                    myLink.style.setProperty(
+                } else {
+                    workLinkRef.current.style.setProperty(
+                        "--work-opacity",
+                        `${(100 - (ratio - 50) * 4) / 100}`
+                    );
+                }
+            } else if (ratio >= 50) {
+                workLinkRef.current.style.setProperty("--work-opacity", "0");
+                if (ratio > 75) {
+                    myLinkRef.current.style.setProperty("--my-opacity", "1");
+                } else {
+                    myLinkRef.current.style.setProperty(
                         "--my-opacity",
-                        `${((ratioX - 25) * 2) / 100}`
-                    );
-                    myLink.style.setProperty(
-                        "--my-translateX",
-                        `${ratioX - 50}px`
-                    );
-                    workLink.style.setProperty(
-                        "--work-translateX",
-                        `${ratioX - 50}px`
+                        `${((ratio - 50) * 4) / 100}`
                     );
                 }
             }
+        }
+    };
+
+    const handleLinksTranslateX = (ratio: number) => {
+        if (myLinkRef.current !== null && workLinkRef.current !== null) {
+            if (ratio <= 25) {
+                workLinkRef.current.style.setProperty(
+                    "--work-translateX",
+                    "-25px"
+                );
+            } else if (ratio >= 75) {
+                myLinkRef.current.style.setProperty("--my-transleX", "25px");
+            } else {
+                myLinkRef.current.style.setProperty(
+                    "--my-translateX",
+                    `${ratio - 50}px`
+                );
+                workLinkRef.current.style.setProperty(
+                    "--work-translateX",
+                    `${ratio - 50}px`
+                );
+            }
+        }
+    };
+
+    useEffect(() => {
+        const handlePictureOnMouseMove = (e: MouseEvent) => {
+            const windowWidth = window.innerWidth;
+            const ratioX = (e.clientX / windowWidth) * 100;
+            handleLinksOpacity(ratioX);
+            handleLinksTranslateX(ratioX);
+            handleContainersWidth(ratioX);
+            handleDoubleImageTranslateX(ratioX);
         };
 
         window.addEventListener("mousemove", handlePictureOnMouseMove);
@@ -105,19 +135,34 @@ const SectionAbout = () => {
     return (
         <section className="about">
             <div className="about__dynamic-links-container">
-                <div id="work" className="about__dynamic-links__too-work">
+                <div
+                    ref={workLinkRef}
+                    id="work"
+                    className="about__dynamic-links__too-work"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                >
                     <Link href="/aboutMyWork">
                         More about <em>My work</em>
                     </Link>
                 </div>
-                <div id="me" className="about__dynamic-links__too-me">
+                <div
+                    ref={myLinkRef}
+                    id="me"
+                    className="about__dynamic-links__too-me"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                >
                     <Link href="/aboutMe">
                         More about <em>Me</em>
                     </Link>
                 </div>
             </div>
-            <div className="about__double-img-container">
-                <div className="about__first-img-container">
+            <div ref={doubleImgRef} className="about__double-img-container">
+                <div
+                    ref={firstImgContainerRef}
+                    className="about__first-img-container"
+                >
                     <Image
                         src={pictureAboutWork}
                         alt="Illustration de moi-même"
@@ -125,7 +170,10 @@ const SectionAbout = () => {
                         height={420}
                     />
                 </div>
-                <div className="about__second-img-container">
+                <div
+                    ref={secondImgContainerRef}
+                    className="about__second-img-container"
+                >
                     <Image
                         src={pictureAboutMe}
                         alt="Photos de moi-même"

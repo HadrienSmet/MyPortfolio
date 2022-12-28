@@ -11,6 +11,9 @@ const SectionAbout = () => {
     const secondImgContainerRef = useRef<HTMLDivElement | null>(null);
     const workLinkRef = useRef<HTMLDivElement | null>(null);
     const myLinkRef = useRef<HTMLDivElement | null>(null);
+    const firstWorkBubbleRef = useRef<HTMLDivElement | null>(null);
+    const scdWorkBubbleRef = useRef<HTMLDivElement | null>(null);
+    const thrdWorkBubbleRef = useRef<HTMLDivElement | null>(null);
     const [, setIsCursorHover] = useMyCursorContext();
 
     const handleMouseEnter = () => {
@@ -78,7 +81,7 @@ const SectionAbout = () => {
                 } else {
                     workLinkRef.current.style.setProperty(
                         "--work-opacity",
-                        `${(100 - (ratio - 50) * 4) / 100}`
+                        `${(100 - (ratio - 50) * 4) / 100 - 1}`
                     );
                 }
             } else if (ratio >= 50) {
@@ -117,6 +120,33 @@ const SectionAbout = () => {
         }
     };
 
+    const handleBubblesScale = (ratio: number) => {
+        if (
+            firstWorkBubbleRef.current !== null &&
+            scdWorkBubbleRef.current !== null &&
+            thrdWorkBubbleRef.current !== null
+        ) {
+            if (ratio < 50) {
+                firstWorkBubbleRef.current.style.setProperty(
+                    "--work-bubble-scale",
+                    `${(100 - ratio * 2) / 100}`
+                );
+            }
+            if (ratio < 25) {
+                thrdWorkBubbleRef.current.style.setProperty(
+                    "--work-bubble-scale",
+                    `${(100 - ratio * 4) / 100}`
+                );
+            }
+            if (ratio < 20) {
+                scdWorkBubbleRef.current.style.setProperty(
+                    "--work-bubble-scale",
+                    `${(100 - ratio * 5) / 100}`
+                );
+            }
+        }
+    };
+
     useEffect(() => {
         const handlePictureOnMouseMove = (e: MouseEvent) => {
             const windowWidth = window.innerWidth;
@@ -125,6 +155,7 @@ const SectionAbout = () => {
             handleLinksTranslateX(ratioX);
             handleContainersWidth(ratioX);
             handleDoubleImageTranslateX(ratioX);
+            handleBubblesScale(ratioX);
         };
 
         window.addEventListener("mousemove", handlePictureOnMouseMove);
@@ -142,6 +173,18 @@ const SectionAbout = () => {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
+                    <span
+                        ref={firstWorkBubbleRef}
+                        className="about__animated-circle"
+                    ></span>
+                    <span
+                        ref={scdWorkBubbleRef}
+                        className="about__animated-circle"
+                    ></span>
+                    <span
+                        ref={thrdWorkBubbleRef}
+                        className="about__animated-circle"
+                    ></span>
                     <Link href="/aboutMyWork">
                         More about <em>My work</em>
                     </Link>

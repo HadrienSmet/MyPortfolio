@@ -1,0 +1,52 @@
+.about-work {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    h1 {
+        font-size: $big-title;
+        width: 100%;
+        color: $fifth-color;
+    }
+    h2 {
+        font-size: $small-title;
+        color: $second-color;
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -15px;
+            width: 7px;
+            height: 48px;
+            background-color: $first-color;
+        }
+    }
+    &__projects-and-tools-section {
+        width: 100%;
+        height: calc(100vh - 226px);
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    &__projects-side {
+        height: 45vh;
+    }
+    &__tools-side {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    &__tools-container {
+        display: grid;
+        grid-template-columns: repeat(7, 110px);
+        grid-template-rows: repeat(2, 110px);
+        svg {
+            width: 90px;
+            height: 90px;
+        }
+    }
+}

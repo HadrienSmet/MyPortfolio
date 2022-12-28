@@ -1,8 +1,21 @@
+import Head from "next/head";
+import SectionProjects from "../components/SectionProjects";
+
 const aboutMyWork = () => {
     return (
-        <div>
-            <h1>About my work</h1>
-        </div>
+        <>
+            <Head>
+                <title>Hadrien Smet - About my work</title>
+                <meta
+                    name="description"
+                    content="Front-end developer that offers great solutions for your apps and web sites. And creates modern design to highlight your product "
+                />
+            </Head>
+            <div className="about-work">
+                <h1>About my work</h1>
+                <SectionProjects />
+            </div>
+        </>
     );
 };
 

@@ -39,7 +39,7 @@
                         border-color: $first-color !important;
                     }
                 }
-            }   
+            }
             fieldset {
                 border: 2px solid $fourth-color;
             }
@@ -79,6 +79,12 @@
             }
             fieldset {
                 border: 2px solid $fourth-color;
+                cursor: none;
+            }
+            textarea {
+                height: 100% !important;
+            }
+            * {
                 cursor: none;
             }
         }

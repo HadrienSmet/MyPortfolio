@@ -9,6 +9,7 @@ specifiers:
   '@types/node': 18.11.17
   '@types/react': 18.0.26
   '@types/react-dom': 18.0.9
+  devicon: ^2.15.1
   eslint: 8.30.0
   eslint-config-next: 13.0.7
   next: 13.0.7
@@ -31,6 +32,7 @@ dependencies:
   '@types/node': 18.11.17
   '@types/react': 18.0.26
   '@types/react-dom': 18.0.9
+  devicon: 2.15.1
   eslint: 8.30.0
   eslint-config-next: 13.0.7_lzzuuodtsqwxnvqeq4g4likcqa
   next: 13.0.7_3duxcpitbtplz62feflag7fwby
@@ -1081,6 +1083,10 @@ packages:
     dependencies:
       has-property-descriptors: 1.0.0
       object-keys: 1.1.1
+    dev: false
+
+  /devicon/2.15.1:
+    resolution: {integrity: sha512-iyapbDVaq1PgMSMZ4IekgjH230aSUU4kHmZ142lQ2TJ+9HB4P4V78eNDkyaQEEoi0KJhxIGPcTSFqxHaZ4OMyw==}
     dev: false
 
   /dir-glob/3.0.1:

@@ -18,9 +18,9 @@ const SectionIntro = () => {
                 <div className="intro__content">
                     <div className="intro__details">
                         <h1>
-                            Hadrien Smet
+                            <span className="name">Hadrien Smet</span>
                             <br />
-                            <span>Front-end developer</span>
+                            <span className="js">Front-end developer</span>
                             <br />
                             <strong
                                 onMouseEnter={handleMouseEnter}

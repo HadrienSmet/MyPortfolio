@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import pictureAboutWork from "../assets/images/bestActor.jpg";
-import pictureAboutMe from "../assets/images/Margot-Robbie.jpg";
+import pictureAboutWork from "../assets/images/bestActor.webp";
+import pictureAboutMe from "../assets/images/Margot-Robbie.webp";
 import { useMyCursorContext } from "./CursorContext";
 
 const SectionAbout = () => {
@@ -166,7 +166,7 @@ const SectionAbout = () => {
                             "--work-bubble-scale",
                             `${(100 - ratio * 5) / 100}`
                         );
-                        if (ratio < 13) {
+                        if (ratio < 12.5) {
                             fifthWorkBubbleRef.current.style.setProperty(
                                 "--work-bubble-scale",
                                 `${(100 - ratio * 8) / 100}`
@@ -212,7 +212,7 @@ const SectionAbout = () => {
                         if (ratio > 87) {
                             fifthMyBubbleRef.current.style.setProperty(
                                 "--my-bubble-scale",
-                                `${((ratio - 87) * 8) / 100}`
+                                `${((ratio - 87.5) * 8) / 100}`
                             );
                             if (ratio > 90) {
                                 sixthMyBubbleRef.current.style.setProperty(
@@ -284,7 +284,7 @@ const SectionAbout = () => {
                 doubleImgRef.current.getBoundingClientRect();
             const isVisible =
                 doubleImageRect.top >= -260 &&
-                doubleImageRect.bottom <= window.innerHeight - 10;
+                doubleImageRect.bottom <= window.innerHeight + 140;
             if (isVisible) {
                 doubleImgRef.current.classList.add("visible");
                 doubleImgRef.current.classList.remove("invisible");

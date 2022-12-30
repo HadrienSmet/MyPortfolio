@@ -1,5 +1,5 @@
 import Image from "next/image";
-import handsomeYoungDevelopper from "../assets/images/photo-cv_151222.jpg";
+import handsomeYoungDevelopper from "../assets/images/photo-cv_151222.webp";
 import MuiGradientBorder from "../components/MuiGradientBorder";
 import { useMyCursorContext } from "./CursorContext";
 

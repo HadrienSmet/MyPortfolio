@@ -20,3 +20,7 @@ const aboutMyWork = () => {
 };
 
 export default aboutMyWork;
+
+// export const getStaticProps = async () => {
+//     const
+// }

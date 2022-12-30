@@ -47,10 +47,10 @@
 
 @keyframes increaseScale {
     0% {
-        transform: scale(1) translate(-50%, -50%) !important;
+        transform: scale(1) translate(-50%, -50%);
     }
     100% {
-        transform: scale(2) translate(-25%, -25%) !important;
+        transform: scale(2) translate(-25%, -25%);
     }
 }
 @keyframes decreaseScale {

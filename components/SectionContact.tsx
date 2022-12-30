@@ -1,6 +1,6 @@
 import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Image from "next/image";
-import handsomeYoungDevelopper from "../assets/images/photo-cv_151222.jpg";
+import handsomeYoungDevelopper from "../assets/images/photo-cv_151222.webp";
 import ContactForm from "./ContactForm";
 import { useMyCursorContext } from "./CursorContext";
 

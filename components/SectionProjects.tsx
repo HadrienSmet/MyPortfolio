@@ -1,14 +1,5 @@
 import React from "react";
-import {
-    FaCss3Alt,
-    FaGitAlt,
-    FaHtml5,
-    FaJsSquare,
-    FaNodeJs,
-    FaReact,
-    FaSass,
-} from "react-icons/fa";
-import { DiVisualstudio } from "react-icons/di";
+import { FaGitAlt } from "react-icons/fa";
 import SvgVsCode from "./SvgVsCode";
 import SvgHTML from "./SvgHTML";
 import SvgCSS from "./SvgCSS";
@@ -21,16 +12,12 @@ import SvgReact from "./SvgReact";
 import SvgNextJS from "./SvgNextJS";
 import SvgThreeJS from "./SvgThreeJS";
 import SvgFigma from "./SvgFigma";
+import { projects } from "../projectsData";
+import Project from "./Project";
 
 const SectionProjects = () => {
     return (
         <section className="about-work__projects-and-tools-section">
-            <div className="about-work__projects-side">
-                <h2>My projects</h2>
-                <div className="about-work__projects-carousel">
-                    <div className="project"></div>
-                </div>
-            </div>
             <div className="about-work__tools-side">
                 <h2>My tools</h2>
                 <div className="about-work__tools-container">
@@ -47,6 +34,14 @@ const SectionProjects = () => {
                     <FaGitAlt />
                     <SvgVsCode />
                     <SvgFigma />
+                </div>
+            </div>
+            <div className="about-work__projects-side">
+                <h2>My projects</h2>
+                <div className="about-work__projects-carousel">
+                    {projects.map((project) => (
+                        <Project key={project.id} project={project} />
+                    ))}
                 </div>
             </div>
         </section>

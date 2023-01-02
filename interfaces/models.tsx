@@ -1,7 +1,7 @@
 export interface ProjectInterface {
     id: number;
     name: string;
-    imageUrl: string;
+    image: string;
     description: string;
     tools: string[];
     codeLink: string;

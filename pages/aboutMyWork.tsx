@@ -11,10 +11,8 @@ const aboutMyWork = () => {
                     content="Front-end developer that offers great solutions for your apps and web sites. And creates modern design to highlight your product "
                 />
             </Head>
-            <div className="about-work">
-                <h1>About my work</h1>
-                <SectionProjects />
-            </div>
+            <h1 className="about-work__main-title">About my work</h1>
+            <SectionProjects />
         </>
     );
 };

@@ -1,14 +1,16 @@
 .about-work {
-    padding-top: 100px;
+    // padding-top: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     gap: 50px;
-    width: 100%;
-    h1 {
+    width: calc(100% - 300px);
+    &__main-title {
+        margin-top: 130px;
+        // margin-left: 150px;
         font-size: $big-title;
-        width: 100%;
+        width: calc(100% - 300px);
         color: $fifth-color;
     }
     h2 {
@@ -26,27 +28,41 @@
         }
     }
     &__projects-and-tools-section {
-        width: 100%;
-        height: calc(100vh - 226px);
+        width: calc(100% - 300px);
+        // height: calc(100vh - 226px);
         display: flex;
         flex-direction: column;
         gap: 30px;
     }
-    &__projects-side {
-        // height: 45vh;
+    &__tools {
+        &-side {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+        &-container {
+            display: grid;
+            grid-template-columns: repeat(13, 110px);
+            grid-template-rows: repeat(1, 110px);
+            svg {
+                width: 90px;
+                height: 90px;
+            }
+        }
     }
-    &__tools-side {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-    &__tools-container {
-        display: grid;
-        grid-template-columns: repeat(13, 110px);
-        grid-template-rows: repeat(1, 110px);
-        svg {
-            width: 90px;
-            height: 90px;
+    &__projects {
+        &-side {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+        &-carousel {
+            display: flex;
+            gap: 135px;
+            width: 100%;
+            overflow-x: auto;
         }
     }
 }

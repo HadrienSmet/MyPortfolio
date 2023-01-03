@@ -10,6 +10,7 @@ nav {
     justify-content: center;
     transition: 0.6s ease-in;
     transform: translateY(-100%);
+    z-index: 2;
     ul {
         display: flex;
         flex-direction: column;

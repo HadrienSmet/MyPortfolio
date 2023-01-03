@@ -12,12 +12,11 @@ import SvgReact from "./SvgReact";
 import SvgNextJS from "./SvgNextJS";
 import SvgThreeJS from "./SvgThreeJS";
 import SvgFigma from "./SvgFigma";
-import { projects } from "../projectsData";
-import Project from "./Project";
+import CarouselProjects from "./CarouselProjects";
 
 const SectionProjects = () => {
     return (
-        <section className="about-work__projects-and-tools-section">
+        <section className="about-work about-work__projects-and-tools-section">
             <div className="about-work__tools-side">
                 <h2>My tools</h2>
                 <div className="about-work__tools-container">
@@ -38,11 +37,7 @@ const SectionProjects = () => {
             </div>
             <div className="about-work__projects-side">
                 <h2>My projects</h2>
-                <div className="about-work__projects-carousel">
-                    {projects.map((project) => (
-                        <Project key={project.id} project={project} />
-                    ))}
-                </div>
+                <CarouselProjects />
             </div>
         </section>
     );

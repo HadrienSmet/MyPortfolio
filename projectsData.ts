@@ -3,7 +3,8 @@ export const projects: ProjectInterface[] = [
     {
         id: 1,
         name: "Booki - First project for OpenClassrooms",
-        image: "Margot-Robbie.webp",
+        imageLink: "booki-square.webp",
+        image: "booki.webp",
         description:
             "The goal of this project was to teach us how to integrate a basic template only using HTML and CSS. So we learned how to improve our workflow and wich details required most attention",
         tools: ["HTML", "CSS"],
@@ -12,7 +13,8 @@ export const projects: ProjectInterface[] = [
     {
         id: 2,
         name: "OhMyFood - Second project for OpenClassrooms",
-        image: "Margot-Robbie.webp",
+        imageLink: "ohMyFood-square.webp",
+        image: "ohMyFood.webp",
         description:
             "The goal of this project was to teach us how to integrate a template and to handle basic animations only using HTML and Sass . So we learned how to handle pseudo-classes, pseudo-elements and pseudo-selectors",
         tools: ["HTML", "Sass"],
@@ -21,7 +23,8 @@ export const projects: ProjectInterface[] = [
     {
         id: 3,
         name: "LaPanthere - Third project for OpenClassrooms",
-        image: "Margot-Robbie.webp",
+        imageLink: "lapanthere-square.webp",
+        image: "lapanthere.webp",
         description:
             "The goal of this project was to teach us how to improve the SEO and the accessibility of an already existing website. So we learned how to fix bad practices and wich good practices we had to implement in order to be appreciated by the search engines. We also learned wich details were important during a website creation if you want that your services can be reach by a lot of users",
         tools: ["HTML", "CSS"],
@@ -29,7 +32,18 @@ export const projects: ProjectInterface[] = [
     },
     {
         id: 4,
+        name: "Kanap - Fourth project for OpenClassrooms",
+        imageLink: "kanap-square.webp",
+        image: "kanap.webp",
+        description:
+            "The goal of this project was to introduce us JavaScript. We only had to develop the JS, the HTML, CSS and the back were already done. We had to connect the pages together, to set a basket and all the functionalities related to it. Basically, we had to learn how to create a dynamic website",
+        tools: ["JavaScript"],
+        codeLink: "https://github.com/HadrienSmet/go-fullstack",
+    },
+    {
+        id: 5,
         name: "PIIIQUANTE - Fifth project for OpenClassrooms",
+        imageLink: "Margot-Robbie.webp",
         image: "Margot-Robbie.webp",
         description:
             "The goal of this project was to teach us how to create a REST with NodeJS. The front-end was already set we just had to create the routes, the middlewares and the controllers.",
@@ -37,9 +51,10 @@ export const projects: ProjectInterface[] = [
         codeLink: "https://github.com/HadrienSmet/Projet6",
     },
     {
-        id: 5,
+        id: 6,
         name: "Groupomania - Sixth project for OpenClassrooms",
-        image: "Margot-Robbie.webp",
+        imageLink: "groupomania-square.webp",
+        image: "groupomania.webp",
         description:
             "For this project we had to build a really basic social network from scratch and we had to use a framework between Angular, React and Vue. I chose React.",
         tools: [
@@ -54,8 +69,9 @@ export const projects: ProjectInterface[] = [
         codeLink: "https://github.com/HadrienSmet/Projet-Groupomania",
     },
     {
-        id: 6,
+        id: 7,
         name: "Travel App - First project on my own",
+        imageLink: "Margot-Robbie.webp",
         image: "Margot-Robbie.webp",
         description:
             "When I started developping this website I was dreaming about a tool that would help and fit to any kind of travellers. I wanted to create a place were we could meet and talk to people, share pictures from your trip and precise where you took it on a map, book hostels and plane tickets and save all those data in the same place in the user's phone, share your trip and all kinds of tips like that an algo that could have offer great trip to the futur users based on the data provided by the users and even warns you to hard to cross borders and provides you all the links to your ambassy to get you visa. Well I was young. Now that I am 2 months older I can clearly see that if I want to do that alone I mostly have to learn how to be a better developper if I want to build this huge app",

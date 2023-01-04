@@ -13,6 +13,8 @@ import SvgNextJS from "./SvgNextJS";
 import SvgThreeJS from "./SvgThreeJS";
 import SvgFigma from "./SvgFigma";
 import CarouselProjects from "./CarouselProjects";
+import { projects } from "../projectsData";
+import Project from "./Project";
 
 const SectionProjects = () => {
     return (
@@ -37,7 +39,11 @@ const SectionProjects = () => {
             </div>
             <div className="about-work__projects-side">
                 <h2>My projects</h2>
-                <CarouselProjects />
+                <div className="about-work__projects-container">
+                    {projects.map((project) => (
+                        <Project key={project.id} project={project} />
+                    ))}
+                </div>
             </div>
         </section>
     );

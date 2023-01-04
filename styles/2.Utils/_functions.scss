@@ -2,7 +2,13 @@
     $duration: 0.2s + ($i * 0.2s);
     @return $duration;
 }
-// //This function returns a delay in second/10 
+
+@function counterLiDelay($i) {
+    $delay: 0.2s + ($i * 0.2s);
+    @return $delay;
+}
+
+// //This function returns a delay in second/10
 // //@Params { type: numbers * 4 }
 // //The first one defines wich child we are targetting
 // //The second one defines the time before the animation starts

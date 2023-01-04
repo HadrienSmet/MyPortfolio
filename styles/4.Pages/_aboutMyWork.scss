@@ -58,11 +58,11 @@
             flex-direction: column;
             gap: 35px;
         }
-        &-carousel {
-            display: flex;
-            gap: 135px;
-            width: 100%;
-            overflow-x: auto;
+        &-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 35px;
         }
     }
 }

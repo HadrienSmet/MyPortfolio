@@ -1,17 +1,81 @@
 .project {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+
     gap: 15px;
-    min-width: 450px;
-    border: 2px solid $fourth-color;
-    p {
-        max-width: 20vw;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 4;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: calc(((100vw - 415px) / 3));
+    img {
+        position: absolute;
+        z-index: -1;
+        left: -10%;
+        top: -10%;
+        width: 120%;
+        height: 120%;
+    }
+    &-content {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        // gap: 25px;
+        transition: 0.3s ease-in;
+        &:hover {
+            background-color: rgba($clr-1, 0.5);
+            backdrop-filter: blur(3px);
+            h3 {
+                transform: translateY(0);
+            }
+            a {
+                transform: translateY(0);
+            }
+            ul > li {
+                animation: increaseOpacity 0.1s ease-in forwards;
+            }
+        }
+        h3 {
+            text-align: center;
+            font-size: $small-title;
+            font-weight: 900;
+            color: $third-color;
+            transition: 0.3s ease-in;
+            transform: translateY(-250px);
+        }
+        ul {
+            width: 45%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            li {
+                padding: 5px 15px;
+                background-color: $first-color;
+                border-radius: 5px;
+                color: $clr-1;
+                font-size: $small-title;
+                opacity: 0;
+                @for $i from 1 through 9 {
+                    &:nth-child(#{$i}) {
+                        animation-delay: counterLiDelay($i);
+                    }
+                }
+            }
+        }
+        a {
+            display: inline-block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            height: 45px;
+            border: 2px solid $first-color;
+            text-transform: uppercase;
+            font-weight: 900;
+            color: $first-color;
+            transform: translateY(250px);
+            transition: 0.4s ease-out;
+        }
     }
 }

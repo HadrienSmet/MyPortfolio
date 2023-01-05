@@ -4,7 +4,7 @@
 }
 
 @function counterLiDelay($i) {
-    $delay: 0.2s + ($i * 0.2s);
+    $delay: 0.3s + ($i * 0.15s);
     @return $delay;
 }
 

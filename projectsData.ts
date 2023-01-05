@@ -43,8 +43,8 @@ export const projects: ProjectInterface[] = [
     {
         id: 5,
         name: "PIIIQUANTE - Fifth project for OpenClassrooms",
-        imageLink: "Margot-Robbie.webp",
-        image: "Margot-Robbie.webp",
+        imageLink: "piiiquante-square.webp",
+        image: "piiiquante.webp",
         description:
             "The goal of this project was to teach us how to create a REST with NodeJS. The front-end was already set we just had to create the routes, the middlewares and the controllers.",
         tools: ["NodeJS", "multer"],
@@ -71,8 +71,8 @@ export const projects: ProjectInterface[] = [
     {
         id: 7,
         name: "Travel App - First project on my own",
-        imageLink: "Margot-Robbie.webp",
-        image: "Margot-Robbie.webp",
+        imageLink: "travelApp-profile.webp",
+        image: "travelApp-mobile.webp",
         description:
             "When I started developping this website I was dreaming about a tool that would help and fit to any kind of travellers. I wanted to create a place were we could meet and talk to people, share pictures from your trip and precise where you took it on a map, book hostels and plane tickets and save all those data in the same place in the user's phone, share your trip and all kinds of tips like that an algo that could have offer great trip to the futur users based on the data provided by the users and even warns you to hard to cross borders and provides you all the links to your ambassy to get you visa. Well I was young. Now that I am 2 months older I can clearly see that if I want to do that alone I mostly have to learn how to be a better developper if I want to build this huge app",
         tools: [

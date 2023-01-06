@@ -1,7 +1,7 @@
 import { ProjectInterface } from "./interfaces/models";
 export const projects: ProjectInterface[] = [
     {
-        id: 1,
+        id: "1",
         name: "Booki - First project for OpenClassrooms",
         imageLink: "booki-square.webp",
         image: "booki.webp",
@@ -11,7 +11,7 @@ export const projects: ProjectInterface[] = [
         codeLink: "https://github.com/HadrienSmet/OpenClassroom-P2",
     },
     {
-        id: 2,
+        id: "2",
         name: "OhMyFood - Second project for OpenClassrooms",
         imageLink: "ohMyFood-square.webp",
         image: "ohMyFood.webp",
@@ -21,7 +21,7 @@ export const projects: ProjectInterface[] = [
         codeLink: "https://github.com/HadrienSmet/OpenClassroom-P3",
     },
     {
-        id: 3,
+        id: "3",
         name: "LaPanthere - Third project for OpenClassrooms",
         imageLink: "lapanthere-square.webp",
         image: "lapanthere.webp",
@@ -31,7 +31,7 @@ export const projects: ProjectInterface[] = [
         codeLink: "https://github.com/HadrienSmet/lapanthere",
     },
     {
-        id: 4,
+        id: "4",
         name: "Kanap - Fourth project for OpenClassrooms",
         imageLink: "kanap-square.webp",
         image: "kanap.webp",
@@ -41,7 +41,7 @@ export const projects: ProjectInterface[] = [
         codeLink: "https://github.com/HadrienSmet/go-fullstack",
     },
     {
-        id: 5,
+        id: "5",
         name: "PIIIQUANTE - Fifth project for OpenClassrooms",
         imageLink: "piiiquante-square.webp",
         image: "piiiquante.webp",
@@ -51,7 +51,7 @@ export const projects: ProjectInterface[] = [
         codeLink: "https://github.com/HadrienSmet/Projet6",
     },
     {
-        id: 6,
+        id: "6",
         name: "Groupomania - Sixth project for OpenClassrooms",
         imageLink: "groupomania-square.webp",
         image: "groupomania.webp",
@@ -69,7 +69,7 @@ export const projects: ProjectInterface[] = [
         codeLink: "https://github.com/HadrienSmet/Projet-Groupomania",
     },
     {
-        id: 7,
+        id: "7",
         name: "Travel App - First project on my own",
         imageLink: "travelApp-profile.webp",
         image: "travelApp-mobile.webp",

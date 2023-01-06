@@ -14,7 +14,7 @@ import SvgThreeJS from "./SvgThreeJS";
 import SvgFigma from "./SvgFigma";
 import CarouselProjects from "./CarouselProjects";
 import { projects } from "../projectsData";
-import Project from "./Project";
+import ProjectCard from "./ProjectCard";
 
 const SectionProjects = () => {
     return (
@@ -41,7 +41,7 @@ const SectionProjects = () => {
                 <h2>My projects</h2>
                 <div className="about-work__projects-container">
                     {projects.map((project) => (
-                        <Project key={project.id} project={project} />
+                        <ProjectCard key={project.id} project={project} />
                     ))}
                 </div>
             </div>

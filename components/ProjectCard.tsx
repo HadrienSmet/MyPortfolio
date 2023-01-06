@@ -1,14 +1,23 @@
+import Link from "next/link";
 import Image from "next/image";
 import { MouseEvent, useEffect, useRef, useState } from "react";
 import { ProjectInterface } from "../interfaces/models";
+import { useMyCursorContext } from "./CursorContext";
 
 type Props = {
     project: ProjectInterface;
 };
 
-const Project: React.FC<Props> = ({ project }: Props) => {
+const ProjectCard = ({ project }: Props) => {
     const [isHover, setIsHover] = useState(false);
     const imgRef = useRef<HTMLImageElement>(null);
+    const [, setIsCursorHover] = useMyCursorContext();
+    const handleCursorEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleCursorLeave = () => {
+        setIsCursorHover(false);
+    };
 
     const handleMouseEnter = () => {
         setIsHover(() => true);
@@ -17,19 +26,20 @@ const Project: React.FC<Props> = ({ project }: Props) => {
         setIsHover(() => false);
     };
 
+    //I give up I can not find a solution for this "No overload matches this call" (ts 2769) so I put an any type..
     useEffect(() => {
-        const handleMouseMove = (e: MouseEvent<HTMLImageElement>) => {
+        const handleMouseMove: any = (e: MouseEvent) => {
             const rightImageElement = document.querySelector<HTMLImageElement>(
                 `#illuprojet-${project.id}`
             );
             const rect = imgRef.current?.getBoundingClientRect();
             if (rect !== undefined) {
-                console.log(imgRef.current?.id);
                 const index = imgRef.current?.id.split("-")[1];
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                const ratioX = -(x / rect.width) * 20 + 10;
-                const ratioY = -(y / rect.height) * 20 + 10;
+                const ratioX = -(x / rect.width) * 40 + 20;
+                const ratioY = -(y / rect.height) * 40 + 20;
+
                 if (rightImageElement !== null) {
                     rightImageElement.style.setProperty(
                         `--img${index}-trans-x`,
@@ -42,17 +52,12 @@ const Project: React.FC<Props> = ({ project }: Props) => {
                 }
             }
         };
+
         if (isHover) {
-            window.addEventListener(
-                "mousemove",
-                handleMouseMove as EventListener
-            );
+            window.addEventListener("mousemove", handleMouseMove);
 
             return () => {
-                window.removeEventListener(
-                    "mousemove",
-                    handleMouseMove as EventListener
-                );
+                window.removeEventListener("mousemove", handleMouseMove);
             };
         }
     }, [isHover, project.id]);
@@ -78,10 +83,16 @@ const Project: React.FC<Props> = ({ project }: Props) => {
                         <li key={tool}>{tool}</li>
                     ))}
                 </ul>
-                <a href={project.codeLink}>Voir le code</a>
+                <Link
+                    href={"/project/" + project.id}
+                    onMouseEnter={handleCursorEnter}
+                    onMouseLeave={handleCursorLeave}
+                >
+                    En savoir plus
+                </Link>
             </div>
         </div>
     );
 };
 
-export default Project;
+export default ProjectCard;

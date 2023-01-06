@@ -1,14 +1,9 @@
 .gradient {
-    border-radius: 35px;
-    border: 10px solid transparent;
-    border-top: 0px;
-    border-bottom: 0px;
-    background: 
-        linear-gradient($clr-1, $clr-1), 
+    background: linear-gradient($clr-1, $clr-1),
         linear-gradient(
-            var(--gradient-rotation, 120deg), 
-            $first-color 10%, 
-            $second-color 70%, 
+            var(--gradient-rotation, 120deg),
+            $first-color 10%,
+            $second-color 50%,
             $third-color 100%
         );
     background-clip: padding-box, border-box;

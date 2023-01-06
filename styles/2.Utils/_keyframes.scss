@@ -1,3 +1,4 @@
+@import "../2.Utils/variables";
 @keyframes translateDown {
     0% {
         transform: translateY(-100%);
@@ -67,5 +68,41 @@
     }
     100% {
         transform: translateY(0) skewY(-10deg);
+    }
+}
+@keyframes buttonHover {
+    // 0% {
+    //     transform: translate(0) scale(1);
+    // }
+    // 25% {
+    //     transform: scale(1.1, 0.8);
+    // }
+    // 50% {
+    //     transform: translateY(-4px) scale(0.9, 1.1);
+    // }
+    // 80% {
+    //     transform: scale(1.1, 0.8);
+    // }
+    // 100% {
+    //     transform: translate(0) scale(1);
+    // }
+    0%,
+    8% {
+        transform: translateY(0);
+        box-shadow: $btn-shadow;
+        -webkit-box-shadow: $btn-shadow;
+        -moz-box-shadow: $btn-shadow;
+    }
+    50% {
+        transform: translateY(-8%) scaleX(1.05);
+        box-shadow: $btn-shadowHover;
+        -webkit-box-shadow: $btn-shadowHover;
+        -moz-box-shadow: $btn-shadowHover;
+    }
+    100% {
+        transform: translateY(0);
+        box-shadow: $btn-shadow;
+        -webkit-box-shadow: $btn-shadow;
+        -moz-box-shadow: $btn-shadow;
     }
 }

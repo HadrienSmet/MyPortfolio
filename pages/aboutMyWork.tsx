@@ -1,4 +1,5 @@
 import Head from "next/head";
+import SectionFormation from "../components/SectionFormation";
 import SectionProjects from "../components/SectionProjects";
 
 const aboutMyWork = () => {
@@ -13,6 +14,7 @@ const aboutMyWork = () => {
             </Head>
             <h1 className="about-work__main-title">About my work</h1>
             <SectionProjects />
+            <SectionFormation />
         </>
     );
 };

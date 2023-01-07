@@ -1,9 +1,9 @@
 import React from "react";
-import Image from "next/image";
 import { ProjectInterface } from "../../interfaces/models";
 import { projects } from "../../projectsData";
 import MuiGradientBorder from "../../components/MuiGradientBorder";
 import { useMyCursorContext } from "../../components/CursorContext";
+import CarouselPictures from "../../components/CarouselPictures";
 
 type Props = {
     project: ProjectInterface;
@@ -19,6 +19,9 @@ const Project: React.FC<Props> = ({ project }: Props) => {
     };
     return (
         <section className="project-page">
+            <div className="project-page__carousel-area">
+                <CarouselPictures project={project} />
+            </div>
             <div className="project-page__content">
                 <h1>{project.name}</h1>
                 <p>{project.description}</p>
@@ -38,12 +41,6 @@ const Project: React.FC<Props> = ({ project }: Props) => {
                 </div>
                 {project.link && <a href={project.link}>Voir le site</a>}
             </div>
-            <Image
-                src={"/img/" + project.image}
-                alt={"Screenshoot du projet " + project.name}
-                width={700}
-                height={700}
-            />
         </section>
     );
 };

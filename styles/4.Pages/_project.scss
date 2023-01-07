@@ -1,9 +1,20 @@
 .project-page {
-    height: 100vh;
-    display: flex;
+    padding-top: 150px;
+    // height: 100vh;
     margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 50px;
+    &__carousel-area {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        min-height: 50vh;
+        width: calc(100vw - 900px);
+        overflow: hidden;
+    }
     &__content {
         display: flex;
         flex-direction: column;
@@ -64,10 +75,10 @@
             }
         }
     }
-    img {
-        position: relative;
-        top: 50%;
-        transform: translateY(-45%);
-        width: 25%;
-    }
+    // img {
+    //     position: relative;
+    //     top: 50%;
+    //     transform: translateY(-45%);
+    //     width: 25%;
+    // }
 }

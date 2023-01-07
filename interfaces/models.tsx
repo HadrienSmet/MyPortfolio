@@ -1,7 +1,8 @@
 export interface ProjectInterface {
     id: string;
     name: string;
-    image: string;
+    images: string[];
+    legends: string[];
     imageLink: string;
     description: string;
     tools: string[];

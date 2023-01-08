@@ -99,23 +99,75 @@
             li {
                 transform-origin: left;
                 font-size: $big-text;
-                transform: skew(0deg, 10deg);
                 position: relative;
+                height: 25px;
+                // &::before {
+                //     content: "";
+                //     position: absolute;
+                //     left: -25px;
+                //     top: 0;
+                //     height: 10px;
+                //     width: 10px;
+                //     border-radius: 50%;
+                //     background-color: $second-color;
+                // }
+            }
+            #json {
                 &:hover {
-                    transform: skew(0) scale(1.5);
                     &::before {
-                        background-color: $third-color;
+                        opacity: 1;
+                    }
+                    &::after {
+                        opacity: 1;
                     }
                 }
                 &::before {
-                    content: "";
+                    content: "{";
                     position: absolute;
-                    left: -25px;
                     top: 0;
-                    height: 10px;
-                    width: 10px;
-                    border-radius: 50%;
-                    background-color: $second-color;
+                    color: $third-color;
+                    font-weight: 900;
+                    transform: translateX(-15px);
+                    opacity: 0;
+                    transition: 0.2s ease-in;
+                }
+                &::after {
+                    content: "}";
+                    position: absolute;
+                    top: 0;
+                    color: $third-color;
+                    font-weight: 900;
+                    transform: translateX(15px);
+                    opacity: 0;
+                    transition: 0.2s ease-in;
+                }
+            }
+            #ajax {
+                &:hover {
+                    span {
+                        &:nth-child(1) {
+                            transform: translateX(0px);
+                            opacity: 1;
+                        }
+                        &:nth-child(2) {
+                            transform: translateX(70px);
+                            opacity: 0;
+                        }
+                    }
+                }
+                span {
+                    position: absolute;
+                    transition: 0.2s ease-in;
+                    &:nth-child(1) {
+                        transform: translateX(-70px);
+                        opacity: 0;
+                    }
+                }
+            }
+            #responsive {
+                transition: 0.2s ease-in;
+                &:hover {
+                    transform: scaleX(0.6);
                 }
             }
         }

@@ -2,39 +2,7 @@
     &__container {
         position: relative;
         display: flex;
-        width: 100%;
-        &::after {
-            z-index: 1;
-            position: absolute;
-            content: "";
-            top: 0;
-            bottom: 0;
-            right: 100px;
-            width: calc((100% - 1000px) / 2);
-            background: rgb(255, 255, 255);
-            background: linear-gradient(
-                90deg,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.5) 30%,
-                rgba(255, 255, 255, 1) 100%
-            );
-        }
-        &::before {
-            z-index: 1;
-            position: absolute;
-            content: "";
-            top: 0;
-            bottom: 0;
-            left: 100px;
-            width: calc((100% - 1000px) / 2);
-            background: rgb(255, 255, 255);
-            background: linear-gradient(
-                90deg,
-                rgba(255, 255, 255, 1) 0%,
-                rgba(255, 255, 255, 0.5) 70%,
-                rgba(255, 255, 255, 0) 100%
-            );
-        }
+        width: calc(100% + 200px);
     }
     &__btn {
         width: 100px;
@@ -42,9 +10,33 @@
         justify-content: center;
         align-items: center;
         font-size: 60px;
-        color: $first-color;
+        z-index: 10;
+        &:hover {
+            svg:first-child {
+                transform: translateY(0);
+            }
+            svg:last-child {
+                transform: translateY(75px);
+            }
+        }
+        &-container {
+            position: relative;
+            overflow: hidden;
+            height: 60px;
+            width: 60px;
+        }
+        svg {
+            position: absolute;
+            color: rgba($clr-2, 0.3);
+            transition: 0.2s ease-in-out;
+        }
+        svg.active {
+            color: $first-color;
+            transform: translateY(-75px);
+        }
     }
     &__content {
+        // border: 1px solid rgba($clr-2, 0.3);
         display: flex;
         gap: 225px;
         width: calc(100% - 200px);
@@ -62,39 +54,36 @@
             background-clip: content-box;
         }
         &::-webkit-scrollbar-thumb {
-            display: none;
+            height: 56px;
+            border-radius: 8px;
+            border: 4px solid transparent;
+            background-clip: content-box;
+            background-color: hsl(0, 0%, 67%);
+            &:hover {
+                background-color: lighten(hsl(0, 0%, 67%), 5);
+            }
         }
-        // > img {
-        // &:nth-child(1) {
-        //     margin-left: calc((100vw - 1850px) / 2);
-        // }
-        // &:last-child {
-        //     margin-right: calc((100vw - 1850px) / 2);
-        // }
-        // }
         > div {
             position: relative;
             min-width: 100%;
+            width: calc(100vw - 900px);
             height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             img {
-                // position: absolute;
-                // top: 0;
-                // left: 0;
-                // right: 0;
-                // bottom: 0;
-                width: 100%;
+                width: auto;
                 height: 100%;
+                object-fit: contain;
             }
             > div {
                 position: absolute;
+                padding: 15px 25px;
                 bottom: 0;
-                width: 100%;
-                height: 80px;
-                background-color: rgba($clr-2, 0.8);
+                width: calc(100% - 50px);
+                height: 50px;
+                background-color: rgba($clr-2, 0.6);
                 left: 0;
                 color: $clr-1;
             }

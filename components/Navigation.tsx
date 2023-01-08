@@ -56,18 +56,18 @@ const Navigation = () => {
                         About my work
                     </Link>
                 </li>
-                <li
+                {/* <li
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
                     Projects
-                </li>
-                <li
+                </li> */}
+                {/* <li
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
                     Contact
-                </li>
+                </li> */}
             </ul>
         </nav>
     );

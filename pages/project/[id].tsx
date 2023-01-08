@@ -19,11 +19,12 @@ const Project: React.FC<Props> = ({ project }: Props) => {
     };
     return (
         <section className="project-page">
+            <h1>{project.name}</h1>
             <div className="project-page__carousel-area">
                 <CarouselPictures project={project} />
+                <em>Click on the image to see it in its full size</em>
             </div>
             <div className="project-page__content">
-                <h1>{project.name}</h1>
                 <p>{project.description}</p>
                 <ul>
                     {project.tools.map((tool) => (

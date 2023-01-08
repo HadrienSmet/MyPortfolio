@@ -1,0 +1,51 @@
+.footer {
+    padding: 20px 35px;
+    width: calc(100% - 70px);
+    height: 150px;
+    background-color: $third-color;
+    color: $clr-1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    em {
+        font-family: "graphic-fonts";
+    }
+    &__links-container {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 25px;
+        font-size: 60px;
+        #footer-facebook > svg.active {
+            color: #1972eb;
+        }
+        #footer-linkedin > svg.active {
+            color: #0172b1;
+        }
+        #footer-mail > svg.active {
+            color: #df574b;
+        }
+    }
+    &__link-container {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        &:hover {
+            svg:first-child {
+                transform: translateY(0);
+            }
+            svg:last-child {
+                transform: translateY(75px);
+            }
+        }
+        svg {
+            position: absolute;
+            transition: 0.2s ease-in-out;
+        }
+        svg.active {
+            transform: translateY(-75px);
+        }
+    }
+}

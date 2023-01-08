@@ -31,18 +31,18 @@ export const projects: ProjectInterface[] = [
         name: "LaPanthere - Third project for OpenClassrooms",
         imageLink: "lapanthere-square.webp",
         images: [
-            "lapanthere.webp",
-            "lapanthere.webp",
-            "lapanthere.webp",
-            "lapanthere.webp",
-            "lapanthere.webp",
+            "previous-mobile.webp",
+            "previous-contact.webp",
+            "lapanthere-home.webp",
+            "lapanthere-contact.webp",
+            "lapanthere-report.webp",
         ],
         legends: [
             "Version that needed to be optimized, home page",
             "Version that needed to be optimized, contact page",
             "Optimized version, home page",
             "Optimized version, contact page",
-            "Lighthouse report",
+            "Lighthouse report, couldn't reach a better score using only HTML and CSS and without changig the intrinsic structure of the website",
         ],
         description:
             "The goal of this project was to teach us how to improve the SEO and the accessibility of an already existing website. So we learned how to fix bad practices and wich good practices we had to implement in order to be appreciated by the search engines. We also learned wich details were important during a website creation if you want that your services can be reach by a lot of users",
@@ -90,7 +90,11 @@ export const projects: ProjectInterface[] = [
         id: "6",
         name: "Groupomania - Sixth project for OpenClassrooms",
         imageLink: "groupomania-square.webp",
-        images: ["groupomania.webp", "groupomania.webp", "groupomania.webp"],
+        images: [
+            "groupomania.webp",
+            "groupomania-home.webp",
+            "groupomania.webp",
+        ],
         legends: [
             "Welcome page",
             "Sign up page",

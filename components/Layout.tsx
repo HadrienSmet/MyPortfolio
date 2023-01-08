@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import CursorContext from "./CursorContext";
+import Footer from "./Footer";
 import Header from "./Header";
 import Navigation from "./Navigation";
 
@@ -14,6 +15,7 @@ const Layout = ({ children }: Props) => {
                 <Header />
                 <main>{children}</main>
                 <Navigation />
+                <Footer />
             </CursorContext>
         </>
     );

@@ -1,0 +1,73 @@
+.about-me-page {
+    // padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+    h1 {
+        margin-top: 130px;
+        // margin-left: 150px;
+        font-size: 4.5em;
+        color: $fifth-color;
+    }
+    > div {
+        width: 100%;
+    }
+    h2 {
+        font-size: 2.5em;
+        color: $second-color;
+        position: relative;
+        margin-bottom: 25px;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: -15px;
+            width: 7px;
+            height: 1em;
+            background-color: $first-color;
+        }
+    }
+    &__few-words-side {
+        p {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            font-size: 1.2em;
+            line-height: 32px;
+        }
+        em {
+            width: 70%;
+        }
+    }
+    &__hobbies-side,
+    .about-me-page__soft-skills-side {
+        ul {
+            font-size: 1.8em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            li {
+                width: 70%;
+                line-height: 36px;
+            }
+        }
+    }
+    // &__soft-skills-side {
+    //     ul {
+    //         font-size: 1.8em;
+    //         display: flex;
+    //         justify-content: center;
+    //         align-items: center;
+    //         flex-direction: column;
+    //         width: 100%;
+    //         li {
+    //             width: 70%;
+    //             line-height: 36px;
+    //         }
+    //     }
+    // }
+}

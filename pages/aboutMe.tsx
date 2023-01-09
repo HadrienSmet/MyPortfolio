@@ -1,4 +1,7 @@
-const aboutMe = () => {
+import SectionHobby from "../components/SectionHobby";
+import SectionSoftSkills from "../components/SectionSoftSkills";
+
+const AboutMe = () => {
     return (
         <section className="about-me-page">
             <h1>About me</h1>
@@ -20,27 +23,10 @@ const aboutMe = () => {
                     </em>
                 </p>
             </div>
-            <div className="about-me-page__hobbies-side">
-                <h2>Hobbies</h2>
-                <ul>
-                    <li>Travelling, love to travel alone.</li>
-                    <li>Watching series.</li>
-                    <li>Watching stand-up</li>
-                    <li>Coding</li>
-                    <li>Reading old philosophers</li>
-                </ul>
-            </div>
-            <div className="about-me-page__soft-skills-side">
-                <h2>Soft skills</h2>
-                <ul>
-                    <li>Problem-solving</li>
-                    <li>Critical thinking</li>
-                    <li>Adaptability</li>
-                    <li>Creativity</li>
-                </ul>
-            </div>
+            <SectionSoftSkills />
+            <SectionHobby />
         </section>
     );
 };
 
-export default aboutMe;
+export default AboutMe;

@@ -41,33 +41,108 @@
             width: 70%;
         }
     }
-    &__hobbies-side,
-    .about-me-page__soft-skills-side {
+    &__soft-skills-side {
         ul {
-            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            gap: 45px;
+            li {
+                color: $clr-1;
+                padding: 15px 25px;
+                background-color: $first-color;
+                border-radius: 8px;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                width: 280px;
+                &:first-child {
+                    // &:hover {
+                    //     > span:first-child {
+                    //         svg {
+                    //             &:nth-child(1) {
+
+                    //             }
+                    //             &:nth-child(2) {
+
+                    //             }
+                    //             &:nth-child(3) {
+
+                    //             }
+                    //         }
+                    //     }
+                    // }
+                    > span:first-child {
+                        position: relative;
+                        height: 20px;
+                        width: 280px;
+                        svg {
+                            position: absolute;
+                            left: 50%;
+                            &:nth-child(1) {
+                                transform: translateX(-12px);
+                            }
+                            &:nth-child(2) {
+                                transform: translateY(-12px);
+                            }
+                            &:nth-child(3) {
+                                transform: translateX(12px);
+                            }
+                        }
+                    }
+                }
+                span:last-child {
+                    font-size: 1.5em;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+    &__hobbies-side {
+        .about-me-page__list-container {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             width: 100%;
-            li {
-                width: 70%;
-                line-height: 36px;
+            ul {
+                font-size: 1.8em;
+                z-index: 1;
+                &:hover {
+                    li {
+                        opacity: 0.2;
+                    }
+                }
+                li {
+                    z-index: 2;
+                    transition: 0.1s ease-in-out;
+                    line-height: 56px;
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
             }
         }
     }
-    // &__soft-skills-side {
-    //     ul {
-    //         font-size: 1.8em;
-    //         display: flex;
-    //         justify-content: center;
-    //         align-items: center;
-    //         flex-direction: column;
-    //         width: 100%;
-    //         li {
-    //             width: 70%;
-    //             line-height: 36px;
-    //         }
-    //     }
-    // }
+    &__hobbies-data {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        img {
+            opacity: 0;
+            position: absolute;
+            width: auto;
+            height: auto;
+            max-width: 10%;
+            min-height: 12%;
+            object-fit: contain;
+            pointer-events: none;
+            // transition: 0.1s ease-in;
+            // transform-origin: center;
+            &.is-active {
+                opacity: 1;
+            }
+        }
+    }
 }

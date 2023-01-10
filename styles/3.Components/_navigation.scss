@@ -59,6 +59,8 @@ nav {
                 transform: skewX(55deg);
             }
             a {
+                display: block;
+                width: 100%;
                 color: $clr-1;
                 cursor: none;
             }

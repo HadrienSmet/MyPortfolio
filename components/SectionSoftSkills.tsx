@@ -7,7 +7,6 @@ import {
 const SectionSoftSkills = () => {
     return (
         <div className="about-me-page__soft-skills-side">
-            <h2>Soft skills</h2>
             <div className="about-me-page__list-container">
                 <ul>
                     <li>

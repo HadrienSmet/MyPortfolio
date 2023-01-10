@@ -5,6 +5,7 @@ const AboutMe = () => {
     return (
         <section className="about-me-page">
             <h1>About me</h1>
+            <SectionSoftSkills />
             <div className="about-me-page__few-words-side">
                 <h2>Few words</h2>
                 <p>
@@ -23,7 +24,6 @@ const AboutMe = () => {
                     </em>
                 </p>
             </div>
-            <SectionSoftSkills />
             <SectionHobby />
         </section>
     );

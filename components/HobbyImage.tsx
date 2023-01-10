@@ -13,12 +13,11 @@ const HobbyImage = ({ url, active, x, y }: Props) => {
             className={active ? "is-active" : ""}
             src={"/img/" + url}
             alt="hobbies data"
-            width={50}
-            height={70}
+            width={700}
+            height={700}
             style={{
-                transform: `translate(${x - 10}px, ${y - 90}px) rotate(49deg)`,
+                transform: `translate(${x + 20}px, ${y - 150}px) rotate(5deg)`,
             }}
-            // index={index}
         />
     );
 };

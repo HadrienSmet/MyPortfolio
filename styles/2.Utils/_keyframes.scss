@@ -71,21 +71,6 @@
     }
 }
 @keyframes buttonHover {
-    // 0% {
-    //     transform: translate(0) scale(1);
-    // }
-    // 25% {
-    //     transform: scale(1.1, 0.8);
-    // }
-    // 50% {
-    //     transform: translateY(-4px) scale(0.9, 1.1);
-    // }
-    // 80% {
-    //     transform: scale(1.1, 0.8);
-    // }
-    // 100% {
-    //     transform: translate(0) scale(1);
-    // }
     0%,
     8% {
         transform: translate(-50%, 0);
@@ -104,5 +89,36 @@
         box-shadow: $btn-shadow;
         -webkit-box-shadow: $btn-shadow;
         -moz-box-shadow: $btn-shadow;
+    }
+}
+@keyframes spinLeft {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes spinRight {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+@keyframes wrenchAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(-15deg);
+    }
+    50%,
+    70% {
+        transform: rotate(25deg);
+    }
+    100% {
+        transform: rotate(0deg);
     }
 }

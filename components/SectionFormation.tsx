@@ -2,7 +2,7 @@ import React from "react";
 
 const SectionFormation = () => {
     return (
-        <section className="about-work about-work__formation-skills-section">
+        <section className="about-work about-work__formation-section">
             <div className="about-work__formation-side">
                 <h2>Formation</h2>
                 <p>
@@ -29,21 +29,6 @@ const SectionFormation = () => {
                         showcase my work.&quot;
                     </em>
                 </p>
-            </div>
-            <div className="about-work__hard-skills-side">
-                <h2>Hard skills</h2>
-                <ul>
-                    <li id="dom">DOM manipulation</li>
-                    <li id="json">JSON</li>
-                    <li id="ajax">
-                        <span>AJAX</span>
-                        <span>AJAX</span>
-                    </li>
-                    <li id="responsive">Responsive Design</li>
-                    <li id="optimization">Web Performance Optimization</li>
-                    <li id="seo">SEO / Accessibility</li>
-                    <li id="version">Version control</li>
-                </ul>
             </div>
         </section>
     );

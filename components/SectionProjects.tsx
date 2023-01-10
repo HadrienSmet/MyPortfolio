@@ -1,4 +1,3 @@
-import React from "react";
 import { FaGitAlt } from "react-icons/fa";
 import SvgVsCode from "./SvgVsCode";
 import SvgHTML from "./SvgHTML";
@@ -12,7 +11,6 @@ import SvgReact from "./SvgReact";
 import SvgNextJS from "./SvgNextJS";
 import SvgThreeJS from "./SvgThreeJS";
 import SvgFigma from "./SvgFigma";
-import CarouselProjects from "./CarouselProjects";
 import { projects } from "../projectsData";
 import ProjectCard from "./ProjectCard";
 

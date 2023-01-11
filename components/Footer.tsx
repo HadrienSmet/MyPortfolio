@@ -14,7 +14,8 @@ const Footer = () => {
         <footer className="footer">
             <em>Hadri</em>
             <div className="footer__links-container">
-                <div
+                <a
+                    href="https://www.linkedin.com/in/hadrien-smet-b80022207/"
                     id="footer-linkedin"
                     className="footer__link-container"
                     onMouseEnter={handleMouseEnter}
@@ -22,8 +23,9 @@ const Footer = () => {
                 >
                     <FaLinkedin className="active" />
                     <FaLinkedin />
-                </div>
-                <div
+                </a>
+                <a
+                    href="https://www.facebook.com/hadrien.smet/"
                     id="footer-facebook"
                     className="footer__link-container"
                     onMouseEnter={handleMouseEnter}
@@ -31,8 +33,9 @@ const Footer = () => {
                 >
                     <FaFacebook className="active" />
                     <FaFacebook />
-                </div>
-                <div
+                </a>
+                <a
+                    href="mailto:hadriensmet96@gmail.com"
                     id="footer-mail"
                     className="footer__link-container"
                     onMouseEnter={handleMouseEnter}
@@ -40,7 +43,7 @@ const Footer = () => {
                 >
                     <FaRegEnvelope className="active" />
                     <FaRegEnvelope />
-                </div>
+                </a>
             </div>
         </footer>
     );

@@ -4,92 +4,211 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         gap: 45px;
         width: 100%;
-        height: 30vh;
     }
     &-form {
         &__left-column {
-            height: 100%;
-            position: relative;
-            width: 40%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
+            gap: 35px;
+            width: 80%;
             > div {
+                position: relative;
                 width: 100%;
-                label {
-                    color: $fourth-color;
-                    text-transform: uppercase;
-                    font-size: $big-text;
-                    font-family: "graphic-fonts";
-                    padding: 5px 0;
-                }
-                > div {
-                    padding: 20px 0;
-                    &:hover {
-                        fieldset {
-                            border-color: $fifth-color !important;
+                height: 65px;
+                input {
+                    border: 2px solid $second-color;
+                    border-radius: 4px;
+                    height: 100%;
+                    width: 100%;
+                    padding-left: 15px;
+                    &:focus-visible {
+                        outline: none;
+                        border-color: $third-color !important;
+                        + span {
+                            transform: translateY(-32px) scale(0.6);
+                            color: $third-color;
+                            &::before {
+                                transform: scaleY(1);
+                            }
+                            &::after {
+                                transform: scaleY(1);
+                            }
+                        }
+                    }
+                    &.filled {
+                        outline: none;
+                        border-color: $third-color !important;
+                        + span {
+                            transform: translateY(-32px) scale(0.6);
+                            color: $third-color;
+                            &::before {
+                                transform: scaleY(1);
+                            }
+                            &::after {
+                                transform: scaleY(1);
+                            }
+                        }
+                    }
+                    &:-internal-autofill-selected {
+                        outline: none;
+                        border-color: $third-color !important;
+                        background-color: $clr-1 !important;
+                        + span {
+                            transform: translateY(-32px) scale(0.6);
+                            color: $third-color;
+                            &::before {
+                                transform: scaleY(1);
+                            }
+                            &::after {
+                                transform: scaleY(1);
+                            }
                         }
                     }
                 }
-                div.Mui-focused {
-                    fieldset {
-                        border-color: $first-color !important;
+                span {
+                    position: absolute;
+                    bottom: 16px;
+                    left: 10px;
+                    padding: 5px 10px;
+                    background-color: $clr-1;
+                    color: $second-color;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    font-weight: 800;
+                    transition: 0.2s ease-in-out;
+                    pointer-events: none;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 2px;
+                        height: 100%;
+                        left: -1px;
+                        top: 0;
+                        background-color: $third-color;
+                        transform: scaleY(0);
+                        transition: 0.2s ease-in-out;
+                    }
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 2px;
+                        height: 100%;
+                        right: -1px;
+                        top: 0;
+                        background-color: $third-color;
+                        transform: scaleY(0);
+                        transition: 0.2s ease-in-out;
                     }
                 }
-            }
-            fieldset {
-                border: 2px solid $fourth-color;
-            }
-            label.Mui-focused {
-                color: $first-color !important;
-            }
-            * {
-                cursor: none;
             }
         }
         &__right-column {
-            height: 100%;
-            width: 40%;
-            div {
-                padding: 25px;
-                height: 100%;
-                &:hover {
-                    fieldset {
-                        border-color: $fifth-color !important;
+            width: 80%;
+            position: relative;
+            textarea {
+                padding-top: 15px;
+                padding-left: 15px;
+                width: 100%;
+                border: 2px solid $second-color;
+                border-radius: 4px;
+                resize: none;
+                overflow: auto;
+                height: 180px;
+                &:focus-visible {
+                    outline: none;
+                    border-color: $third-color !important;
+                    + span {
+                        transform: translateY(-29px) scale(0.6);
+                        color: $third-color;
+                        &::before {
+                            transform: scaleY(1);
+                        }
+                        &::after {
+                            transform: scaleY(1);
+                        }
+                    }
+                }
+                &.filled {
+                    outline: none;
+                    border-color: $third-color !important;
+                    + span {
+                        transform: translateY(-29px) scale(0.6);
+                        color: $third-color;
+                        &::before {
+                            transform: scaleY(1);
+                        }
+                        &::after {
+                            transform: scaleY(1);
+                        }
                     }
                 }
             }
-            div.Mui-focused {
-                fieldset {
-                    border-color: $first-color !important;
+            span {
+                position: absolute;
+                top: 16px;
+                left: 10px;
+                padding: 5px 10px;
+                background-color: $clr-1;
+                color: $second-color;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-weight: 800;
+                transition: 0.2s ease-in-out;
+                pointer-events: none;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 2px;
+                    height: 100%;
+                    left: -1px;
+                    top: 0;
+                    background-color: $third-color;
+                    transform: scaleY(0);
+                    transition: 0.2s ease-in-out;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 2px;
+                    height: 100%;
+                    right: -1px;
+                    top: 0;
+                    background-color: $third-color;
+                    transform: scaleY(0);
+                    transition: 0.2s ease-in-out;
                 }
             }
-            label {
-                color: $fourth-color;
-                text-transform: uppercase;
-                font-size: $big-text;
-                font-family: "graphic-fonts";
-                padding: 5px 0;
+        }
+        &__button-container {
+            height: 60px;
+            width: 55%;
+            &:hover {
+                animation: buttonFormHover 0.8s ease-in-out infinite;
             }
-            label.Mui-focused {
-                color: $first-color !important;
-            }
-            fieldset {
-                border: 2px solid $fourth-color;
-                cursor: none;
-            }
-            textarea {
-                height: 100% !important;
-            }
-            * {
-                cursor: none;
+            .gradient {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                border-radius: 4px;
+                border: 2px solid transparent;
+                button {
+                    display: inline-block;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    font-size: $big-text;
+                    letter-spacing: 2px;
+                    color: $first-color;
+                    background-color: transparent;
+                    border: none;
+                    cursor: none;
+                }
             }
         }
     }
 }
-.css-14lo706 {
-    font-size: 28px;
-}
+// input:-internal-autofill-selected

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import pictureAboutWork from "../public/img/graphic-picture.webp";
-import pictureAboutMe from "../assets/images/photo-cv_151222.webp";
+import pictureAboutMe from "../public/img/photo-cv_151222-bgless.webp";
 
 const DoubleImageContainer = () => {
     const doubleImgRef = useRef<HTMLDivElement | null>(null);

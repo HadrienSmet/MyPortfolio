@@ -59,6 +59,10 @@ ul {
 img {
     object-fit: cover;
 }
+input,
+textarea {
+    cursor: none;
+}
 .personalised-cursor {
     background-color: rgba($color: rgb(0, 231, 255), $alpha: 0.5);
     border-radius: 50%;

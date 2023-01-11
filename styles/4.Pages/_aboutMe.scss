@@ -34,8 +34,8 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            font-size: 1.2em;
-            line-height: 32px;
+            font-size: 1.4em;
+            line-height: 36px;
         }
         em {
             width: 70%;
@@ -190,10 +190,7 @@
             height: auto;
             max-width: 30%;
             min-height: 35%;
-            // object-fit: contain;
             pointer-events: none;
-            // transition: 0.1s ease-in;
-            // transform-origin: center;
             &.is-active {
                 opacity: 1;
             }

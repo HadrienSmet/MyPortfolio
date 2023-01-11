@@ -5,13 +5,27 @@ const SectionHardSkills = () => {
         <section className="about-work about-work__hard-skills-side">
             <h2>Hard skills</h2>
             <ul>
-                <li id="dom">DOM manipulation</li>
-                <li id="json">JSON</li>
-                <li id="ajax">AJAX</li>
-                <li id="responsive">Responsive Design</li>
-                <li id="optimization">Web Performance Optimization</li>
-                <li id="seo">SEO / Accessibility</li>
-                <li id="version">Version control</li>
+                <li id="dom">
+                    <span>DOM manipulation</span>
+                </li>
+                <li id="json">
+                    <span>JSON</span>
+                </li>
+                <li id="ajax">
+                    <span>AJAX</span>
+                </li>
+                <li id="responsive">
+                    <span>Responsive Design</span>
+                </li>
+                <li id="optimization">
+                    <span>Web Performance Optimization</span>
+                </li>
+                <li id="seo">
+                    <span>SEO / Accessibility</span>
+                </li>
+                <li id="version">
+                    <span>Version control</span>
+                </li>
             </ul>
         </section>
     );

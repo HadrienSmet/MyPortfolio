@@ -1,9 +1,15 @@
-import { TextField } from "@mui/material";
-import React from "react";
+import { useForm, ValidationError } from "@formspree/react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useMyCursorContext } from "./CursorContext";
+import MuiGradientBorder from "./MuiGradientBorder";
 
 const ContactForm = () => {
+    const [mailValue, setMailValue] = useState("");
+    const [messageValue, setMessageValue] = useState("");
+    const mailRef = useRef<HTMLInputElement | null>(null);
+    const messageRef = useRef<HTMLTextAreaElement | null>(null);
     const [, setIsCursorHover] = useMyCursorContext();
+    const [state, handleSubmit] = useForm("moqzqzej");
 
     const handleMouseEnter = () => {
         setIsCursorHover(true);
@@ -11,30 +17,101 @@ const ContactForm = () => {
     const handleMouseLeave = () => {
         setIsCursorHover(false);
     };
+
+    const handleMailValue = (e: ChangeEvent<HTMLInputElement>) => {
+        setMailValue(() => e.target.value);
+    };
+
+    const handleMessageValue = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        setMessageValue(() => e.target.value);
+    };
+
+    useEffect(() => {
+        const handleMailSpanClass = () => {
+            if (mailValue !== "") {
+                mailRef.current?.classList.add("filled");
+            } else {
+                mailRef.current?.classList.remove("filled");
+            }
+        };
+        const handleMessageSpanClass = () => {
+            if (messageValue !== "") {
+                messageRef.current?.classList.add("filled");
+            } else {
+                messageRef.current?.classList.remove("filled");
+            }
+        };
+        handleMailSpanClass();
+        handleMessageSpanClass();
+    }, [mailValue, messageValue]);
+
+    if (state.succeeded) {
+        return (
+            <p>Thank you for your message. I will answer it as soon as I can</p>
+        );
+    }
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="contact-form__left-column">
-                <TextField
-                    label="Email adress"
-                    variant="outlined"
+                <div
+                    className="contact-form__input-mail"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                />
-                <TextField
-                    label="Object of email"
-                    variant="outlined"
+                >
+                    <input
+                        ref={mailRef}
+                        type="email"
+                        name="email"
+                        id="mail"
+                        onBlur={handleMailValue}
+                        required
+                    />
+                    <ValidationError
+                        prefix="Email"
+                        field="email"
+                        errors={state.errors}
+                    />
+                    <span>Email adress</span>
+                </div>
+                {/* <div
+                    className="contact-form__input-mail-object"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                />
+                >
+                    <input type="text" name="Email object" id="mail-object" required />
+                    <span>Email object</span>
+                </div> */}
             </div>
-            <TextField
+            <div
                 className="contact-form__right-column"
-                label="Message"
-                variant="outlined"
-                multiline
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-            />
+            >
+                <textarea
+                    ref={messageRef}
+                    name="message"
+                    id="message"
+                    cols={30}
+                    rows={10}
+                    required
+                    defaultValue=""
+                    onBlur={handleMessageValue}
+                ></textarea>
+                <ValidationError
+                    prefix="Message"
+                    field="message"
+                    errors={state.errors}
+                />
+                <span>Message</span>
+            </div>
+            <div className="contact-form__button-container">
+                <MuiGradientBorder>
+                    <button type="submit" disabled={state.submitting}>
+                        Envoyer
+                    </button>
+                </MuiGradientBorder>
+            </div>
         </form>
     );
 };

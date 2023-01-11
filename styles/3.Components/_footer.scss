@@ -7,6 +7,9 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    a {
+        color: $clr-1;
+    }
     em {
         font-family: "graphic-fonts";
     }

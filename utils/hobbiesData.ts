@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
     {
-        mediaUrl: "hobby-travel.jpg",
+        mediaUrl: "hobby-travel.webp",
     },
     {
         mediaUrl: "hobby-netflix.jpg",

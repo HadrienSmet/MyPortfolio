@@ -91,6 +91,27 @@
         -moz-box-shadow: $btn-shadow;
     }
 }
+@keyframes buttonFormHover {
+    0%,
+    8% {
+        transform: translate(0, 0);
+        box-shadow: $btn-shadow;
+        -webkit-box-shadow: $btn-shadow;
+        -moz-box-shadow: $btn-shadow;
+    }
+    50% {
+        transform: translate(0, -8%) scaleX(1.05);
+        box-shadow: $btn-shadowHover;
+        -webkit-box-shadow: $btn-shadowHover;
+        -moz-box-shadow: $btn-shadowHover;
+    }
+    100% {
+        transform: translate(0, 0);
+        box-shadow: $btn-shadow;
+        -webkit-box-shadow: $btn-shadow;
+        -moz-box-shadow: $btn-shadow;
+    }
+}
 @keyframes spinLeft {
     0% {
         transform: rotate(0deg);

@@ -7,18 +7,18 @@
     width: calc(100% - 600px);
     &__main-title {
         margin-top: 130px;
-        font-size: $big-title;
+        font-size: 4.5em;
         width: calc(100% - 600px);
         color: $fifth-color;
     }
     h2 {
-        font-size: $small-title;
+        font-size: 2.5em;
         color: $second-color;
         position: relative;
         &::before {
             content: "";
             position: absolute;
-            top: 0;
+            top: 5px;
             left: -11px;
             width: 5px;
             height: 1em;
@@ -79,6 +79,7 @@
             display: flex;
             justify-content: center;
             width: 100%;
+            font-size: 1.4em;
             em {
                 width: 75%;
                 line-height: 32px;
@@ -90,16 +91,76 @@
         width: calc(100vw - 600px);
         margin-bottom: 0;
         ul {
+            position: relative;
             margin-left: 250px;
             margin-top: 25px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 40px;
+            &:hover {
+                li {
+                    color: rgba($clr-2, 0.3);
+                }
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                height: 10px;
+                width: 100px;
+                right: -10px;
+                top: -25px;
+                background-color: $third-color;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                height: 10px;
+                width: 100px;
+                left: -10px;
+                bottom: -25px;
+                background-color: $first-color;
+            }
             li {
                 transform-origin: left;
-                font-size: $big-text;
+                font-size: 1.4em;
                 position: relative;
                 height: 25px;
+                padding: 0 25px;
+                width: calc(100% - 50px);
+                transition: 0.3s ease-in-out;
+                &:hover {
+                    color: $clr-1;
+                    &::before {
+                        transform: scaleX(2400%);
+                    }
+                    &::after {
+                        transform: scaleX(2400%);
+                    }
+                }
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: -20px;
+                    top: -15px;
+                    width: 10px;
+                    height: calc(100% + 40px);
+                    background-color: $first-color;
+                    transform-origin: left;
+                    transition: 0.3s;
+                    z-index: -1;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    right: -20px;
+                    top: -25px;
+                    width: 10px;
+                    height: calc(100% + 40px);
+                    background-color: $third-color;
+                    transform-origin: right;
+                    transition: 0.3s;
+                    z-index: -1;
+                }
             }
         }
     }

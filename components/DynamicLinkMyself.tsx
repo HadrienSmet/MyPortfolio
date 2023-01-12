@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { useMyCursorContext } from "./CursorContext";
 
+
 const DynamicLinkMyself = () => {
     const myLinkRef = useRef<HTMLDivElement | null>(null);
     const firstMyBubbleRef = useRef<HTMLDivElement | null>(null);

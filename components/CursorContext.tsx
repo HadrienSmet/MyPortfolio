@@ -32,21 +32,29 @@ const CursorContext = ({ children }: any) => {
     useEffect(() => {
         const handleMouseMove = (event: MouseEvent) => {
             if (isCursorHover) {
+                const posX =
+                    event.pageX + 41 < window.innerWidth
+                        ? event.pageX
+                        : window.innerWidth - 41;
                 ref.current.setAttribute(
                     "style",
                     `
                     top: ${event.pageY}px;
-                    left: ${event.pageX}px;
+                    left: ${posX}px;
                     animation: increaseScale 0.3s ease-in-out forwards;
                     `
                 );
             }
             if (!isCursorHover) {
+                const posX =
+                    event.pageX + 28.5 < window.innerWidth
+                        ? event.pageX
+                        : window.innerWidth - 28.5;
                 ref.current.setAttribute(
                     "style",
                     `
                         top: ${event.pageY}px;
-                        left: ${event.pageX}px;
+                        left: ${posX}px;
                         animation: decreaseScale 0.5s ease-in-out forwards;
                         `
                 );

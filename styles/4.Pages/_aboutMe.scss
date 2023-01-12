@@ -5,6 +5,7 @@
     justify-content: space-around;
     align-items: center;
     gap: 50px;
+    width: calc(100% - 900px);
     h1 {
         margin-top: 130px;
         // margin-left: 150px;
@@ -43,14 +44,15 @@
     }
     &__soft-skills-side {
         ul {
-            display: flex;
-            align-items: center;
-            gap: 45px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 15px;
             li {
                 color: $clr-1;
                 text-align: center;
                 position: relative;
-                padding: 10px 25px 10px;
+                // padding: 10px 25px 10px;
                 background-color: $first-color;
                 border-radius: 8px;
                 z-index: 2;
@@ -58,7 +60,7 @@
                 justify-content: center;
                 flex-direction: column;
                 height: 80px;
-                width: 280px;
+                // width: 280px;
                 &:first-child {
                     &:hover {
                         > span:first-child {
@@ -79,16 +81,16 @@
                     > span:first-child {
                         position: relative;
                         height: 30px;
-                        width: 280px;
+                        width: 100%;
                         svg {
                             position: absolute;
                             left: 50%;
                             &:nth-child(1) {
-                                left: 130px;
+                                left: calc(50% - 10px);
                                 bottom: 0px;
                             }
                             &:nth-child(3) {
-                                left: 150px;
+                                left: calc(50% + 10px);
                                 bottom: 0px;
                             }
                         }
@@ -138,8 +140,8 @@
                         width: 35px;
                         height: 2px;
                         background-color: $clr-1;
-                        bottom: 55px;
-                        left: 155px;
+                        bottom: 45px;
+                        left: calc(50% - 8px);
                         transform-origin: left;
                         transition: 0.2s ease-in-out;
                         transform: scaleX(0);

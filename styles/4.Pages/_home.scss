@@ -1,6 +1,4 @@
 .intro {
-    // position: relative;
-    // top: calc((100vh * 0.15) + 80px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,18 +25,18 @@
     &__content {
         display: flex;
         justify-content: center;
-        align-items: center;
-        gap: 10px;
-        // display: none;
+        gap: 50px;
+        position: relative;
     }
     &__details {
-        height: 55%;
+        min-height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         h1 {
+            margin-top: 25px;
             text-align: right;
-            font-size: $medium-title;
+            font-size: 2.5em;
             color: $fifth-color;
             font-weight: 200;
             span.name {
@@ -53,8 +51,8 @@
             strong {
                 opacity: 0;
                 animation: increaseOpacity 0.2s 2.1s ease-in-out forwards;
-                font-size: $big-title;
-                font-weight: 900;
+                font-size: 2.7em;
+                font-weight: 100;
             }
         }
         p {
@@ -70,18 +68,16 @@
     &__img-container {
         position: relative;
         overflow: hidden;
-        width: 350px;
-        height: 424px;
+        width: 300px;
+        height: 350px;
         transition: 0.4s;
-        &:hover {
-            transform: scale(0.8);
-            img {
-                transform: translate(-40px, 60px) scale(1.9);
-            }
-        }
+        border-radius: 15px;
         img {
             position: absolute;
-            transition: 0.7s ease-in-out;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, var(--intro-img-translate-y));
+            transition: opacity 0.7s ease-in-out;
             opacity: 0;
             animation: increaseOpacity 0.3s 2.4s ease-in-out forwards;
         }

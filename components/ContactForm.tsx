@@ -74,14 +74,6 @@ const ContactForm = () => {
                     />
                     <span>Email adress</span>
                 </div>
-                {/* <div
-                    className="contact-form__input-mail-object"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                >
-                    <input type="text" name="Email object" id="mail-object" required />
-                    <span>Email object</span>
-                </div> */}
             </div>
             <div
                 className="contact-form__right-column"

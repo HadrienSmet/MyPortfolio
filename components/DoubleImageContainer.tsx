@@ -1,94 +1,103 @@
-import { useEffect, useRef } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import pictureAboutWork from "../public/img/graphic-picture.webp";
 import pictureAboutMe from "../public/img/photo-cv_151222-bgless.webp";
 
-const DoubleImageContainer = () => {
+const handleDoubleImageTranslateX = (
+    ratio: number,
+    element: MutableRefObject<HTMLDivElement | null>
+) => {
+    if (element.current !== null) {
+        let translateInPx = 100 - 2 * ratio;
+        element.current.style.setProperty(
+            "--div-translation",
+            `${translateInPx}px`
+        );
+    }
+};
+
+const handleContainersWidth = (
+    ratio: number,
+    firstRef: MutableRefObject<HTMLDivElement | null>,
+    secondRef: MutableRefObject<HTMLDivElement | null>
+) => {
+    if (firstRef.current !== null && secondRef.current !== null) {
+        if (ratio <= 25) {
+            firstRef.current.style.setProperty("--first-div-width", `100%`);
+            secondRef.current.style.setProperty("--second-div-width", `0%`);
+        } else if (ratio >= 75) {
+            firstRef.current.style.setProperty("--first-div-width", `0%`);
+            secondRef.current.style.setProperty("--second-div-width", `100%`);
+        } else {
+            firstRef.current.style.setProperty(
+                "--first-div-width",
+                `${100 - (ratio - 25) * 2}%`
+            );
+            secondRef.current.style.setProperty(
+                "--second-div-width",
+                `${(ratio - 25) * 2}%`
+            );
+        }
+    }
+};
+
+const useImageMouseMove = () => {
     const doubleImgRef = useRef<HTMLDivElement | null>(null);
     const firstImgContainerRef = useRef<HTMLDivElement | null>(null);
     const secondImgContainerRef = useRef<HTMLDivElement | null>(null);
 
-    const handleDoubleImageTranslateX = (ratio: number) => {
-        if (doubleImgRef.current !== null) {
-            let translateInPx = 200 - 4 * ratio;
-
-            doubleImgRef.current.style.setProperty(
-                "--div-translation",
-                `${translateInPx}px`
-            );
-        }
-    };
-
-    const handleContainersWidth = (ratio: number) => {
-        if (
-            firstImgContainerRef.current !== null &&
-            secondImgContainerRef.current !== null
-        ) {
-            if (ratio <= 25) {
-                firstImgContainerRef.current.style.setProperty(
-                    "--first-div-width",
-                    `100%`
-                );
-                secondImgContainerRef.current.style.setProperty(
-                    "--second-div-width",
-                    `0%`
-                );
-            } else if (ratio >= 75) {
-                firstImgContainerRef.current.style.setProperty(
-                    "--first-div-width",
-                    `0%`
-                );
-                secondImgContainerRef.current.style.setProperty(
-                    "--second-div-width",
-                    `100%`
-                );
-            } else {
-                firstImgContainerRef.current.style.setProperty(
-                    "--first-div-width",
-                    `${100 - (ratio - 25) * 2}%`
-                );
-                secondImgContainerRef.current.style.setProperty(
-                    "--second-div-width",
-                    `${(ratio - 25) * 2}%`
-                );
-            }
-        }
-    };
-
     useEffect(() => {
         const windowWidth = window.innerWidth;
+        const handlePictureOnMouseMove = (e: MouseEvent) => {
+            const ratioX = (e.clientX / windowWidth) * 100;
+            handleContainersWidth(
+                ratioX,
+                firstImgContainerRef,
+                secondImgContainerRef
+            );
+            handleDoubleImageTranslateX(ratioX, doubleImgRef);
+        };
+        window.addEventListener("mousemove", handlePictureOnMouseMove);
+        return () => {
+            window.removeEventListener("mousemove", handlePictureOnMouseMove);
+        };
+    }, []);
+    return {
+        doubleImgRef,
+        firstImgContainerRef,
+        secondImgContainerRef,
+    };
+};
+
+const useImageOnScroll = () => {
+    useEffect(() => {
         const isBrowser = typeof window !== "undefined";
         const doubleImgEl =
             isBrowser && (document.getElementById("double-image") as Element);
+
         const options = {
             root: null,
-            threshold: 0,
-            rootMargin: "-150px",
+            threshold: 0.7,
+            rootMargin: "0px",
         };
-        // console.log(window.innerHeight);
-
         const observer = new IntersectionObserver(function (entries, observer) {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("visible");
+                    // handleDisableScroll();
                 } else {
                     entry.target.classList.remove("visible");
                 }
             });
         }, options);
-
-        const handlePictureOnMouseMove = (e: MouseEvent) => {
-            const ratioX = (e.clientX / windowWidth) * 100;
-            handleContainersWidth(ratioX);
-            handleDoubleImageTranslateX(ratioX);
-        };
-        window.addEventListener("mousemove", handlePictureOnMouseMove);
         if (doubleImgEl !== false) observer.observe(doubleImgEl);
-        return () => {
-            window.removeEventListener("mousemove", handlePictureOnMouseMove);
-        };
     }, []);
+};
 
+const DoubleImageContainer = () => {
+    const { doubleImgRef, firstImgContainerRef, secondImgContainerRef } =
+        useImageMouseMove();
+    useImageOnScroll();
     return (
         <div
             id="double-image"

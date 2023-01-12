@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MouseEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ProjectInterface } from "../interfaces/models";
 import { useMyCursorContext } from "./CursorContext";
 
@@ -8,16 +8,9 @@ type Props = {
     project: ProjectInterface;
 };
 
-const ProjectCard = ({ project }: Props) => {
+const useProjectCard = ({ project }: Props) => {
     const [isHover, setIsHover] = useState(false);
     const imgRef = useRef<HTMLImageElement>(null);
-    const [, setIsCursorHover] = useMyCursorContext();
-    const handleCursorEnter = () => {
-        setIsCursorHover(true);
-    };
-    const handleCursorLeave = () => {
-        setIsCursorHover(false);
-    };
 
     const handleMouseEnter = () => {
         setIsHover(() => true);
@@ -26,9 +19,8 @@ const ProjectCard = ({ project }: Props) => {
         setIsHover(() => false);
     };
 
-    //I give up I can not find a solution for this "No overload matches this call" (ts 2769) so I put an any type..
     useEffect(() => {
-        const handleMouseMove: any = (e: MouseEvent) => {
+        const handleMouseMove = (e: MouseEvent) => {
             const rightImageElement = document.querySelector<HTMLImageElement>(
                 `#illuprojet-${project.id}`
             );
@@ -61,6 +53,25 @@ const ProjectCard = ({ project }: Props) => {
             };
         }
     }, [isHover, project.id]);
+
+    return {
+        imgRef,
+        handleMouseEnter,
+        handleMouseLeave,
+    };
+};
+
+const ProjectCard = ({ project }: Props) => {
+    const { imgRef, handleMouseEnter, handleMouseLeave } = useProjectCard({
+        project,
+    });
+    const [, setIsCursorHover] = useMyCursorContext();
+    const handleCursorEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleCursorLeave = () => {
+        setIsCursorHover(false);
+    };
 
     return (
         <div

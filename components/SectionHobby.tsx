@@ -3,10 +3,8 @@ import HobbyImage from "../components/HobbyImage";
 import hobbiesData from "../utils/hobbiesData";
 import { useMousePosition } from "../utils/hooks";
 
-const SectionHobby = () => {
+const useSectionHobby = () => {
     const [activeIndex, setActiveIndex] = useState(-1);
-    const { x, y } = useMousePosition();
-
     const handleActiveIndex = (event: MouseEvent<HTMLLIElement>) => {
         const element = event.target as HTMLElement;
         const elementIndex = element.id.split("-")[1];
@@ -15,6 +13,18 @@ const SectionHobby = () => {
     const resetActiveIndex = () => {
         setActiveIndex(-1);
     };
+    return {
+        activeIndex,
+        handleActiveIndex,
+        resetActiveIndex,
+    };
+};
+
+const SectionHobby = () => {
+    const { activeIndex, handleActiveIndex, resetActiveIndex } =
+        useSectionHobby();
+    const { x, y } = useMousePosition();
+
     return (
         <div className="about-me-page__hobbies-side">
             <h2>Hobbies</h2>

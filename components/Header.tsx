@@ -7,28 +7,10 @@ import {
 } from "react";
 import { useMyCursorContext } from "./CursorContext";
 
-const Header = () => {
+const useHeader = () => {
     const [scrollY, setScrollY] = useState(0);
     const defaultBarRef = useRef() as MutableRefObject<HTMLDivElement>;
-    const [, setIsCursorHover] = useMyCursorContext();
 
-    const handleMouseEnter = () => {
-        setIsCursorHover(true);
-    };
-    const handleMouseLeave = () => {
-        setIsCursorHover(false);
-    };
-    const handleButtonBehavior = (e: MouseEvent<HTMLButtonElement>) => {
-        const navigation = document.querySelector("nav");
-        const target = e.target as Element;
-
-        document.body.classList.toggle("opened");
-        target.classList.toggle("opened");
-        defaultBarRef.current.classList.toggle("opened");
-        navigation?.classList.toggle("opened");
-        const isExpanded = target.getAttribute("aria-expanded") === "true";
-        target.setAttribute("aria-expanded", !isExpanded ? "true" : "false");
-    };
     useEffect(() => {
         const handleScroll = () => {
             const header: HTMLElement | null =
@@ -46,6 +28,34 @@ const Header = () => {
 
         return () => window.removeEventListener("scroll", handleScroll);
     }, [scrollY]);
+
+    return {
+        defaultBarRef,
+    };
+};
+
+const Header = () => {
+    const { defaultBarRef } = useHeader();
+    const [, setIsCursorHover] = useMyCursorContext();
+
+    const handleMouseEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleMouseLeave = () => {
+        setIsCursorHover(false);
+    };
+
+    const handleButtonBehavior = (e: MouseEvent<HTMLButtonElement>) => {
+        const navigation = document.querySelector("nav");
+        const target = e.target as Element;
+
+        document.body.classList.toggle("opened");
+        target.classList.toggle("opened");
+        defaultBarRef.current.classList.toggle("opened");
+        navigation?.classList.toggle("opened");
+        const isExpanded = target.getAttribute("aria-expanded") === "true";
+        target.setAttribute("aria-expanded", !isExpanded ? "true" : "false");
+    };
 
     return (
         <header className="header">

@@ -8,20 +8,13 @@ type Props = {
     project: ProjectInterface;
 };
 
-const CarouselPictures = ({ project }: Props) => {
+const useCarouselPictures = ({ project }: Props) => {
     const [posIndex, setPosIndex] = useState(0);
     const [isFirst, setIsFirst] = useState(true);
     const [isLast, setIsLast] = useState(false);
     const previousBtnRef = useRef<HTMLDivElement | null>(null);
     const nextBtnRef = useRef<HTMLDivElement | null>(null);
     const carouselContentRef = useRef<HTMLDivElement | null>(null);
-    const [, setIsCursorHover] = useMyCursorContext();
-    const handleCursorEnter = () => {
-        setIsCursorHover(true);
-    };
-    const handleCursorLeave = () => {
-        setIsCursorHover(false);
-    };
 
     const handleCarouselLeftTranslationX = () => {
         if (posIndex > 0) {
@@ -58,8 +51,6 @@ const CarouselPictures = ({ project }: Props) => {
         if (posIndex === 0) {
             handlePreviousState(true);
             handleNextState(false);
-            // } else if (posIndex < project.images.length - 1) {
-            //     handleNextState(false);
         } else if (posIndex === project.images.length - 1) {
             console.log("you did it");
             handlePreviousState(false);
@@ -77,6 +68,30 @@ const CarouselPictures = ({ project }: Props) => {
             if (!isFirst) previousBtnRef.current.style.opacity = "1";
         }
     }, [posIndex, isLast, isFirst, project.images.length]);
+    return {
+        previousBtnRef,
+        nextBtnRef,
+        carouselContentRef,
+        handleCarouselLeftTranslationX,
+        handleCarouselRightTranslationX,
+    };
+};
+
+const CarouselPictures = ({ project }: Props) => {
+    const {
+        previousBtnRef,
+        nextBtnRef,
+        carouselContentRef,
+        handleCarouselLeftTranslationX,
+        handleCarouselRightTranslationX,
+    } = useCarouselPictures({ project });
+    const [, setIsCursorHover] = useMyCursorContext();
+    const handleCursorEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleCursorLeave = () => {
+        setIsCursorHover(false);
+    };
 
     return (
         <div className="pictures-carousel__container">

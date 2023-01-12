@@ -1,27 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import { useMyCursorContext } from "./CursorContext";
+import { useMousePosition } from "../utils/hooks";
 
-const DynamicLinkWork = () => {
+const useDynamicWorkOnMouseMove = () => {
     const workLinkRef = useRef<HTMLDivElement | null>(null);
-    const firstWorkBubbleRef = useRef<HTMLDivElement | null>(null);
-    const scdWorkBubbleRef = useRef<HTMLDivElement | null>(null);
-    const thrdWorkBubbleRef = useRef<HTMLDivElement | null>(null);
-    const fourthWorkBubbleRef = useRef<HTMLDivElement | null>(null);
-    const fifthWorkBubbleRef = useRef<HTMLDivElement | null>(null);
-    const sixthWorkBubbleRef = useRef<HTMLDivElement | null>(null);
-    const projectsRef = useRef<HTMLDivElement | null>(null);
-    const toolsRef = useRef<HTMLDivElement | null>(null);
-    const hardSkillsRef = useRef<HTMLDivElement | null>(null);
-    const formationRef = useRef<HTMLDivElement | null>(null);
-    const [, setIsCursorHover] = useMyCursorContext();
-
-    const handleMouseEnter = () => {
-        setIsCursorHover(true);
-    };
-    const handleMouseLeave = () => {
-        setIsCursorHover(false);
-    };
+    const isBrowser = typeof window !== "undefined";
+    const windowWidth = isBrowser ? window.innerWidth : 0;
+    const { x } = useMousePosition();
+    const ratioX = (x / windowWidth) * 100;
 
     const handleWorkLinkOpacity = (ratio: number) => {
         if (workLinkRef.current !== null) {
@@ -58,6 +45,28 @@ const DynamicLinkWork = () => {
             }
         }
     };
+
+    useEffect(() => {
+        handleWorkLinkOpacity(ratioX);
+        handleWorkLinkTranslateX(ratioX);
+    }, [ratioX]);
+
+    return {
+        workLinkRef,
+    };
+};
+
+const useBubbleOnMouseMove = () => {
+    const firstWorkBubbleRef = useRef<HTMLDivElement | null>(null);
+    const scdWorkBubbleRef = useRef<HTMLDivElement | null>(null);
+    const thrdWorkBubbleRef = useRef<HTMLDivElement | null>(null);
+    const fourthWorkBubbleRef = useRef<HTMLDivElement | null>(null);
+    const fifthWorkBubbleRef = useRef<HTMLDivElement | null>(null);
+    const sixthWorkBubbleRef = useRef<HTMLDivElement | null>(null);
+    const isBrowser = typeof window !== "undefined";
+    const windowWidth = isBrowser ? window.innerWidth : 0;
+    const { x } = useMousePosition();
+    const ratioX = (x / windowWidth) * 100;
 
     const handleWorkBubblesScale = (ratio: number) => {
         if (
@@ -105,6 +114,30 @@ const DynamicLinkWork = () => {
         }
     };
 
+    useEffect(() => {
+        handleWorkBubblesScale(ratioX);
+    }, [ratioX]);
+
+    return {
+        firstWorkBubbleRef,
+        scdWorkBubbleRef,
+        thrdWorkBubbleRef,
+        fourthWorkBubbleRef,
+        fifthWorkBubbleRef,
+        sixthWorkBubbleRef,
+    };
+};
+
+const useDetailsOnMouseMove = () => {
+    const projectsRef = useRef<HTMLDivElement | null>(null);
+    const toolsRef = useRef<HTMLDivElement | null>(null);
+    const hardSkillsRef = useRef<HTMLDivElement | null>(null);
+    const formationRef = useRef<HTMLDivElement | null>(null);
+    const isBrowser = typeof window !== "undefined";
+    const windowWidth = isBrowser ? window.innerWidth : 0;
+    const { x } = useMousePosition();
+    const ratioX = (x / windowWidth) * 100;
+
     const handleWorkDetailsTranslateY = (ratio: number) => {
         if (
             projectsRef.current !== null &&
@@ -136,20 +169,37 @@ const DynamicLinkWork = () => {
     };
 
     useEffect(() => {
-        const handleWorkLinkOnMouseMove = (e: MouseEvent) => {
-            const windowWidth = window.innerWidth;
-            const ratioX = (e.clientX / windowWidth) * 100;
-            handleWorkLinkOpacity(ratioX);
-            handleWorkLinkTranslateX(ratioX);
-            handleWorkBubblesScale(ratioX);
-            handleWorkDetailsTranslateY(ratioX);
-        };
+        handleWorkDetailsTranslateY(ratioX);
+    }, [ratioX]);
 
-        window.addEventListener("mousemove", handleWorkLinkOnMouseMove);
-        return () => {
-            window.removeEventListener("mousemove", handleWorkLinkOnMouseMove);
-        };
-    }, []);
+    return {
+        projectsRef,
+        toolsRef,
+        hardSkillsRef,
+        formationRef,
+    };
+};
+
+const DynamicLinkWork = () => {
+    const [, setIsCursorHover] = useMyCursorContext();
+    const { workLinkRef } = useDynamicWorkOnMouseMove();
+    const {
+        firstWorkBubbleRef,
+        scdWorkBubbleRef,
+        thrdWorkBubbleRef,
+        fourthWorkBubbleRef,
+        fifthWorkBubbleRef,
+        sixthWorkBubbleRef,
+    } = useBubbleOnMouseMove();
+    const { projectsRef, toolsRef, hardSkillsRef, formationRef } =
+        useDetailsOnMouseMove();
+
+    const handleMouseEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleMouseLeave = () => {
+        setIsCursorHover(false);
+    };
 
     return (
         <div

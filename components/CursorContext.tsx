@@ -25,7 +25,7 @@ export const useMyCursorContext = () => {
     }
 };
 
-const CursorContext = ({ children }: any) => {
+const useCursorContext = () => {
     const [isCursorHover, setIsCursorHover] = useState<boolean>(false);
     const ref = useRef() as MutableRefObject<HTMLDivElement>;
 
@@ -68,6 +68,15 @@ const CursorContext = ({ children }: any) => {
         };
     }, [isCursorHover]);
 
+    return {
+        ref,
+        isCursorHover,
+        setIsCursorHover,
+    };
+};
+
+const CursorContext = ({ children }: any) => {
+    const { ref, isCursorHover, setIsCursorHover } = useCursorContext();
     return (
         <MyCursorContext.Provider value={[isCursorHover, setIsCursorHover]}>
             <div ref={ref} className="personalised-cursor"></div>

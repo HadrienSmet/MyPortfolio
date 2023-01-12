@@ -3,20 +3,11 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useMyCursorContext } from "./CursorContext";
 import MuiGradientBorder from "./MuiGradientBorder";
 
-const ContactForm = () => {
+const useContactForm = () => {
     const [mailValue, setMailValue] = useState("");
     const [messageValue, setMessageValue] = useState("");
     const mailRef = useRef<HTMLInputElement | null>(null);
     const messageRef = useRef<HTMLTextAreaElement | null>(null);
-    const [, setIsCursorHover] = useMyCursorContext();
-    const [state, handleSubmit] = useForm("moqzqzej");
-
-    const handleMouseEnter = () => {
-        setIsCursorHover(true);
-    };
-    const handleMouseLeave = () => {
-        setIsCursorHover(false);
-    };
 
     const handleMailValue = (e: ChangeEvent<HTMLInputElement>) => {
         setMailValue(() => e.target.value);
@@ -44,6 +35,27 @@ const ContactForm = () => {
         handleMailSpanClass();
         handleMessageSpanClass();
     }, [mailValue, messageValue]);
+
+    return {
+        mailRef,
+        messageRef,
+        handleMailValue,
+        handleMessageValue,
+    };
+};
+
+const ContactForm = () => {
+    const { mailRef, messageRef, handleMailValue, handleMessageValue } =
+        useContactForm();
+    const [, setIsCursorHover] = useMyCursorContext();
+    const [state, handleSubmit] = useForm("moqzqzej");
+
+    const handleMouseEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleMouseLeave = () => {
+        setIsCursorHover(false);
+    };
 
     if (state.succeeded) {
         return (

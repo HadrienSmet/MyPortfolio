@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useMousePosition } from "../utils/hooks";
 
 type Props = {
     url: string;

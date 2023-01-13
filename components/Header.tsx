@@ -10,6 +10,14 @@ import { useMyCursorContext } from "./CursorContext";
 const useHeader = () => {
     const [scrollY, setScrollY] = useState(0);
     const defaultBarRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const [, setIsCursorHover] = useMyCursorContext();
+
+    const handleMouseEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleMouseLeave = () => {
+        setIsCursorHover(false);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -31,19 +39,13 @@ const useHeader = () => {
 
     return {
         defaultBarRef,
+        handleMouseEnter,
+        handleMouseLeave,
     };
 };
 
 const Header = () => {
-    const { defaultBarRef } = useHeader();
-    const [, setIsCursorHover] = useMyCursorContext();
-
-    const handleMouseEnter = () => {
-        setIsCursorHover(true);
-    };
-    const handleMouseLeave = () => {
-        setIsCursorHover(false);
-    };
+    const { defaultBarRef, handleMouseEnter, handleMouseLeave } = useHeader();
 
     const handleButtonBehavior = (e: MouseEvent<HTMLButtonElement>) => {
         const navigation = document.querySelector("nav");

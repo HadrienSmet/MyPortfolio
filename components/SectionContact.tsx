@@ -3,8 +3,13 @@ import Image from "next/image";
 import handsomeYoungDevelopper from "../assets/images/photo-cv_151222.webp";
 import ContactForm from "./ContactForm";
 import { useMyCursorContext } from "./CursorContext";
+import { useEffect, useRef } from "react";
+import { useScrollPosition } from "../utils/hooks";
 
-const SectionContact = () => {
+const useContactOnScroll = () => {
+    const containerContactImgRef = useRef<HTMLDivElement | null>(null);
+    const contactImgRef = useRef<HTMLImageElement | null>(null);
+    const scrollY = useScrollPosition();
     const [, setIsCursorHover] = useMyCursorContext();
 
     const handleMouseEnter = () => {
@@ -13,6 +18,68 @@ const SectionContact = () => {
     const handleMouseLeave = () => {
         setIsCursorHover(false);
     };
+
+    useEffect(() => {
+        const isBrowser = typeof window !== "undefined";
+        const containerContactImgRect =
+            containerContactImgRef.current?.getBoundingClientRect();
+        const containerContactImgEl = isBrowser && containerContactImgRef;
+
+        const options = {
+            root: null,
+            threshold: 1,
+            rootMargin: "0px",
+        };
+        const observer = new IntersectionObserver(function (entries, observer) {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    if (containerContactImgRect !== undefined)
+                        if (containerContactImgRect.bottom > 180) {
+                            const elBottomFromWindow =
+                                window.innerHeight -
+                                containerContactImgRect.top;
+                            console.log(elBottomFromWindow);
+                            const bottomConvertedForPx =
+                                elBottomFromWindow - 730;
+                            const valueCheckMin =
+                                bottomConvertedForPx < -480
+                                    ? -480
+                                    : bottomConvertedForPx;
+                            const returnValue =
+                                valueCheckMin < 0 ? valueCheckMin : 0;
+                            console.log(returnValue);
+                            if (contactImgRef.current) {
+                                contactImgRef.current.style.setProperty(
+                                    "--contact-img-translate-y",
+                                    `${returnValue / 2}px`
+                                );
+                            }
+                        }
+                }
+            });
+        }, options);
+        if (containerContactImgEl !== false) {
+            if (containerContactImgEl.current !== null)
+                observer.observe(containerContactImgEl.current);
+        }
+    }, [scrollY]);
+
+    return {
+        contactImgRef,
+        containerContactImgRef,
+        handleMouseEnter,
+        handleMouseLeave,
+    };
+};
+
+const SectionContact = () => {
+    const {
+        contactImgRef,
+        containerContactImgRef,
+        handleMouseEnter,
+        handleMouseLeave,
+    } = useContactOnScroll();
+
     return (
         <section className="contact">
             <h2>Wants to work together?</h2>
@@ -50,8 +117,12 @@ const SectionContact = () => {
                         </a>
                     </div>
                 </div>
-                <div className="contact__image-container">
+                <div
+                    className="contact__image-container"
+                    ref={containerContactImgRef}
+                >
                     <Image
+                        ref={contactImgRef}
                         src={handsomeYoungDevelopper}
                         alt="Probablement l'un des meilleurs et l'un des plus beaux développeurs. Mais loin d'être prétentieux."
                         width={350}

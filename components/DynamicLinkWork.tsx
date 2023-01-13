@@ -5,10 +5,19 @@ import { useMousePosition } from "../utils/hooks";
 
 const useDynamicWorkOnMouseMove = () => {
     const workLinkRef = useRef<HTMLDivElement | null>(null);
+    const { x } = useMousePosition();
+    const [, setIsCursorHover] = useMyCursorContext();
+
     const isBrowser = typeof window !== "undefined";
     const windowWidth = isBrowser ? window.innerWidth : 0;
-    const { x } = useMousePosition();
     const ratioX = (x / windowWidth) * 100;
+
+    const handleMouseEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleMouseLeave = () => {
+        setIsCursorHover(false);
+    };
 
     const handleWorkLinkOpacity = (ratio: number) => {
         if (workLinkRef.current !== null) {
@@ -53,6 +62,8 @@ const useDynamicWorkOnMouseMove = () => {
 
     return {
         workLinkRef,
+        handleMouseEnter,
+        handleMouseLeave,
     };
 };
 
@@ -181,8 +192,8 @@ const useDetailsOnMouseMove = () => {
 };
 
 const DynamicLinkWork = () => {
-    const [, setIsCursorHover] = useMyCursorContext();
-    const { workLinkRef } = useDynamicWorkOnMouseMove();
+    const { workLinkRef, handleMouseEnter, handleMouseLeave } =
+        useDynamicWorkOnMouseMove();
     const {
         firstWorkBubbleRef,
         scdWorkBubbleRef,
@@ -193,13 +204,6 @@ const DynamicLinkWork = () => {
     } = useBubbleOnMouseMove();
     const { projectsRef, toolsRef, hardSkillsRef, formationRef } =
         useDetailsOnMouseMove();
-
-    const handleMouseEnter = () => {
-        setIsCursorHover(true);
-    };
-    const handleMouseLeave = () => {
-        setIsCursorHover(false);
-    };
 
     return (
         <div

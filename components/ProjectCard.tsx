@@ -11,6 +11,14 @@ type Props = {
 const useProjectCard = ({ project }: Props) => {
     const [isHover, setIsHover] = useState(false);
     const imgRef = useRef<HTMLImageElement>(null);
+    const [, setIsCursorHover] = useMyCursorContext();
+
+    const handleCursorEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleCursorLeave = () => {
+        setIsCursorHover(false);
+    };
 
     const handleMouseEnter = () => {
         setIsHover(() => true);
@@ -58,20 +66,21 @@ const useProjectCard = ({ project }: Props) => {
         imgRef,
         handleMouseEnter,
         handleMouseLeave,
+        handleCursorEnter,
+        handleCursorLeave,
     };
 };
 
 const ProjectCard = ({ project }: Props) => {
-    const { imgRef, handleMouseEnter, handleMouseLeave } = useProjectCard({
+    const {
+        imgRef,
+        handleMouseEnter,
+        handleMouseLeave,
+        handleCursorEnter,
+        handleCursorLeave,
+    } = useProjectCard({
         project,
     });
-    const [, setIsCursorHover] = useMyCursorContext();
-    const handleCursorEnter = () => {
-        setIsCursorHover(true);
-    };
-    const handleCursorLeave = () => {
-        setIsCursorHover(false);
-    };
 
     return (
         <div

@@ -4,11 +4,20 @@ import { useMyCursorContext } from "./CursorContext";
 import { useMousePosition } from "../utils/hooks";
 
 const useLinkOnMouseMove = () => {
-    const isBrowser = typeof window !== "undefined";
     const myLinkRef = useRef<HTMLDivElement | null>(null);
-    const windowWidth = isBrowser ? window.innerWidth : 0;
     const { x } = useMousePosition();
+    const [, setIsCursorHover] = useMyCursorContext();
+
+    const isBrowser = typeof window !== "undefined";
+    const windowWidth = isBrowser ? window.innerWidth : 0;
     const ratioX = (x / windowWidth) * 100;
+
+    const handleMouseEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleMouseLeave = () => {
+        setIsCursorHover(false);
+    };
     const handleMyLinkOpacity = (ratio: number) => {
         if (myLinkRef.current !== null) {
             if (ratio < 50) {
@@ -41,6 +50,8 @@ const useLinkOnMouseMove = () => {
     }, [ratioX]);
     return {
         myLinkRef,
+        handleMouseEnter,
+        handleMouseLeave,
     };
 };
 
@@ -159,7 +170,8 @@ const useDetailsOnMouseMove = () => {
 };
 
 const DynamicLinkMyself = () => {
-    const { myLinkRef } = useLinkOnMouseMove();
+    const { myLinkRef, handleMouseEnter, handleMouseLeave } =
+        useLinkOnMouseMove();
     const {
         firstMyBubbleRef,
         scdMyBubbleRef,
@@ -169,14 +181,6 @@ const DynamicLinkMyself = () => {
         sixthMyBubbleRef,
     } = useBubbleOnMouseMove();
     const { hobbiesRef, softSkillsRef, picturesRef } = useDetailsOnMouseMove();
-    const [, setIsCursorHover] = useMyCursorContext();
-
-    const handleMouseEnter = () => {
-        setIsCursorHover(true);
-    };
-    const handleMouseLeave = () => {
-        setIsCursorHover(false);
-    };
 
     return (
         <div ref={myLinkRef} id="me" className="about__dynamic-links__to-me">

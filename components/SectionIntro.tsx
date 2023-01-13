@@ -2,33 +2,12 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import handsomeYoungDevelopper from "../assets/images/photo-cv_151222.webp";
 import MuiGradientBorder from "../components/MuiGradientBorder";
+import { useScrollPosition } from "../utils/hooks";
 import { useMyCursorContext } from "./CursorContext";
 
 const useIntroOnScroll = () => {
     const introImgRef = useRef<HTMLImageElement | null>(null);
-    useEffect(() => {
-        const handleImageTranslateY = () => {
-            const scrollY = window.scrollY;
-            console.log(scrollY);
-            if (introImgRef.current)
-                introImgRef.current.style.setProperty(
-                    "--intro-img-translate-y",
-                    `calc(-50% + ${scrollY / 2}px)`
-                );
-        };
-
-        window.addEventListener("scroll", handleImageTranslateY);
-        return () => {
-            window.removeEventListener("scroll", handleImageTranslateY);
-        };
-    }, [introImgRef]);
-    return {
-        introImgRef,
-    };
-};
-
-const SectionIntro = () => {
-    const { introImgRef } = useIntroOnScroll();
+    const scrollY = useScrollPosition();
     const [, setIsCursorHover] = useMyCursorContext();
     const handleMouseEnter = () => {
         setIsCursorHover(true);
@@ -36,6 +15,26 @@ const SectionIntro = () => {
     const handleMouseLeave = () => {
         setIsCursorHover(false);
     };
+    useEffect(() => {
+        const handleImageTranslateY = () => {
+            if (introImgRef.current)
+                introImgRef.current.style.setProperty(
+                    "--intro-img-translate-y",
+                    `calc(-50% + ${scrollY / 2}px)`
+                );
+        };
+        handleImageTranslateY();
+    }, [introImgRef, scrollY]);
+    return {
+        introImgRef,
+        handleMouseEnter,
+        handleMouseLeave,
+    };
+};
+
+const SectionIntro = () => {
+    const { introImgRef, handleMouseEnter, handleMouseLeave } =
+        useIntroOnScroll();
 
     return (
         <section className="intro" id="intro">

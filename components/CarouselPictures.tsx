@@ -15,6 +15,13 @@ const useCarouselPictures = ({ project }: Props) => {
     const previousBtnRef = useRef<HTMLDivElement | null>(null);
     const nextBtnRef = useRef<HTMLDivElement | null>(null);
     const carouselContentRef = useRef<HTMLDivElement | null>(null);
+    const [, setIsCursorHover] = useMyCursorContext();
+    const handleCursorEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleCursorLeave = () => {
+        setIsCursorHover(false);
+    };
 
     const handleCarouselLeftTranslationX = () => {
         if (posIndex > 0) {
@@ -45,14 +52,10 @@ const useCarouselPictures = ({ project }: Props) => {
         };
         carouselContentRef.current?.scrollTo(options);
 
-        console.log(posIndex);
-        console.log(project.images.length - 1);
-
         if (posIndex === 0) {
             handlePreviousState(true);
             handleNextState(false);
         } else if (posIndex === project.images.length - 1) {
-            console.log("you did it");
             handlePreviousState(false);
             handleNextState(true);
         } else {
@@ -74,6 +77,8 @@ const useCarouselPictures = ({ project }: Props) => {
         carouselContentRef,
         handleCarouselLeftTranslationX,
         handleCarouselRightTranslationX,
+        handleCursorEnter,
+        handleCursorLeave,
     };
 };
 
@@ -84,14 +89,9 @@ const CarouselPictures = ({ project }: Props) => {
         carouselContentRef,
         handleCarouselLeftTranslationX,
         handleCarouselRightTranslationX,
+        handleCursorEnter,
+        handleCursorLeave,
     } = useCarouselPictures({ project });
-    const [, setIsCursorHover] = useMyCursorContext();
-    const handleCursorEnter = () => {
-        setIsCursorHover(true);
-    };
-    const handleCursorLeave = () => {
-        setIsCursorHover(false);
-    };
 
     return (
         <div className="pictures-carousel__container">

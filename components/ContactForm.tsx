@@ -8,6 +8,14 @@ const useContactForm = () => {
     const [messageValue, setMessageValue] = useState("");
     const mailRef = useRef<HTMLInputElement | null>(null);
     const messageRef = useRef<HTMLTextAreaElement | null>(null);
+    const [, setIsCursorHover] = useMyCursorContext();
+
+    const handleMouseEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleMouseLeave = () => {
+        setIsCursorHover(false);
+    };
 
     const handleMailValue = (e: ChangeEvent<HTMLInputElement>) => {
         setMailValue(() => e.target.value);
@@ -41,21 +49,21 @@ const useContactForm = () => {
         messageRef,
         handleMailValue,
         handleMessageValue,
+        handleMouseEnter,
+        handleMouseLeave,
     };
 };
 
 const ContactForm = () => {
-    const { mailRef, messageRef, handleMailValue, handleMessageValue } =
-        useContactForm();
-    const [, setIsCursorHover] = useMyCursorContext();
+    const {
+        mailRef,
+        messageRef,
+        handleMailValue,
+        handleMessageValue,
+        handleMouseEnter,
+        handleMouseLeave,
+    } = useContactForm();
     const [state, handleSubmit] = useForm("moqzqzej");
-
-    const handleMouseEnter = () => {
-        setIsCursorHover(true);
-    };
-    const handleMouseLeave = () => {
-        setIsCursorHover(false);
-    };
 
     if (state.succeeded) {
         return (
@@ -112,7 +120,7 @@ const ContactForm = () => {
             <div className="contact-form__button-container">
                 <MuiGradientBorder>
                     <button type="submit" disabled={state.submitting}>
-                        Envoyer
+                        Send mail
                     </button>
                 </MuiGradientBorder>
             </div>

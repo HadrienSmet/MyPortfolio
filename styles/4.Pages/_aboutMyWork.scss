@@ -94,10 +94,12 @@
         ul {
             position: relative;
             margin-left: 250px;
+            width: 50vw;
             margin-top: 25px;
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            align-items: center;
+            gap: 20px;
             &:hover {
                 li {
                     color: rgba($clr-2, 0.3);
@@ -109,7 +111,7 @@
                 height: 10px;
                 width: 100px;
                 right: -10px;
-                top: -25px;
+                top: -40px;
                 background-color: $third-color;
             }
             &::after {
@@ -118,31 +120,32 @@
                 height: 10px;
                 width: 100px;
                 left: -10px;
-                bottom: -25px;
+                bottom: -10px;
                 background-color: $first-color;
             }
             li {
+                text-align: center;
                 transform-origin: left;
                 font-size: 1.4em;
                 position: relative;
-                height: 25px;
                 padding: 0 25px;
                 width: calc(100% - 50px);
                 transition: 0.3s ease-in-out;
+                height: 50px;
                 &:hover {
                     color: $clr-1;
                     &::before {
-                        transform: scaleX(2400%);
+                        transform: scaleX(7000%);
                     }
                     &::after {
-                        transform: scaleX(2400%);
+                        transform: scaleX(7000%);
                     }
                 }
                 &::before {
                     content: "";
                     position: absolute;
                     left: -20px;
-                    top: -15px;
+                    top: -30px;
                     width: 10px;
                     height: calc(100% + 40px);
                     background-color: $first-color;
@@ -154,7 +157,7 @@
                     content: "";
                     position: absolute;
                     right: -20px;
-                    top: -25px;
+                    top: -40px;
                     width: 10px;
                     height: calc(100% + 40px);
                     background-color: $third-color;

@@ -2,9 +2,18 @@ import { MouseEvent, useState } from "react";
 import HobbyImage from "../components/HobbyImage";
 import hobbiesData from "../utils/hobbiesData";
 import { useMousePosition } from "../utils/hooks";
+import { useMyCursorContext } from "./CursorContext";
 
 const useSectionHobby = () => {
     const [activeIndex, setActiveIndex] = useState(-1);
+    const [, setIsCursorHover] = useMyCursorContext();
+
+    const handleMouseEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleMouseLeave = () => {
+        setIsCursorHover(false);
+    };
     const handleActiveIndex = (event: MouseEvent<HTMLLIElement>) => {
         const element = event.target as HTMLElement;
         const elementIndex = element.id.split("-")[1];
@@ -17,19 +26,29 @@ const useSectionHobby = () => {
         activeIndex,
         handleActiveIndex,
         resetActiveIndex,
+        handleMouseEnter,
+        handleMouseLeave,
     };
 };
 
 const SectionHobby = () => {
-    const { activeIndex, handleActiveIndex, resetActiveIndex } =
-        useSectionHobby();
+    const {
+        activeIndex,
+        handleActiveIndex,
+        resetActiveIndex,
+        handleMouseEnter,
+        handleMouseLeave,
+    } = useSectionHobby();
     const { x, y } = useMousePosition();
 
     return (
         <div className="about-me-page__hobbies-side">
             <h2>Hobbies</h2>
             <div className="about-me-page__list-container">
-                <ul>
+                <ul
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                >
                     <li
                         onMouseEnter={handleActiveIndex}
                         onMouseLeave={resetActiveIndex}

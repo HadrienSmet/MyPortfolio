@@ -31,3 +31,7 @@ export const useScrollPosition = () => {
 
     return scrollY;
 };
+
+export const handleScrollToTop = () => {
+    window.scrollTo(0, 0);
+};

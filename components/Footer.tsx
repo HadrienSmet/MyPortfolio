@@ -1,5 +1,11 @@
 import React from "react";
-import { FaFacebook, FaLinkedin, FaRegEnvelope } from "react-icons/fa";
+import {
+    FaAngleUp,
+    FaFacebook,
+    FaLinkedin,
+    FaRegEnvelope,
+} from "react-icons/fa";
+import { handleScrollToTop } from "../utils/hooks";
 import { useMyCursorContext } from "./CursorContext";
 
 const Footer = () => {
@@ -12,6 +18,7 @@ const Footer = () => {
     };
     return (
         <footer className="footer">
+            <FaAngleUp onClick={handleScrollToTop} />
             <em>Hadri</em>
             <div className="footer__links-container">
                 <a

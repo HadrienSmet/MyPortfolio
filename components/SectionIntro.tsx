@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import handsomeYoungDevelopper from "../assets/images/photo-cv_151222.webp";
 import MuiGradientBorder from "../components/MuiGradientBorder";
 import { useScrollPosition } from "../utils/hooks";
+import BackgroundIntro from "./BackgroundIntro";
 import { useMyCursorContext } from "./CursorContext";
 
 const useIntroOnScroll = () => {
@@ -38,6 +39,7 @@ const SectionIntro = () => {
 
     return (
         <section className="intro" id="intro">
+            <BackgroundIntro />
             <MuiGradientBorder>
                 <div className="intro__content">
                     <div className="intro__details">

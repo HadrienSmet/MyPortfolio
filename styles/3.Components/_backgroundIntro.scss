@@ -1,0 +1,109 @@
+.lines {
+    display: table;
+    height: 100%;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 90vw;
+}
+.line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    overflow: hidden;
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 10vh;
+        width: 100%;
+        top: -50%;
+        left: 0;
+        background: linear-gradient(
+            to bottom,
+            $clr-1 0%,
+            $first-color 75%,
+            $first-color 100%
+        );
+        animation: drop 5s 0s infinite;
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+    }
+    &:nth-child(1) {
+        margin-left: -42%;
+        &::after {
+            animation-delay: 2s;
+        }
+    }
+    &:nth-child(2) {
+        margin-left: -35%;
+        &::after {
+            animation-delay: 2.5s;
+        }
+    }
+    &:nth-child(3) {
+        margin-left: -28%;
+        &::after {
+            animation-delay: 1.5s;
+        }
+    }
+    &:nth-child(4) {
+        margin-left: -21%;
+        &::after {
+            animation-delay: 3s;
+        }
+    }
+    &:nth-child(5) {
+        margin-left: -14%;
+        &::after {
+            animation-delay: 0.8s;
+        }
+    }
+    &:nth-child(6) {
+        margin-left: -7%;
+        &::after {
+            animation-delay: 1.8s;
+        }
+    }
+    &:nth-child(8) {
+        margin-left: 7%;
+        &::after {
+            animation-delay: 2.8s;
+        }
+    }
+    &:nth-child(9) {
+        margin-left: 14%;
+        &::after {
+            animation-delay: 2.6s;
+        }
+    }
+    &:nth-child(10) {
+        margin-left: 21%;
+        &::after {
+            animation-delay: 1.2s;
+        }
+    }
+    &:nth-last-child(11) {
+        margin-left: 28%;
+        &::after {
+            animation-delay: 2.2s;
+        }
+    }
+    &:nth-child(12) {
+        margin-left: 35%;
+        &::after {
+            animation-delay: 0.5s;
+        }
+    }
+    &:nth-child(13) {
+        margin-left: 42%;
+        &::after {
+            animation-delay: 1.3s;
+        }
+    }
+}

@@ -11,8 +11,7 @@ const SectionFormation = () => {
                         2021.
                         <br />
                         At first I only took a look at this field because I knew
-                        it would allow me to travel and work at the same time,
-                        being able to work.
+                        it would allow me to travel and work at the same time.
                         <br />
                         But eventually I discovered myself a new passion where
                         creativity and logic were the only limits

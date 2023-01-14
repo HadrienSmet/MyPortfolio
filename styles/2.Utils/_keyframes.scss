@@ -8,6 +8,27 @@
     }
 }
 
+@keyframes translateRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes translateLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 @keyframes scaleFromX {
     0% {
         transform: scaleX(0);
@@ -141,5 +162,13 @@
     }
     100% {
         transform: rotate(0deg);
+    }
+}
+@keyframes drop {
+    0% {
+        top: -50%;
+    }
+    100% {
+        top: 110%;
     }
 }

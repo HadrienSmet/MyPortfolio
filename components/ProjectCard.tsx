@@ -108,7 +108,7 @@ const ProjectCard = ({ project }: Props) => {
                     onMouseEnter={handleCursorEnter}
                     onMouseLeave={handleCursorLeave}
                 >
-                    En savoir plus
+                    See more
                 </Link>
             </div>
         </div>

@@ -8,9 +8,10 @@
     width: calc(100% - 900px);
     h1 {
         margin-top: 130px;
-        // margin-left: 150px;
         font-size: 4.5em;
         color: $fifth-color;
+        opacity: 0;
+        animation: increaseOpacity 0.2s ease-in-out 0.4s forwards;
     }
     > div {
         width: 100%;
@@ -20,6 +21,8 @@
         color: $second-color;
         position: relative;
         margin-bottom: 25px;
+        opacity: 0;
+        animation: increaseOpacity 0.2s ease-in-out 0.8s forwards;
         &::before {
             content: "";
             position: absolute;
@@ -60,8 +63,9 @@
                 justify-content: center;
                 flex-direction: column;
                 height: 80px;
-                // width: 280px;
                 &:first-child {
+                    transform: translateX(-200%);
+                    animation: translateRight 0.2s ease-in-out 0.6s forwards;
                     &:hover {
                         > span:first-child {
                             svg {
@@ -101,6 +105,8 @@
                     text-transform: uppercase;
                 }
                 &:nth-child(2) {
+                    transform: translateX(200%);
+                    animation: translateLeft 0.2s ease-in-out 0.8s forwards;
                     span:first-child {
                         font-size: 1.5em;
                     }
@@ -111,6 +117,8 @@
                     }
                 }
                 &:nth-child(3) {
+                    transform: translateX(-200%);
+                    animation: translateRight 0.2s ease-in-out 1s forwards;
                     span:first-child {
                         font-size: 1.5em;
                     }
@@ -122,6 +130,8 @@
                     }
                 }
                 &:nth-child(4) {
+                    transform: translateX(200%);
+                    animation: translateLeft 0.2s ease-in-out 1.2s forwards;
                     &:hover {
                         span:first-child {
                             transform: translateX(35px);

@@ -35,18 +35,20 @@
         }
     }
     &__link-container {
+        @media screen and (min-width: 1025px) {
+            &:hover {
+                svg:first-child {
+                    transform: translateY(0);
+                }
+                svg:last-child {
+                    transform: translateY(75px);
+                }
+            }
+        }
         position: relative;
         width: 60px;
         height: 60px;
         overflow: hidden;
-        &:hover {
-            svg:first-child {
-                transform: translateY(0);
-            }
-            svg:last-child {
-                transform: translateY(75px);
-            }
-        }
         svg {
             position: absolute;
             transition: 0.2s ease-in-out;

@@ -2,15 +2,23 @@
     @media screen and (min-width: 1025px) {
         width: calc(100% - 900px);
     }
-    @media screen and (max-width: 1024px) {
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
         width: calc(100% - 160px);
+    }
+    @media screen and (min-width: 768px) {
+        margin-top: calc(15vh + 80px);
+        margin-bottom: 15vh;
+        height: calc((100vh - 80px) * 0.7);
+    }
+    @media screen and (max-width: 767px) {
+        width: calc(100% - 80px);
+        margin-top: calc(10vh + 80px);
+        margin-bottom: 10vh;
+        height: calc((100vh - 80px) * 0.8);
     }
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: calc(15vh + 80px);
-    margin-bottom: 15vh;
-    height: calc((100vh - 80px) * 0.7);
     opacity: 0;
     animation: increaseOpacity 0.3s 0.4s ease-in-out forwards;
     .gradient {
@@ -21,8 +29,8 @@
         position: relative;
     }
     > div:last-child {
-        // width: 5%;
-        // height: 60px;
+        width: 5%;
+        height: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -33,6 +41,7 @@
             gap: 50px;
         }
         @media screen and (max-width: 1024px) {
+            gap: 20px;
             flex-direction: column-reverse;
             align-items: center;
         }
@@ -41,14 +50,29 @@
         position: relative;
     }
     &__details {
+        @media screen and (max-width: 767px) {
+            width: calc(100vw - 140px);
+            gap: 10px;
+        }
         min-height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         h1 {
+            @media screen and (min-width: 768px) {
+                font-size: 2em;
+                strong {
+                    font-size: 3em;
+                }
+            }
+            @media screen and (max-width: 767px) {
+                font-size: 1.5em;
+                strong {
+                    font-size: 2em;
+                }
+            }
             margin-top: 25px;
             text-align: right;
-            font-size: 2em;
             color: $fifth-color;
             font-weight: 200;
             span.name {
@@ -63,13 +87,17 @@
             strong {
                 opacity: 0;
                 animation: increaseOpacity 0.2s 2.1s ease-in-out forwards;
-                font-size: 3em;
                 font-weight: 900;
             }
         }
         p {
-            font-size: $big-text;
-            width: 350px;
+            @media screen and (min-width: 768px) {
+                font-size: $big-text;
+                width: 350px;
+            }
+            @media screen and (max-width: 767px) {
+                font-size: 1em;
+            }
             line-height: 38px;
             letter-spacing: 1.5px;
             color: $fourth-color;
@@ -82,7 +110,11 @@
             width: 300px;
             height: 350px;
         }
-        @media screen and (max-width: 1024px) {
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            width: 100%;
+        }
+        @media screen and (max-width: 767px) {
+            // width: calc(100% - 60px);
             width: 100%;
             height: 310px;
         }
@@ -112,9 +144,12 @@
         width: calc(100% - 900px);
         gap: 40px;
     }
-    @media screen and (max-width: 1024px) {
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
         width: calc(100% - 160px);
         height: calc(100vh - 135px);
+    }
+    @media screen and (max-width: 767px) {
+        width: calc(100% - 80px);
     }
     padding-top: 50px;
     position: relative;
@@ -128,9 +163,13 @@
             width: calc(100% - 900px);
             left: 450px;
         }
-        @media screen and (max-width: 1024px) {
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
             width: calc(100% - 160px);
             left: 80px;
+        }
+        @media screen and (max-width: 767px) {
+            width: calc(100% - 80px);
+            left: 40px;
         }
         content: "";
         position: absolute;
@@ -179,7 +218,7 @@
                 opacity: 0;
                 transform: translateX(-50%);
                 &.visible {
-                    animation: halfTranslateRight 0.2s ease-in-out 0.1s forwards;
+                    animation: halfTranslateRight 0.3s ease-in-out 0.1s forwards;
                     > span {
                         animation: getYourScale 0.6s ease-in-out forwards;
                         @for $i from 1 through 7 {
@@ -190,7 +229,7 @@
                     }
                     > ul {
                         li {
-                            animation: halfTranslateRight 0.2s ease-in-out
+                            animation: halfTranslateRight 0.3s ease-in-out
                                 forwards;
                             @for $i from 1 through 5 {
                                 &:nth-child(#{$i}) {
@@ -325,7 +364,7 @@
                         position: absolute;
                         @media screen and (min-width: 1025px) {
                             transform: translateY(-100%);
-                            span.active {
+                            &.active {
                                 animation: translateDown 0.3s ease-in-out
                                     forwards;
                             }
@@ -343,7 +382,7 @@
                 opacity: 0;
                 transform: translateX(-50%);
                 &.visible {
-                    animation: halfTranslateRight 0.2s ease-in-out 1.6s forwards;
+                    animation: halfTranslateRight 0.3s ease-in-out 1.6s forwards;
                     > span {
                         animation: getYourScale 0.6s ease-in-out forwards;
                         @for $i from 1 through 7 {
@@ -354,7 +393,7 @@
                     }
                     > ul {
                         li {
-                            animation: halfTranslateRight 0.2s ease-in-out
+                            animation: halfTranslateRight 0.3s ease-in-out
                                 forwards;
                             @for $i from 1 through 5 {
                                 &:nth-child(#{$i}) {
@@ -480,7 +519,7 @@
                         position: absolute;
                         @media screen and (min-width: 1025px) {
                             transform: translateY(-100%);
-                            span.active {
+                            &.active {
                                 animation: translateDown 0.3s ease-in-out
                                     forwards;
                             }
@@ -511,8 +550,11 @@
                 @media screen and (min-width: 1025px) {
                     width: calc((100vw - 900px) * 0.6);
                 }
-                @media screen and (max-width: 1024px) {
+                @media screen and (min-width: 768px) and (max-width: 1024px) {
                     width: calc(100vw - 160px);
+                }
+                @media screen and (max-width: 767px) {
+                    width: calc(100vw - 80px);
                 }
                 position: absolute;
                 top: 0;
@@ -556,6 +598,7 @@
     @media screen and (min-width: 1025px) {
         width: calc(100% - 900px);
         height: 100vh;
+        gap: 50px;
     }
     @media screen and (max-width: 1024px) {
         width: calc(100% - 160px);
@@ -565,7 +608,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
     margin-bottom: 0;
     h2 {
         color: $second-color;
@@ -574,21 +616,23 @@
         width: 100%;
     }
     &__first-row {
+        @media screen and (min-width: 1025px) {
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -30px;
+                height: 2px;
+                width: 90%;
+                left: 5%;
+                background-color: $second-color;
+            }
+        }
         position: relative;
         display: flex;
         width: 100%;
         justify-content: space-between;
         padding: 35px;
         border-radius: 20px;
-        &::after {
-            content: "";
-            position: absolute;
-            bottom: -30px;
-            height: 2px;
-            width: 90%;
-            left: 5%;
-            background-color: $second-color;
-        }
         a {
             @media screen and (min-width: 1025px) {
                 &:hover {

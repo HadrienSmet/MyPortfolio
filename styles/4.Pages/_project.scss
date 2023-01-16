@@ -1,6 +1,5 @@
 .project-page {
     padding-top: 150px;
-    // height: 100vh;
     margin-bottom: 80px;
     display: flex;
     flex-direction: column;
@@ -12,12 +11,17 @@
         color: $fifth-color;
     }
     &__carousel-area {
+        @media screen and (min-width: 1025px) {
+            width: calc(100vw - 916px);
+        }
+        @media screen and (max-width: 1024px) {
+            width: calc(100vw - 160px);
+        }
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
         min-height: 50vh;
-        width: calc(100vw - 916px);
         margin-bottom: 50px;
         em {
             position: absolute;
@@ -28,7 +32,6 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        // align-items: center;
         gap: 50px;
         position: relative;
         p {
@@ -46,7 +49,18 @@
             align-items: center;
             justify-content: center;
             gap: 25px;
+            &.visible {
+                li {
+                    animation: increaseOpacity 0.2s ease-in-out forwards;
+                    @for $i from 1 through 9 {
+                        &:nth-child(#{$i}) {
+                            animation-delay: counterLiDelay($i);
+                        }
+                    }
+                }
+            }
             li {
+                opacity: 0;
                 background-color: $first-color;
                 color: $clr-1;
                 padding: 5px 15px;

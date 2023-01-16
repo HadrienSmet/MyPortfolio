@@ -36,7 +36,6 @@
         }
     }
     &__content {
-        // border: 1px solid rgba($clr-2, 0.3);
         display: flex;
         gap: 225px;
         width: calc(100% - 200px);
@@ -64,9 +63,14 @@
             }
         }
         > div {
+            @media screen and (min-width: 1025px) {
+                width: calc(100vw - 900px);
+            }
+            @media screen and (max-width: 1024px) {
+                width: calc(100vw - 160px);
+            }
             position: relative;
             min-width: 100%;
-            width: calc(100vw - 900px);
             height: 50vh;
             display: flex;
             align-items: center;

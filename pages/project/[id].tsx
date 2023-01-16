@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ProjectInterface } from "../../interfaces/models";
 import { projects } from "../../projectsData";
 import MuiGradientBorder from "../../components/MuiGradientBorder";
@@ -9,7 +9,7 @@ type Props = {
     project: ProjectInterface;
 };
 
-const Project: React.FC<Props> = ({ project }: Props) => {
+const useProject = () => {
     const [, setIsCursorHover] = useMyCursorContext();
     const handleCursorEnter = () => {
         setIsCursorHover(true);
@@ -17,6 +17,38 @@ const Project: React.FC<Props> = ({ project }: Props) => {
     const handleCursorLeave = () => {
         setIsCursorHover(false);
     };
+
+    useEffect(() => {
+        const isBrowser = typeof window !== "undefined";
+        const listEl =
+            isBrowser && (document.querySelector(".tools-used") as Element);
+
+        const options = {
+            root: null,
+            threshold: 0.5,
+            rootMargin: "0px",
+        };
+        const observer = new IntersectionObserver(function (entries, observer) {
+            entries.forEach((entry) => {
+                console.log(entry.intersectionRatio);
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                } else {
+                    entry.target.classList.remove("visible");
+                }
+            });
+        }, options);
+        if (listEl !== false) observer.observe(listEl);
+    }, []);
+
+    return {
+        handleCursorEnter,
+        handleCursorLeave,
+    };
+};
+
+const Project: React.FC<Props> = ({ project }: Props) => {
+    const { handleCursorEnter, handleCursorLeave } = useProject();
     return (
         <section className="project-page">
             <h1>{project.name}</h1>
@@ -26,7 +58,7 @@ const Project: React.FC<Props> = ({ project }: Props) => {
             </div>
             <div className="project-page__content">
                 <p>{project.description}</p>
-                <ul>
+                <ul className="tools-used">
                     {project.tools.map((tool) => (
                         <li key={tool}>{tool}</li>
                     ))}

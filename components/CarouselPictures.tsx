@@ -3,6 +3,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import Image from "next/image";
 import { ProjectInterface } from "../interfaces/models";
 import { useMyCursorContext } from "./CursorContext";
+import { useWindowSize } from "../utils/hooks";
 
 type Props = {
     project: ProjectInterface;
@@ -16,6 +17,8 @@ const useCarouselPictures = ({ project }: Props) => {
     const nextBtnRef = useRef<HTMLDivElement | null>(null);
     const carouselContentRef = useRef<HTMLDivElement | null>(null);
     const [, setIsCursorHover] = useMyCursorContext();
+    const screenWidth = useWindowSize().width;
+
     const handleCursorEnter = () => {
         setIsCursorHover(true);
     };
@@ -45,32 +48,37 @@ const useCarouselPictures = ({ project }: Props) => {
     };
 
     useEffect(() => {
-        const imgWidth = window.innerWidth - 675;
-        const options = {
-            top: 0,
-            left: posIndex * imgWidth,
-        };
-        carouselContentRef.current?.scrollTo(options);
+        if (screenWidth !== undefined) {
+            const imgWidth =
+                screenWidth > 1025
+                    ? window.innerWidth - 675
+                    : window.innerWidth - 160 + 205;
+            const options = {
+                top: 0,
+                left: posIndex * imgWidth,
+            };
+            carouselContentRef.current?.scrollTo(options);
 
-        if (posIndex === 0) {
-            handlePreviousState(true);
-            handleNextState(false);
-        } else if (posIndex === project.images.length - 1) {
-            handlePreviousState(false);
-            handleNextState(true);
-        } else {
-            handlePreviousState(false);
-            handleNextState(false);
+            if (posIndex === 0) {
+                handlePreviousState(true);
+                handleNextState(false);
+            } else if (posIndex === project.images.length - 1) {
+                handlePreviousState(false);
+                handleNextState(true);
+            } else {
+                handlePreviousState(false);
+                handleNextState(false);
+            }
+            if (nextBtnRef.current !== null) {
+                if (isLast) nextBtnRef.current.style.opacity = "0";
+                if (!isLast) nextBtnRef.current.style.opacity = "1";
+            }
+            if (previousBtnRef.current !== null) {
+                if (isFirst) previousBtnRef.current.style.opacity = "0";
+                if (!isFirst) previousBtnRef.current.style.opacity = "1";
+            }
         }
-        if (nextBtnRef.current !== null) {
-            if (isLast) nextBtnRef.current.style.opacity = "0";
-            if (!isLast) nextBtnRef.current.style.opacity = "1";
-        }
-        if (previousBtnRef.current !== null) {
-            if (isFirst) previousBtnRef.current.style.opacity = "0";
-            if (!isFirst) previousBtnRef.current.style.opacity = "1";
-        }
-    }, [posIndex, isLast, isFirst, project.images.length]);
+    }, [posIndex, isLast, isFirst, project.images.length, screenWidth]);
     return {
         previousBtnRef,
         nextBtnRef,

@@ -202,15 +202,6 @@
                             opacity: 1;
                         }
                     }
-                    @media screen and (max-width: 1024px) {
-                        opacity: 0;
-                        animation: increaseOpacity 0.2 ease-in-out forwards;
-                        @for $i from 1 through 6 {
-                            &:nth-child(#{$i}) {
-                                animation-delay: counterHobbieDelay($i);
-                            }
-                        }
-                    }
                     z-index: 2;
                     line-height: 56px;
                 }

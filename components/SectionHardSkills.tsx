@@ -1,29 +1,57 @@
-import React from "react";
+import { useEffect } from "react";
+
+const useHardSkillsOnScroll = () => {
+    useEffect(() => {
+        const isBrowser = typeof window !== "undefined";
+        const linkEl = isBrowser && document.querySelectorAll(".hard-skill");
+
+        const options = {
+            root: null,
+            threshold: 0,
+            rootMargin: "0px",
+        };
+        const observer = new IntersectionObserver(function (entries, observer) {
+            entries.forEach((entry) => {
+                console.log(entry.intersectionRatio);
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                } else {
+                    entry.target.classList.remove("visible");
+                }
+            });
+        }, options);
+        if (linkEl !== false)
+            linkEl.forEach((el) => {
+                observer.observe(el);
+            });
+    }, []);
+};
 
 const SectionHardSkills = () => {
+    useHardSkillsOnScroll();
     return (
         <section className="about-work about-work__hard-skills-side">
             <h2>Hard skills</h2>
             <ul>
-                <li id="dom">
+                <li className="hard-skill" id="dom">
                     <span>DOM manipulation</span>
                 </li>
-                <li id="json">
+                <li className="hard-skill" id="json">
                     <span>JSON</span>
                 </li>
-                <li id="ajax">
+                <li className="hard-skill" id="ajax">
                     <span>AJAX</span>
                 </li>
-                <li id="responsive">
+                <li className="hard-skill" id="responsive">
                     <span>Responsive Design</span>
                 </li>
-                <li id="optimization">
+                <li className="hard-skill" id="optimization">
                     <span>Web Performance Optimization</span>
                 </li>
-                <li id="seo">
+                <li className="hard-skill" id="seo">
                     <span>SEO / Accessibility</span>
                 </li>
-                <li id="version">
+                <li className="hard-skill" id="version">
                     <span>Version control</span>
                 </li>
             </ul>

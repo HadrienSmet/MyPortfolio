@@ -56,29 +56,30 @@ export const useScrollPosition = () => {
 //     return windowSize;
 //   }
 
-// export const useWindowSize = () => {
-//     const isClient = typeof window !== "undefined";
+export const useWindowSize = () => {
+    const isClient = typeof window !== "undefined";
 
-//     const getSize = () => {
-//         return {
-//             width: isClient ? window.innerWidth : undefined,
-//             height: isClient ? window.innerHeight : undefined,
-//         };
-//     };
+    const getSize = () => {
+        return {
+            width: isClient ? window.innerWidth : undefined,
+            height: isClient ? window.innerHeight : undefined,
+        };
+    };
 
-//     const [windowSize, setWindowSize] = useState(getSize);
+    const [windowSize, setWindowSize] = useState(getSize);
 
-//     useEffect(() => {
-//         const handleResize = () => {
-//             setWindowSize(getSize());
-//         };
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowSize(getSize());
+        };
 
-//         window.addEventListener("resize", handleResize);
-//         return () => window.removeEventListener("resize", handleResize);
-//     }, []); // Empty array ensures that effect is only run on mount and unmount
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []); // Empty array ensures that effect is only run on mount and unmount
 
-//     return windowSize;
-// };
+    return windowSize;
+};
 
 export const handleScrollToTop = () => {
     window.scrollTo(0, 0);

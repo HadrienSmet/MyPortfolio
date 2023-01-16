@@ -126,6 +126,29 @@ const useBubbleOnMouseMove = () => {
     };
 };
 
+const useMyBubbleOnScroll = () => {
+    useEffect(() => {
+        const isBrowser = typeof window !== "undefined";
+        const linkEl = isBrowser && (document.getElementById("me") as Element);
+
+        const options = {
+            root: null,
+            threshold: 1,
+            rootMargin: "150px",
+        };
+        const observer = new IntersectionObserver(function (entries, observer) {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                } else {
+                    entry.target.classList.remove("visible");
+                }
+            });
+        }, options);
+        if (linkEl !== false) observer.observe(linkEl);
+    }, []);
+};
+
 const useDetailsOnMouseMove = () => {
     const hobbiesRef = useRef<HTMLDivElement | null>(null);
     const softSkillsRef = useRef<HTMLDivElement | null>(null);
@@ -181,6 +204,7 @@ const DynamicLinkMyself = () => {
         sixthMyBubbleRef,
     } = useBubbleOnMouseMove();
     const { hobbiesRef, softSkillsRef, picturesRef } = useDetailsOnMouseMove();
+    useMyBubbleOnScroll();
 
     return (
         <div ref={myLinkRef} id="me" className="about__dynamic-links__to-me">

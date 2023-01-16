@@ -32,6 +32,54 @@ export const useScrollPosition = () => {
     return scrollY;
 };
 
+// export const useWindowSize = () => {
+//     const isClient = typeof window !== "undefined";
+
+//     const getSize = () => {
+//         return {
+//             width: isClient ? window.innerWidth : undefined,
+//             height: isClient ? window.innerHeight : undefined
+//         };
+//     }
+//     const [windowSize, setWindowSize] = useState(getSize);
+
+//     useEffect(() => {
+//         if (isClient) {
+//             const handleResize = () => {
+//                 setWindowSize(getSize());
+//             }
+//             window.addEventListener("resize", handleResize);
+//             return () => window.removeEventListener("resize", handleResize);
+//         }
+//     }, [isClient, getSize])
+
+//     return windowSize;
+//   }
+
+// export const useWindowSize = () => {
+//     const isClient = typeof window !== "undefined";
+
+//     const getSize = () => {
+//         return {
+//             width: isClient ? window.innerWidth : undefined,
+//             height: isClient ? window.innerHeight : undefined,
+//         };
+//     };
+
+//     const [windowSize, setWindowSize] = useState(getSize);
+
+//     useEffect(() => {
+//         const handleResize = () => {
+//             setWindowSize(getSize());
+//         };
+
+//         window.addEventListener("resize", handleResize);
+//         return () => window.removeEventListener("resize", handleResize);
+//     }, []); // Empty array ensures that effect is only run on mount and unmount
+
+//     return windowSize;
+// };
+
 export const handleScrollToTop = () => {
     window.scrollTo(0, 0);
 };

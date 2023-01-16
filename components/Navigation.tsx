@@ -24,6 +24,7 @@ const Navigation = () => {
         navigationRef.current.classList.remove("opened");
         const isExpanded = button?.getAttribute("aria-expanded") === "true";
         button?.setAttribute("aria-expanded", !isExpanded ? "true" : "false");
+        handleMouseLeave();
     };
 
     return (

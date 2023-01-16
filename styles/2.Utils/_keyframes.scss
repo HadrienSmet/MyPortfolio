@@ -1,4 +1,6 @@
 @import "../2.Utils/variables";
+
+/*******************************Single Property animated********************************/
 @keyframes translateDown {
     0% {
         transform: translateY(-100%);
@@ -7,7 +9,81 @@
         transform: translateY(0);
     }
 }
+@keyframes drop {
+    0% {
+        top: -50%;
+    }
+    100% {
+        top: 110%;
+    }
+}
 
+@keyframes scaleFromX {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+@keyframes increaseOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes decreaseOpacity {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes increaseWidth {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 50%;
+    }
+}
+@keyframes decreaseWidth {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 50%;
+    }
+}
+@keyframes spinLeft {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes spinRight {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+@keyframes getYourScale {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/*******************************Double Property animated********************************/
 @keyframes translateRight {
     0% {
         opacity: 0;
@@ -28,45 +104,26 @@
         transform: translateX(0);
     }
 }
-
-@keyframes scaleFromX {
-    0% {
-        transform: scaleX(0);
-    }
-    100% {
-        transform: scaleX(1);
-    }
-}
-@keyframes increaseGradientDimensions {
-    0% {
-        width: 5%;
-        height: 60px;
-    }
-    50%,
-    100% {
-        height: calc(100% - 20px);
-    }
-    100% {
-        width: calc(100% - 20px);
-    }
-}
-@keyframes increaseOpacity {
+@keyframes halfTranslateRight {
     0% {
         opacity: 0;
+        transform: translateX(-50%);
     }
     100% {
         opacity: 1;
+        transform: translateX(0);
     }
 }
-@keyframes decreaseOpacity {
+@keyframes halfTranslateLeft {
     0% {
-        opacity: 1;
+        opacity: 0;
+        transform: translateX(50%);
     }
     100% {
-        opacity: 0;
+        opacity: 1;
+        transform: translateX(0);
     }
 }
-
 @keyframes increaseScale {
     0% {
         transform: scale(1) translate(-50%, -50%);
@@ -83,14 +140,22 @@
         transform: scale(1) translate(-50%, -50%);
     }
 }
-@keyframes toTheGround {
+
+/*******************************Special element animated********************************/
+@keyframes increaseGradientDimensions {
     0% {
-        transform: translateY(-90vh) skewY(-10deg);
+        width: 5%;
+        height: 60px;
+    }
+    50%,
+    100% {
+        height: calc(100% - 20px);
     }
     100% {
-        transform: translateY(0) skewY(-10deg);
+        width: calc(100% - 20px);
     }
 }
+
 @keyframes buttonHover {
     0%,
     8% {
@@ -133,22 +198,7 @@
         -moz-box-shadow: $btn-shadow;
     }
 }
-@keyframes spinLeft {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-@keyframes spinRight {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(-360deg);
-    }
-}
+
 @keyframes wrenchAnimation {
     0% {
         transform: rotate(0deg);
@@ -164,11 +214,13 @@
         transform: rotate(0deg);
     }
 }
-@keyframes drop {
-    0% {
-        top: -50%;
-    }
-    100% {
-        top: 110%;
-    }
-}
+/*******************************Is this used?********************************/
+
+// @keyframes toTheGround {
+//     0% {
+//         transform: translateY(-90vh) skewY(-10deg);
+//     }
+//     100% {
+//         transform: translateY(0) skewY(-10deg);
+//     }
+// }

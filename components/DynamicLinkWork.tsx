@@ -139,6 +139,30 @@ const useBubbleOnMouseMove = () => {
     };
 };
 
+const useWorkBubbleOnScroll = () => {
+    useEffect(() => {
+        const isBrowser = typeof window !== "undefined";
+        const workEl =
+            isBrowser && (document.getElementById("work") as Element);
+
+        const options = {
+            root: null,
+            threshold: 1,
+            rootMargin: "150px",
+        };
+        const observer = new IntersectionObserver(function (entries, observer) {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                } else {
+                    entry.target.classList.remove("visible");
+                }
+            });
+        }, options);
+        if (workEl !== false) observer.observe(workEl);
+    }, []);
+};
+
 const useDetailsOnMouseMove = () => {
     const projectsRef = useRef<HTMLDivElement | null>(null);
     const toolsRef = useRef<HTMLDivElement | null>(null);
@@ -204,6 +228,7 @@ const DynamicLinkWork = () => {
     } = useBubbleOnMouseMove();
     const { projectsRef, toolsRef, hardSkillsRef, formationRef } =
         useDetailsOnMouseMove();
+    useWorkBubbleOnScroll();
 
     return (
         <div

@@ -1,4 +1,6 @@
 import { ReactNode } from "react";
+// import type { NextPage } from "next";
+// import { useWindowSize } from "../utils/hooks";
 import CursorContext from "./CursorContext";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -9,6 +11,7 @@ type Props = {
 };
 
 const Layout = ({ children }: Props) => {
+    // const screenWidth = typeof window !== 'undefined' ? useWindowSize().width : undefined;
     return (
         <>
             <CursorContext>

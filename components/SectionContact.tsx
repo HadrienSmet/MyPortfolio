@@ -87,33 +87,37 @@ const SectionContact = () => {
                 <div className="contact__media-side">
                     <h3>Get in touch with me via social media or mail</h3>
                     <div className="contact__media-icons-container">
-                        <a href="https://github.com/HadrienSmet">
-                            <FaGithub
-                                id="github"
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                            />
+                        <a
+                            href="https://github.com/HadrienSmet"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            <FaGithub id="github" />
+                            <FaGithub />
                         </a>
-                        <a href="https://www.linkedin.com/in/hadrien-smet-b80022207/">
-                            <FaLinkedin
-                                id="linkedin"
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                            />
+                        <a
+                            href="https://www.linkedin.com/in/hadrien-smet-b80022207/"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            <FaLinkedin id="linkedin" />
+                            <FaLinkedin />
                         </a>
-                        <a href="https://www.facebook.com/hadrien.smet/">
-                            <FaFacebook
-                                id="facebook"
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                            />
+                        <a
+                            href="https://www.facebook.com/hadrien.smet/"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            <FaFacebook id="facebook" />
+                            <FaFacebook />
                         </a>
-                        <a href="https://twitter.com/hadrien_smet">
-                            <FaTwitter
-                                id="twitter"
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                            />
+                        <a
+                            href="https://twitter.com/hadrien_smet"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            <FaTwitter id="twitter" />
+                            <FaTwitter />
                         </a>
                     </div>
                 </div>

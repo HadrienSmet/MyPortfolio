@@ -1,11 +1,15 @@
 .about-me-page {
-    // padding-top: 100px;
+    @media screen and (min-width: 1025px) {
+        width: calc(100% - 900px);
+    }
+    @media screen and (max-width: 1024px) {
+        width: calc(100% - 160px);
+    }
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     gap: 50px;
-    width: calc(100% - 900px);
     h1 {
         margin-top: 130px;
         font-size: 4.5em;
@@ -22,7 +26,6 @@
         position: relative;
         margin-bottom: 25px;
         opacity: 0;
-        animation: increaseOpacity 0.2s ease-in-out 0.8s forwards;
         &::before {
             content: "";
             position: absolute;
@@ -34,12 +37,17 @@
         }
     }
     &__few-words-side {
+        h2 {
+            animation: increaseOpacity 0.2s ease-in-out 1.8s forwards;
+        }
         p {
             width: 100%;
             display: flex;
             justify-content: center;
             font-size: 1.4em;
             line-height: 36px;
+            opacity: 0;
+            animation: increaseOpacity 0.2s ease-in-out 2.1s forwards;
         }
         em {
             width: 70%;
@@ -55,7 +63,6 @@
                 color: $clr-1;
                 text-align: center;
                 position: relative;
-                // padding: 10px 25px 10px;
                 background-color: $first-color;
                 border-radius: 8px;
                 z-index: 2;
@@ -64,8 +71,9 @@
                 flex-direction: column;
                 height: 80px;
                 &:first-child {
-                    transform: translateX(-200%);
-                    animation: translateRight 0.2s ease-in-out 0.6s forwards;
+                    animation: halfTranslateRight 0.3s ease-in-out 0.6s forwards;
+                    opacity: 0;
+                    transform: translateX(-50%);
                     &:hover {
                         > span:first-child {
                             svg {
@@ -105,8 +113,9 @@
                     text-transform: uppercase;
                 }
                 &:nth-child(2) {
-                    transform: translateX(200%);
-                    animation: translateLeft 0.2s ease-in-out 0.8s forwards;
+                    opacity: 0;
+                    transform: translateX(50%);
+                    animation: halfTranslateLeft 0.3s ease-in-out 0.9s forwards;
                     span:first-child {
                         font-size: 1.5em;
                     }
@@ -117,8 +126,9 @@
                     }
                 }
                 &:nth-child(3) {
-                    transform: translateX(-200%);
-                    animation: translateRight 0.2s ease-in-out 1s forwards;
+                    opacity: 0;
+                    transform: translateX(-50%);
+                    animation: halfTranslateRight 0.3s ease-in-out 1.2s forwards;
                     span:first-child {
                         font-size: 1.5em;
                     }
@@ -130,8 +140,9 @@
                     }
                 }
                 &:nth-child(4) {
-                    transform: translateX(200%);
-                    animation: translateLeft 0.2s ease-in-out 1.2s forwards;
+                    opacity: 0;
+                    transform: translateX(50%);
+                    animation: halfTranslateLeft 0.3s ease-in-out 1.5s forwards;
                     &:hover {
                         span:first-child {
                             transform: translateX(35px);
@@ -164,6 +175,9 @@
         }
     }
     &__hobbies-side {
+        h2 {
+            animation: increaseOpacity 0.2s ease-in-out 2.4s forwards;
+        }
         .about-me-page__list-container {
             display: flex;
             justify-content: center;
@@ -173,18 +187,32 @@
             ul {
                 font-size: 1.8em;
                 z-index: 1;
-                &:hover {
-                    li {
-                        opacity: 0.2;
+                @media screen and (min-width: 1025px) {
+                    &:hover {
+                        li {
+                            opacity: 0.2;
+                        }
                     }
                 }
                 li {
-                    z-index: 2;
-                    transition: 0.1s ease-in-out;
-                    line-height: 56px;
-                    &:hover {
+                    @media screen and (min-width: 1025px) {
+                        transition: 0.1s ease-in-out;
                         opacity: 1;
+                        &:hover {
+                            opacity: 1;
+                        }
                     }
+                    @media screen and (max-width: 1024px) {
+                        opacity: 0;
+                        animation: increaseOpacity 0.2 ease-in-out forwards;
+                        @for $i from 1 through 6 {
+                            &:nth-child(#{$i}) {
+                                animation-delay: counterHobbieDelay($i);
+                            }
+                        }
+                    }
+                    z-index: 2;
+                    line-height: 56px;
                 }
             }
         }

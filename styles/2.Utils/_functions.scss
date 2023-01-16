@@ -8,6 +8,27 @@
     @return $delay;
 }
 
+@function counterToolDelay($i) {
+    $delay: 0.8s + ($i * 0.1s);
+    @return $delay;
+}
+@function counterProjectDelay($i) {
+    $delay: 2.3s + ($i * 0.1s);
+    @return $delay;
+}
+@function counterBubbleDelay($i) {
+    $delay: 0.2s + ($i * 0.2s);
+    @return $delay;
+}
+@function counterMyBubbleDelay($i) {
+    $delay: 1.8s + ($i * 0.2s);
+    @return $delay;
+}
+@function counterHobbieDelay($i) {
+    $delay: 2.6s + ($i * 0.2s);
+    @return $delay;
+}
+
 // //This function returns a delay in second/10
 // //@Params { type: numbers * 4 }
 // //The first one defines wich child we are targetting

@@ -133,8 +133,8 @@ const useMyBubbleOnScroll = () => {
 
         const options = {
             root: null,
-            threshold: 1,
-            rootMargin: "150px",
+            threshold: 0,
+            rootMargin: "0px",
         };
         const observer = new IntersectionObserver(function (entries, observer) {
             entries.forEach((entry) => {

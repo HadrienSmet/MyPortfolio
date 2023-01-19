@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef } from "react";
 import Image from "next/image";
 import pictureAboutWork from "../public/img/graphic-picture.webp";
 import pictureAboutMe from "../public/img/photo-cv_151222-bgless.webp";
@@ -84,7 +84,6 @@ const useImageOnScroll = () => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("visible");
-                    // handleDisableScroll();
                 } else {
                     entry.target.classList.remove("visible");
                 }

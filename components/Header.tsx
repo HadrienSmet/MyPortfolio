@@ -8,8 +8,11 @@ import {
 import { useMyCursorContext } from "./CursorContext";
 
 const useHeader = () => {
-    const [scrollY, setScrollY] = useState(0);
+    const isBrowser = typeof window !== "undefined";
+    let navigation: Element | null;
+    if (isBrowser) navigation = document.querySelector("nav");
     const defaultBarRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const [scrollY, setScrollY] = useState(0);
     const [, setIsCursorHover] = useMyCursorContext();
 
     const handleMouseEnter = () => {
@@ -17,6 +20,24 @@ const useHeader = () => {
     };
     const handleMouseLeave = () => {
         setIsCursorHover(false);
+    };
+
+    const classToggler = (target: Element) => {
+        if (isBrowser) document.body.classList.toggle("opened");
+        target.classList.toggle("opened");
+        navigation?.classList.toggle("opened");
+        defaultBarRef.current.classList.toggle("opened");
+    };
+
+    const targetAttributeToggler = (target: Element) => {
+        const isExpanded = target.getAttribute("aria-expanded") === "true";
+        target.setAttribute("aria-expanded", !isExpanded ? "true" : "false");
+    };
+
+    const handleButtonBehavior = (e: MouseEvent<HTMLButtonElement>) => {
+        const target = e.target as Element;
+        classToggler(target);
+        targetAttributeToggler(target);
     };
 
     useEffect(() => {
@@ -41,23 +62,17 @@ const useHeader = () => {
         defaultBarRef,
         handleMouseEnter,
         handleMouseLeave,
+        handleButtonBehavior,
     };
 };
 
 const Header = () => {
-    const { defaultBarRef, handleMouseEnter, handleMouseLeave } = useHeader();
-
-    const handleButtonBehavior = (e: MouseEvent<HTMLButtonElement>) => {
-        const navigation = document.querySelector("nav");
-        const target = e.target as Element;
-
-        document.body.classList.toggle("opened");
-        target.classList.toggle("opened");
-        defaultBarRef.current.classList.toggle("opened");
-        navigation?.classList.toggle("opened");
-        const isExpanded = target.getAttribute("aria-expanded") === "true";
-        target.setAttribute("aria-expanded", !isExpanded ? "true" : "false");
-    };
+    const {
+        defaultBarRef,
+        handleMouseEnter,
+        handleMouseLeave,
+        handleButtonBehavior,
+    } = useHeader();
 
     return (
         <header className="header">

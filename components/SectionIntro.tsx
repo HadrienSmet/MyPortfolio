@@ -63,6 +63,7 @@ const SectionIntro = () => {
                             alt="Probablement l'un des meilleurs et l'un des plus beau développeurs. Mais loin d'être prétentieux."
                             width={350}
                             height={420}
+                            priority
                         />
                     </div>
                 </div>

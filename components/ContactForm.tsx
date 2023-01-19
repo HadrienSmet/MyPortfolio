@@ -67,7 +67,9 @@ const ContactForm = () => {
 
     if (state.succeeded) {
         return (
-            <p>Thank you for your message. I will answer it as soon as I can</p>
+            <p id="answer">
+                Thank you for your message. I will answer it as soon as I can
+            </p>
         );
     }
 

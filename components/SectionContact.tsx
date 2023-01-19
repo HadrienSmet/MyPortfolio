@@ -38,7 +38,6 @@ const useContactOnScroll = () => {
                             const elBottomFromWindow =
                                 window.innerHeight -
                                 containerContactImgRect.top;
-                            console.log(elBottomFromWindow);
                             const bottomConvertedForPx =
                                 elBottomFromWindow - 730;
                             const valueCheckMin =
@@ -47,7 +46,6 @@ const useContactOnScroll = () => {
                                     : bottomConvertedForPx;
                             const returnValue =
                                 valueCheckMin < 0 ? valueCheckMin : 0;
-                            console.log(returnValue);
                             if (contactImgRef.current) {
                                 contactImgRef.current.style.setProperty(
                                     "--contact-img-translate-y",

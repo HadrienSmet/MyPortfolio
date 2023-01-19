@@ -1,15 +1,42 @@
 .pictures-carousel {
     &__container {
+        @media screen and (min-width: 1025px) {
+            @media screen and (min-height: 901px) {
+                width: calc(100% + 200px);
+            }
+            @media screen and (max-height: 900px) {
+                width: 100%;
+            }
+        }
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            width: calc(100% + 160px);
+        }
+        @media screen and (max-width: 767px) {
+            width: 100%;
+        }
         position: relative;
         display: flex;
-        width: calc(100% + 200px);
     }
     &__btn {
-        width: 100px;
+        @media screen and (min-width: 1025px) {
+            font-size: 60px;
+            width: 100px;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            font-size: 60px;
+            width: 80px;
+        }
+        @media screen and (max-width: 767px) {
+            font-size: 45px;
+            position: absolute;
+            height: 100%;
+            &.next {
+                right: 0;
+            }
+        }
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 60px;
         z-index: 2;
         &:hover {
             svg:first-child {
@@ -31,14 +58,27 @@
             transition: 0.2s ease-in-out;
         }
         svg.active {
-            color: $first-color;
+            @media screen and (min-width: 768px) {
+                color: $first-color;
+            }
+            @media screen and (max-width: 767px) {
+                color: $third-color;
+            }
             transform: translateY(-75px);
         }
     }
     &__content {
+        @media screen and (min-width: 1025px) {
+            width: calc(100% - 200px);
+        }
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            width: calc(100% - 160px);
+        }
+        @media screen and (max-width: 767px) {
+            width: 100%;
+        }
         display: flex;
         gap: 225px;
-        width: calc(100% - 200px);
         overflow-x: auto;
         position: relative;
         scroll-behavior: smooth;

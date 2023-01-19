@@ -16,11 +16,11 @@
         color: $clr-1;
         transition: 0.3s ease-in-out;
         transform: translateY(-100%);
-        animation: translateDown 0.2s 0.2s ease-in-out forwards;
+        animation: translateDown 0.1s 0.2s ease-in-out forwards;
         em {
             font-family: "graphic-fonts";
             opacity: 0;
-            animation: increaseOpacity 0.2s 0.6s ease-in-out forwards;
+            animation: increaseOpacity 0.1s 0.3s ease-in-out forwards;
         }
     }
 }
@@ -32,13 +32,19 @@
     }
 }
 .menu {
+    @media screen and (min-width: 768px) {
+        transform: scale(0.75);
+    }
+    @media screen and (max-width: 767px) {
+        transform: scale(1);
+        width: 60px;
+    }
     background-color: transparent;
     border: none;
     display: flex;
     padding: 0;
     cursor: none;
-    transform: scale(0.75);
-    animation: increaseOpacity 0.2s 0.8s ease-in-out forwards;
+    animation: increaseOpacity 0.1s 0.4s ease-in-out forwards;
 }
 .line {
     fill: none;

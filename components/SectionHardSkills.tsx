@@ -12,7 +12,6 @@ const useHardSkillsOnScroll = () => {
         };
         const observer = new IntersectionObserver(function (entries, observer) {
             entries.forEach((entry) => {
-                console.log(entry.intersectionRatio);
                 if (entry.isIntersecting) {
                     entry.target.classList.add("visible");
                 } else {
@@ -46,10 +45,13 @@ const SectionHardSkills = () => {
                     <span>Responsive Design</span>
                 </li>
                 <li className="hard-skill" id="optimization">
-                    <span>Web Performance Optimization</span>
+                    <span>Web Performance</span>
                 </li>
                 <li className="hard-skill" id="seo">
-                    <span>SEO / Accessibility</span>
+                    <span>SEO</span>
+                </li>
+                <li className="hard-skill" id="accessibility">
+                    <span>Accessibility</span>
                 </li>
                 <li className="hard-skill" id="version">
                     <span>Version control</span>

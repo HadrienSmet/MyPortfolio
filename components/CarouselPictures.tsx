@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import Image from "next/image";
 import { ProjectInterface } from "../interfaces/models";
@@ -18,6 +18,7 @@ const useCarouselPictures = ({ project }: Props) => {
     const carouselContentRef = useRef<HTMLDivElement | null>(null);
     const [, setIsCursorHover] = useMyCursorContext();
     const screenWidth = useWindowSize().width;
+    const screenHeight = useWindowSize().height;
 
     const handleCursorEnter = () => {
         setIsCursorHover(true);
@@ -48,11 +49,19 @@ const useCarouselPictures = ({ project }: Props) => {
     };
 
     useEffect(() => {
-        if (screenWidth !== undefined) {
-            const imgWidth =
-                screenWidth > 1025
-                    ? window.innerWidth - 675
-                    : window.innerWidth - 160 + 205;
+        if (screenWidth !== undefined && screenHeight !== undefined) {
+            let imgWidth: number;
+            if (screenWidth >= 1025) {
+                if (screenHeight >= 901) {
+                    imgWidth = window.innerWidth - 916 + 225;
+                } else {
+                    imgWidth = window.innerWidth - 500 + 225;
+                }
+            } else if (screenWidth >= 768 && screenWidth < 1025) {
+                imgWidth = window.innerWidth - 160 + 225;
+            } else {
+                imgWidth = window.innerWidth - 80 + 225;
+            }
             const options = {
                 top: 0,
                 left: posIndex * imgWidth,
@@ -78,7 +87,14 @@ const useCarouselPictures = ({ project }: Props) => {
                 if (!isFirst) previousBtnRef.current.style.opacity = "1";
             }
         }
-    }, [posIndex, isLast, isFirst, project.images.length, screenWidth]);
+    }, [
+        posIndex,
+        isLast,
+        isFirst,
+        project.images.length,
+        screenWidth,
+        screenHeight,
+    ]);
     return {
         previousBtnRef,
         nextBtnRef,

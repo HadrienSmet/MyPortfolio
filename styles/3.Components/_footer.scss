@@ -1,4 +1,8 @@
 .footer {
+    @media screen and (max-width: 310px) {
+        justify-content: center;
+        align-items: flex-end;
+    }
     padding: 20px 35px;
     width: calc(100% - 70px);
     height: 150px;
@@ -8,6 +12,9 @@
     justify-content: space-between;
     align-items: center;
     > svg {
+        @media screen and (max-width: 310px) {
+            transform: translateY(-120px);
+        }
         font-size: 45px;
         z-index: 2;
     }
@@ -15,15 +22,27 @@
         color: $clr-1;
     }
     em {
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
         font-family: "graphic-fonts";
     }
     &__links-container {
+        @media screen and (min-width: 768px) {
+            font-size: 60px;
+        }
+        @media screen and (max-width: 767px) {
+            font-size: 45px;
+        }
+        @media screen and (max-width: 310px) {
+            font-size: 30px;
+            gap: 5px;
+        }
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
         display: flex;
         gap: 25px;
-        font-size: 60px;
         #footer-facebook > svg.active {
             color: #1972eb;
         }
@@ -45,10 +64,19 @@
                 }
             }
         }
+        @media screen and (min-width: 768px) {
+            width: 60px;
+            height: 60px;
+        }
+        @media screen and (max-width: 767px) {
+            width: 45px;
+            height: 45px;
+        }
         position: relative;
-        width: 60px;
-        height: 60px;
         overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         svg {
             position: absolute;
             transition: 0.2s ease-in-out;

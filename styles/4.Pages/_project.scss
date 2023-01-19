@@ -1,4 +1,12 @@
 .project-page {
+    @media screen and (min-width: 1025px) {
+        @media screen and (max-height: 900px) {
+            width: calc(100vw - 300px);
+        }
+    }
+    @media screen and (max-width: 767px) {
+        width: calc(100vw - 80px);
+    }
     padding-top: 150px;
     margin-bottom: 80px;
     display: flex;
@@ -6,16 +14,33 @@
     justify-content: center;
     gap: 50px;
     h1 {
-        font-size: $big-title;
+        @media screen and (min-width: 768px) {
+            font-size: 2.5em;
+        }
+        @media screen and (max-width: 767px) {
+            font-size: 2em;
+        }
+        @media screen and (max-width: 310px) {
+            font-size: 1.3em;
+        }
         font-weight: 900;
         color: $fifth-color;
     }
     &__carousel-area {
         @media screen and (min-width: 1025px) {
-            width: calc(100vw - 916px);
+            @media screen and (min-height: 901px) {
+                width: calc(100vw - 916px);
+            }
+            @media screen and (max-height: 900px) {
+                width: calc(100vw - 300px);
+            }
         }
         @media screen and (max-width: 1024px) {
             width: calc(100vw - 160px);
+        }
+        @media screen and (max-width: 767px) {
+            width: calc(100vw - 80px);
+            margin-bottom: 80px;
         }
         display: flex;
         justify-content: center;
@@ -24,6 +49,9 @@
         min-height: 50vh;
         margin-bottom: 50px;
         em {
+            @media screen and (max-width: 767px) {
+                bottom: -35px;
+            }
             position: absolute;
             bottom: -20px;
         }
@@ -35,15 +63,33 @@
         gap: 50px;
         position: relative;
         p {
-            padding: 0 100px;
-            text-align: center;
-            width: calc(100% - 200px);
+            @media screen and (min-width: 768px) {
+                padding: 0 100px;
+                text-align: center;
+                width: calc(100% - 200px);
+            }
+            @media screen and (max-width: 767px) {
+                padding: 0 20px;
+                text-align: center;
+                width: calc(100% - 40px);
+            }
+            @media screen and (max-width: 310px) {
+                padding: 0;
+                width: 100%;
+                font-size: 1em;
+            }
+            font-size: 1.2em;
             line-height: 32px;
-            font-size: $big-text;
         }
         ul {
-            padding: 0 100px;
-            width: calc(100% - 200px);
+            @media screen and (min-width: 768px) {
+                padding: 0 100px;
+                width: calc(100% - 200px);
+            }
+            @media screen and (max-width: 767px) {
+                padding: 0 20px;
+                width: calc(100% - 40px);
+            }
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -51,7 +97,7 @@
             gap: 25px;
             &.visible {
                 li {
-                    animation: increaseOpacity 0.2s ease-in-out forwards;
+                    animation: increaseOpacity 0.1s ease-in-out forwards;
                     @for $i from 1 through 9 {
                         &:nth-child(#{$i}) {
                             animation-delay: counterLiDelay($i);
@@ -60,25 +106,40 @@
                 }
             }
             li {
+                @media screen and (min-width: 768px) {
+                    font-size: 1.5em;
+                    padding: 5px 15px;
+                }
+                @media screen and (max-width: 767px) {
+                    font-size: 1.2em;
+                    padding: 7px 15px;
+                }
                 opacity: 0;
                 background-color: $first-color;
                 color: $clr-1;
-                padding: 5px 15px;
                 border-radius: 5px;
-                font-size: $small-title;
                 font-weight: 600;
                 letter-spacing: 1.5px;
             }
         }
         &__btn-container {
+            @media screen and (min-width: 1025px) {
+                @media screen and (min-height: 901px) {
+                    &:hover {
+                        animation: buttonHover 0.8s ease-in-out infinite;
+                    }
+                }
+            }
+            @media screen and (min-width: 768px) {
+                width: 300px;
+            }
+            @media screen and (max-width: 767px) {
+                width: calc(100vw - 80px);
+            }
             left: 50%;
             transform: translateX(-50%);
             position: relative;
-            width: 300px;
             height: 70px;
-            &:hover {
-                animation: buttonHover 0.8s ease-in-out infinite;
-            }
             .gradient {
                 display: flex;
                 align-items: center;
@@ -91,17 +152,11 @@
                     display: inline-block;
                     text-transform: uppercase;
                     font-weight: 600;
-                    font-size: $big-text;
+                    font-size: 1.2em;
                     letter-spacing: 2px;
                     color: $first-color;
                 }
             }
         }
     }
-    // img {
-    //     position: relative;
-    //     top: 50%;
-    //     transform: translateY(-45%);
-    //     width: 25%;
-    // }
 }

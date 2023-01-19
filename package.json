@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@babel/core": ">=7.0.0 <8.0.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@formspree/react": "^2.4.1",
     "@mui/material": "^5.11.2",
+    "@next/bundle-analyzer": "^13.1.2",
     "@next/font": "13.0.7",
     "@reduxjs/toolkit": "^1.9.1",
     "@types/node": "18.11.17",

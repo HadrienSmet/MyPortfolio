@@ -1,9 +1,17 @@
 .about-me-page {
     @media screen and (min-width: 1025px) {
-        width: calc(100% - 900px);
+        @media screen and (min-height: 901px) {
+            width: calc(100% - 900px);
+        }
+        @media screen and (max-height: 900px) {
+            width: calc(100% - 300px);
+        }
     }
     @media screen and (max-width: 1024px) {
         width: calc(100% - 160px);
+    }
+    @media screen and (max-width: 767px) {
+        width: calc(100% - 80px);
     }
     display: flex;
     flex-direction: column;
@@ -11,53 +19,95 @@
     align-items: center;
     gap: 50px;
     h1 {
+        @media screen and (min-width: 768px) {
+            font-size: 4.5em;
+        }
+        @media screen and (max-width: 767px) {
+            font-size: 3em;
+        }
+        @media screen and (max-width: 310px) {
+            font-size: 1.4em;
+        }
         margin-top: 130px;
-        font-size: 4.5em;
+        text-transform: uppercase;
         color: $fifth-color;
         opacity: 0;
-        animation: increaseOpacity 0.2s ease-in-out 0.4s forwards;
+        animation: increaseOpacity 0.2s ease-in-out 0.3s forwards;
     }
     > div {
         width: 100%;
     }
     h2 {
-        font-size: 2.5em;
+        @media screen and (min-width: 768px) {
+            font-size: 2.5em;
+        }
+        @media screen and (max-width: 767px) {
+            font-size: 2em;
+            margin-left: 18px;
+        }
+        @media screen and (max-width: 310px) {
+            font-size: 1.2em;
+        }
         color: $second-color;
         position: relative;
         margin-bottom: 25px;
         opacity: 0;
         &::before {
+            @media screen and (max-width: 310px) {
+                font-size: 0.9em;
+                width: 3px;
+            }
             content: "";
             position: absolute;
             top: 3px;
             left: -15px;
-            width: 7px;
+            width: 5px;
             height: 1em;
             background-color: $first-color;
         }
     }
     &__few-words-side {
         h2 {
-            animation: increaseOpacity 0.2s ease-in-out 1.8s forwards;
+            animation: increaseOpacity 0.2s ease-in-out 0.9s forwards;
         }
         p {
+            @media screen and (min-width: 768px) {
+                font-size: 1.4em;
+            }
+            @media screen and (max-width: 767px) {
+                font-size: 1.2em;
+            }
+            @media screen and (max-width: 310px) {
+                font-size: 1em;
+                line-height: 30px;
+            }
             width: 100%;
             display: flex;
             justify-content: center;
-            font-size: 1.4em;
             line-height: 36px;
             opacity: 0;
-            animation: increaseOpacity 0.2s ease-in-out 2.1s forwards;
+            animation: increaseOpacity 0.2s ease-in-out 1.1s forwards;
         }
         em {
-            width: 70%;
+            @media screen and (min-width: 768px) {
+                width: 70%;
+            }
+            @media screen and (max-width: 767px) {
+                width: 90%;
+            }
         }
     }
     &__soft-skills-side {
         ul {
+            @media screen and (min-width: 768px) {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+            }
+            @media screen and (max-width: 767px) {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 1fr);
+            }
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
             gap: 15px;
             li {
                 color: $clr-1;
@@ -71,7 +121,7 @@
                 flex-direction: column;
                 height: 80px;
                 &:first-child {
-                    animation: halfTranslateRight 0.3s ease-in-out 0.6s forwards;
+                    animation: halfTranslateRight 0.2s ease-in-out 0.4s forwards;
                     opacity: 0;
                     transform: translateX(-50%);
                     &:hover {
@@ -109,13 +159,29 @@
                     }
                 }
                 span:last-child {
-                    font-size: 1.5em;
+                    @media screen and (min-width: 768px) {
+                        font-size: 1.5em;
+                    }
+                    @media screen and (max-width: 767px) {
+                        font-size: 1.2em;
+                    }
+                    @media screen and (max-width: 310px) {
+                        font-size: 1em;
+                    }
                     text-transform: uppercase;
                 }
                 &:nth-child(2) {
+                    @media screen and (min-width: 768px) {
+                        transform: translateX(50%);
+                        animation: halfTranslateLeft 0.2s ease-in-out 0.5s
+                            forwards;
+                    }
+                    @media screen and (max-width: 767px) {
+                        transform: translateX(-50%);
+                        animation: halfTranslateRight 0.2s ease-in-out 0.6s
+                            forwards;
+                    }
                     opacity: 0;
-                    transform: translateX(50%);
-                    animation: halfTranslateLeft 0.3s ease-in-out 0.9s forwards;
                     span:first-child {
                         font-size: 1.5em;
                     }
@@ -128,7 +194,7 @@
                 &:nth-child(3) {
                     opacity: 0;
                     transform: translateX(-50%);
-                    animation: halfTranslateRight 0.3s ease-in-out 1.2s forwards;
+                    animation: halfTranslateRight 0.2s ease-in-out 0.7s forwards;
                     span:first-child {
                         font-size: 1.5em;
                     }
@@ -140,9 +206,17 @@
                     }
                 }
                 &:nth-child(4) {
+                    @media screen and (min-width: 768px) {
+                        transform: translateX(50%);
+                        animation: halfTranslateLeft 0.2s ease-in-out 0.8s
+                            forwards;
+                    }
+                    @media screen and (max-width: 767px) {
+                        transform: translateX(-50%);
+                        animation: halfTranslateRight 0.2s ease-in-out 0.8s
+                            forwards;
+                    }
                     opacity: 0;
-                    transform: translateX(50%);
-                    animation: halfTranslateLeft 0.3s ease-in-out 1.5s forwards;
                     &:hover {
                         span:first-child {
                             transform: translateX(35px);
@@ -176,7 +250,7 @@
     }
     &__hobbies-side {
         h2 {
-            animation: increaseOpacity 0.2s ease-in-out 2.4s forwards;
+            animation: increaseOpacity 0.2s ease-in-out 1.2s forwards;
         }
         .about-me-page__list-container {
             display: flex;
@@ -185,8 +259,6 @@
             flex-direction: column;
             width: 100%;
             ul {
-                font-size: 1.8em;
-                z-index: 1;
                 @media screen and (min-width: 1025px) {
                     &:hover {
                         li {
@@ -194,6 +266,16 @@
                         }
                     }
                 }
+                @media screen and (min-width: 768px) {
+                    font-size: 1.8em;
+                }
+                @media screen and (max-width: 767px) {
+                    font-size: 1.2em;
+                }
+                @media screen and (max-width: 310px) {
+                    font-size: 1em;
+                }
+                z-index: 1;
                 li {
                     @media screen and (min-width: 1025px) {
                         transition: 0.1s ease-in-out;
@@ -201,6 +283,9 @@
                         &:hover {
                             opacity: 1;
                         }
+                    }
+                    @media screen and (max-width: 310px) {
+                        line-height: 36px;
                     }
                     z-index: 2;
                     line-height: 56px;
@@ -215,12 +300,18 @@
         height: 100%;
         width: 100%;
         img {
+            @media screen and (min-width: 768px) {
+                max-width: 30%;
+                min-height: 35%;
+            }
+            @media screen and (max-width: 767px) {
+                max-width: 55%;
+                min-height: 35%;
+            }
             opacity: 0;
             position: absolute;
             width: auto;
             height: auto;
-            max-width: 30%;
-            min-height: 35%;
             pointer-events: none;
             &.is-active {
                 opacity: 1;

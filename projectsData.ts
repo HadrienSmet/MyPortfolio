@@ -71,15 +71,15 @@ export const projects: ProjectInterface[] = [
         imageLink: "piiiquante-square.webp",
         images: [
             "piiiquante.webp",
-            "piiiquante.webp",
-            "piiiquante.webp",
-            "piiiquante.webp",
+            "piiiquante-menu.webp",
+            "piiiquante-sauce.webp",
+            "piiiquante-add-form.webp",
         ],
         legends: [
             "Sign in page",
-            "Home page",
-            "Page of a sauce",
-            "Page to add a sauce",
+            "Home page, screenshot from my exam",
+            "Page of a sauce, screenshot from my exam",
+            "Page to add a sauce, screenshot from my exam",
         ],
         description:
             "The goal of this project was to teach us how to create a REST with NodeJS. The front-end was already set we just had to create the routes, the middlewares and the controllers in order to realize a CRUD.",

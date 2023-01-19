@@ -28,8 +28,11 @@ const Footer = () => {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
-                    <FaLinkedin className="active" />
-                    <FaLinkedin />
+                    <FaLinkedin
+                        className="active"
+                        aria-label="Link to my linkedIn"
+                    />
+                    <FaLinkedin aria-label="Link to my linkedIn" />
                 </a>
                 <a
                     href="https://www.facebook.com/hadrien.smet/"
@@ -38,8 +41,11 @@ const Footer = () => {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
-                    <FaFacebook className="active" />
-                    <FaFacebook />
+                    <FaFacebook
+                        className="active"
+                        aria-label="Link to my facebook"
+                    />
+                    <FaFacebook aria-label="Link to my facebook" />
                 </a>
                 <a
                     href="mailto:hadriensmet96@gmail.com"
@@ -48,8 +54,11 @@ const Footer = () => {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
-                    <FaRegEnvelope className="active" />
-                    <FaRegEnvelope />
+                    <FaRegEnvelope
+                        className="active"
+                        aria-label="Send me a mail from you mailbox"
+                    />
+                    <FaRegEnvelope aria-label="Send me a mail from you mailbox" />
                 </a>
             </div>
         </footer>

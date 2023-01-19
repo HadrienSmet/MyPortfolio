@@ -90,32 +90,44 @@ const SectionContact = () => {
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <FaGithub id="github" />
-                            <FaGithub />
+                            <FaGithub
+                                id="github"
+                                aria-label="Link to my github"
+                            />
+                            <FaGithub aria-label="Link to my github" />
                         </a>
                         <a
                             href="https://www.linkedin.com/in/hadrien-smet-b80022207/"
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <FaLinkedin id="linkedin" />
-                            <FaLinkedin />
+                            <FaLinkedin
+                                id="linkedin"
+                                aria-label="Link to my linkedIn"
+                            />
+                            <FaLinkedin aria-label="Link to my linkedIn" />
                         </a>
                         <a
                             href="https://www.facebook.com/hadrien.smet/"
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <FaFacebook id="facebook" />
-                            <FaFacebook />
+                            <FaFacebook
+                                id="facebook"
+                                aria-label="Link to my facebook"
+                            />
+                            <FaFacebook aria-label="Link to my facebook" />
                         </a>
                         <a
                             href="https://twitter.com/hadrien_smet"
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <FaTwitter id="twitter" />
-                            <FaTwitter />
+                            <FaTwitter
+                                id="twitter"
+                                aria-label="Link to my twitter"
+                            />
+                            <FaTwitter aria-label="Link to my twitter" />
                         </a>
                     </div>
                 </div>

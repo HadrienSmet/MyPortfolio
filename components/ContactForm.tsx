@@ -85,7 +85,7 @@ const ContactForm = () => {
                         ref={mailRef}
                         type="email"
                         name="email"
-                        id="mail"
+                        id="email"
                         onBlur={handleMailValue}
                         required
                     />
@@ -94,7 +94,7 @@ const ContactForm = () => {
                         field="email"
                         errors={state.errors}
                     />
-                    <span>Email adress</span>
+                    <label htmlFor="email">Email adress</label>
                 </div>
             </div>
             <div
@@ -117,7 +117,7 @@ const ContactForm = () => {
                     field="message"
                     errors={state.errors}
                 />
-                <span>Message</span>
+                <label htmlFor="message">Message</label>
             </div>
             <div className="contact-form__button-container">
                 <MuiGradientBorder>

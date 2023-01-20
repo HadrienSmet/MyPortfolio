@@ -45,7 +45,6 @@ const useIndexOnScroll = () => {
             }
         };
         const handleScroll = (event: WheelEvent) => {
-            console.log(event);
             if (event.deltaY > 0) {
                 increaseScrollIndex();
             } else {

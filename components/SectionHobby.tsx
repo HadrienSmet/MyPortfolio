@@ -1,9 +1,9 @@
-import Image from "next/image";
 import { MouseEvent, useState } from "react";
 import HobbyImage from "../components/HobbyImage";
 import hobbiesData from "../utils/hobbiesData";
 import { useMousePosition, useWindowSize } from "../utils/hooks";
 import { useMyCursorContext } from "./CursorContext";
+import HobbyGallery from "./HobbyGallery";
 
 const useSectionHobby = () => {
     const [activeIndex, setActiveIndex] = useState(-1);
@@ -46,21 +46,8 @@ const SectionHobby = () => {
     return (
         <div className="about-me-page__hobbies-side">
             <h2>Hobbies</h2>
+            {screenWidth && screenWidth < 1025 && <HobbyGallery />}
             <div className="about-me-page__list-container">
-                {screenWidth && screenWidth < 1025 && (
-                    <ul className="about-me-page__hobbies-gallery">
-                        {hobbiesData.map(({ mediaUrl }, index) => (
-                            <li key={index}>
-                                <Image
-                                    src={"/img/" + mediaUrl}
-                                    alt="picture of my hobby"
-                                    fill
-                                    sizes="(max-width: 1024px) 90vw"
-                                />
-                            </li>
-                        ))}
-                    </ul>
-                )}
                 <ul
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}

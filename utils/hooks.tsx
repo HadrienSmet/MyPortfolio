@@ -33,8 +33,11 @@ export const useScrollPosition = () => {
 };
 
 export const useWindowSize = () => {
-    const isClient = typeof window !== "undefined";
+    const [isClient, setIsClient] = useState(false);
 
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
     const getSize = () => {
         return {
             width: isClient ? window.innerWidth : undefined,

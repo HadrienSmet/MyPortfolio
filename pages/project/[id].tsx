@@ -31,7 +31,6 @@ const useProject = () => {
         };
         const observer = new IntersectionObserver(function (entries, observer) {
             entries.forEach((entry) => {
-                console.log(entry.intersectionRatio);
                 if (entry.isIntersecting) {
                     entry.target.classList.add("visible");
                 } else {

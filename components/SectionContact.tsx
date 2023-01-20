@@ -160,7 +160,7 @@ const SectionContact = () => {
                     <Image
                         ref={contactImgRef}
                         src={handsomeYoungDevelopper}
-                        alt="Probablement l'un des meilleurs et l'un des plus beaux développeurs. Mais loin d'être prétentieux."
+                        alt="Picture of myself."
                         width={350}
                         height={420}
                     />

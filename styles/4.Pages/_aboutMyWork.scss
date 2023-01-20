@@ -19,15 +19,14 @@
     &__main-title {
         @media screen and (min-width: 1025px) {
             width: calc(100% - 600px);
+            font-size: 4.5em;
         }
         @media screen and (max-width: 1024px) {
             width: calc(100% - 160px);
-        }
-        @media screen and (min-width: 768px) {
-            font-size: 4.5em;
+            font-size: 2.8em;
+            text-align: center;
         }
         @media screen and (max-width: 767px) {
-            font-size: 2.8em;
             width: calc(100% - 80px);
         }
         @media screen and (max-width: 310px) {

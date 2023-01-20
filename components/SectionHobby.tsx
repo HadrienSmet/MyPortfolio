@@ -1,7 +1,8 @@
+import Image from "next/image";
 import { MouseEvent, useState } from "react";
 import HobbyImage from "../components/HobbyImage";
 import hobbiesData from "../utils/hobbiesData";
-import { useMousePosition } from "../utils/hooks";
+import { useMousePosition, useWindowSize } from "../utils/hooks";
 import { useMyCursorContext } from "./CursorContext";
 
 const useSectionHobby = () => {
@@ -40,11 +41,26 @@ const SectionHobby = () => {
         handleMouseLeave,
     } = useSectionHobby();
     const { x, y } = useMousePosition();
+    const screenWidth = useWindowSize().width;
 
     return (
         <div className="about-me-page__hobbies-side">
             <h2>Hobbies</h2>
             <div className="about-me-page__list-container">
+                {screenWidth && screenWidth < 1025 && (
+                    <ul className="about-me-page__hobbies-gallery">
+                        {hobbiesData.map(({ mediaUrl }, index) => (
+                            <li key={index}>
+                                <Image
+                                    src={"/img/" + mediaUrl}
+                                    alt="picture of my hobby"
+                                    fill
+                                    sizes="(max-width: 1024px) 90vw"
+                                />
+                            </li>
+                        ))}
+                    </ul>
+                )}
                 <ul
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
@@ -86,22 +102,24 @@ const SectionHobby = () => {
                     </li>
                 </ul>
             </div>
-            <div className="about-me-page__hobbies-data">
-                {hobbiesData.map(({ mediaUrl }, index) => {
-                    const isActive = index === activeIndex;
-                    const xPos = isActive ? x : 0;
-                    const yPos = isActive ? y : 0;
-                    return (
-                        <HobbyImage
-                            key={index}
-                            url={mediaUrl}
-                            active={isActive}
-                            x={xPos}
-                            y={yPos}
-                        />
-                    );
-                })}
-            </div>
+            {screenWidth && screenWidth > 1024 && (
+                <div className="about-me-page__hobbies-data">
+                    {hobbiesData.map(({ mediaUrl }, index) => {
+                        const isActive = index === activeIndex;
+                        const xPos = isActive ? x : 0;
+                        const yPos = isActive ? y : 0;
+                        return (
+                            <HobbyImage
+                                key={index}
+                                url={mediaUrl}
+                                active={isActive}
+                                x={xPos}
+                                y={yPos}
+                            />
+                        );
+                    })}
+                </div>
+            )}
         </div>
     );
 };

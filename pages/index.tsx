@@ -11,16 +11,18 @@ const useIndexOnScroll = () => {
 
     useEffect(() => {
         const scrollToIndex = () => {
+            const minScrollDist =
+                window.innerHeight > 950 ? window.innerHeight : 950;
             if (scrollIndex === 1) {
                 window.scrollTo({ top: 0, behavior: "smooth" });
             } else if (scrollIndex === 2) {
                 window.scrollTo({
-                    top: window.innerHeight,
+                    top: minScrollDist,
                     behavior: "smooth",
                 });
             } else {
                 window.scrollTo({
-                    top: 2.5 * window.innerHeight + 383,
+                    top: 2.5 * minScrollDist + 383,
                     behavior: "smooth",
                 });
             }

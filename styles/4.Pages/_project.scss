@@ -1,7 +1,11 @@
 .project-page {
     @media screen and (min-width: 1025px) {
+        @media screen and (min-height: 901px) {
+            width: calc(100vw - 900px);
+            min-width: 800px;
+        }
         @media screen and (max-height: 900px) {
-            width: calc(100vw - 300px);
+            width: calc(100vw - 316px);
         }
     }
     @media screen and (max-width: 767px) {
@@ -30,13 +34,14 @@
         @media screen and (min-width: 1025px) {
             @media screen and (min-height: 901px) {
                 width: calc(100vw - 916px);
+                min-width: 800px;
             }
             @media screen and (max-height: 900px) {
-                width: calc(100vw - 300px);
+                width: calc(100vw - 316px);
             }
         }
         @media screen and (max-width: 1024px) {
-            width: calc(100vw - 160px);
+            width: calc(100vw - 166px);
         }
         @media screen and (max-width: 767px) {
             width: calc(100vw - 80px);

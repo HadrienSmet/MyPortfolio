@@ -2,6 +2,7 @@
     @media screen and (min-width: 1025px) {
         @media screen and (min-height: 900px) {
             width: calc(100% - 900px);
+            min-width: 950px;
         }
         @media screen and (max-height: 900px) {
             width: calc(100% - 300px);
@@ -34,27 +35,10 @@
 
     opacity: 0;
     animation: increaseOpacity 0.2s 0.5s ease-in-out forwards;
-    .gradient {
-        position: relative;
-
-        border: 10px solid transparent;
-        border-radius: 35px;
-        border-top: 0px;
-        border-bottom: 0px;
-    }
-    > div:last-child {
-        width: 5%;
-        height: 60px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        animation: increaseGradientDimensions 0.4s ease-in-out 0.6s forwards;
-    }
     &__content {
         @media screen and (min-width: 1025px) {
             gap: 50px;
+            flex-wrap: wrap;
         }
         @media screen and (max-width: 1024px) {
             flex-direction: column-reverse;
@@ -149,6 +133,9 @@
         @media screen and (max-width: 320px) {
             width: calc(100% - 20px);
         }
+        display: flex;
+        justify-content: center;
+        align-items: center;
         position: relative;
         overflow: hidden;
         border-radius: 15px;
@@ -174,6 +161,7 @@
     @media screen and (min-width: 1025px) {
         @media screen and (min-height: 901px) {
             width: calc(100% - 900px);
+            min-width: 950px;
         }
         @media screen and (max-height: 900px) {
             width: calc(100% - 300px);
@@ -196,6 +184,7 @@
     @media screen and (max-width: 320px) {
         width: calc(100% - 40px);
     }
+    margin-bottom: 200px;
     padding-top: 50px;
     position: relative;
     display: flex;
@@ -731,15 +720,16 @@
         @media screen and (min-width: 1025px) {
             @media screen and (min-height: 901px) {
                 width: 60%;
+                min-width: calc(950px * 0.6);
             }
             @media screen and (max-height: 900px) {
-                width: 50%;
+                width: 45%;
             }
             transform: translateX(var(--div-translation));
         }
         @media screen and (min-width: 768px) and (max-width: 1024px) {
             @media screen and (min-height: 901px) {
-                width: 100%;
+                width: 70%;
             }
             @media screen and (max-height: 900px) {
                 width: 50%;
@@ -775,14 +765,15 @@
                 @media screen and (min-width: 1025px) {
                     @media screen and (min-height: 901px) {
                         width: calc((100vw - 900px) * 0.6);
+                        min-width: calc(950px * 0.6);
                     }
                     @media (max-height: 900px) {
-                        width: calc((100vw - 300px) * 0.5);
+                        width: calc((100vw - 300px) * 0.45);
                     }
                 }
                 @media screen and (min-width: 768px) and (max-width: 1024px) {
                     @media screen and (min-height: 901px) {
-                        width: calc(100vw - 160px);
+                        width: calc((100vw - 160px) * 0.7);
                     }
                     @media screen and (max-height: 900px) {
                         width: calc((100vw - 160px) * 0.5);
@@ -866,8 +857,7 @@
     @media screen and (min-width: 1025px) {
         @media screen and (min-height: 901px) {
             width: calc(100% - 900px);
-            height: 100vh;
-            // gap: 50px;
+            min-width: 950px;
         }
         @media screen and (max-height: 900px) {
             width: calc(100% - 300px);
@@ -876,7 +866,7 @@
     }
     @media screen and (min-width: 768px) and (max-width: 1024px) {
         @media screen and (min-height: 901px) {
-            height: calc(100vh - 190px);
+            min-height: calc(100vh - 190px);
         }
         @media screen and (max-height: 900px) {
             height: unset;
@@ -884,9 +874,9 @@
         width: calc(100% - 160px);
     }
     @media screen and (max-width: 767px) {
-        height: calc(100vh - 190px);
+        min-height: calc(100vh - 190px);
         width: calc(100% - 80px);
-        min-height: 700px;
+        // min-height: 700px;
     }
     display: flex;
     flex-direction: column;
@@ -973,14 +963,12 @@
         }
     }
     &__media-side {
-        @media screen and (min-width: 1025px) {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
         @media screen and (max-width: 767px) {
             width: calc(70vw - 40px);
         }
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
         h3 {
             color: $fifth-color;
             font-size: 1.7em;
@@ -1015,12 +1003,18 @@
         }
     }
     &__cv-container {
+        @media screen and (max-width: 767px) {
+            flex-direction: column;
+        }
         width: 100%;
         position: relative;
         display: flex;
         justify-content: space-between;
         gap: 25px;
         a {
+            @media screen and (max-width: 767px) {
+                width: 100%;
+            }
             width: 45%;
             font-weight: 700;
             letter-spacing: 1px;

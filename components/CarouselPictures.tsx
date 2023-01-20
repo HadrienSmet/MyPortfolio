@@ -53,12 +53,16 @@ const useCarouselPictures = ({ project }: Props) => {
             let imgWidth: number;
             if (screenWidth >= 1025) {
                 if (screenHeight >= 901) {
-                    imgWidth = window.innerWidth - 916 + 225;
+                    if (window.innerWidth - 916 > 800) {
+                        imgWidth = window.innerWidth - 916 + 225;
+                    } else {
+                        imgWidth = 800 + 225;
+                    }
                 } else {
                     imgWidth = window.innerWidth - 500 + 225;
                 }
             } else if (screenWidth >= 768 && screenWidth < 1025) {
-                imgWidth = window.innerWidth - 160 + 225;
+                imgWidth = window.innerWidth - 326 + 225;
             } else {
                 imgWidth = window.innerWidth - 80 + 225;
             }

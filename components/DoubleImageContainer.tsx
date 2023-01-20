@@ -109,7 +109,7 @@ const DoubleImageContainer = () => {
             >
                 <Image
                     src={pictureAboutWork}
-                    alt="Illustration de moi-même"
+                    alt="Illustration of myself"
                     width={550}
                     height={420}
                 />
@@ -120,7 +120,7 @@ const DoubleImageContainer = () => {
             >
                 <Image
                     src={pictureAboutMe}
-                    alt="Photos de moi-même"
+                    alt="Picture of myself"
                     width={550}
                     height={420}
                 />

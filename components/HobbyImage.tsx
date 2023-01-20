@@ -11,7 +11,7 @@ const HobbyImage = ({ url, active, x, y }: Props) => {
         <Image
             className={active ? "is-active" : ""}
             src={"/img/" + url}
-            alt="hobbies data"
+            alt="Picture of my hobby"
             width={700}
             height={700}
             style={{

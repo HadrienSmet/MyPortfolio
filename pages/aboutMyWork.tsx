@@ -12,6 +12,7 @@ const aboutMyWork = () => {
                     name="description"
                     content="Front-end developer that offers great solutions for your apps and web sites. And creates modern design to highlight your product "
                 />
+                <meta name="robots" content="index, follow"></meta>
                 <link rel="shortcut icon" href="favicon.ico" />
             </Head>
             <h1 className="about-work__main-title">About my work</h1>

@@ -55,6 +55,7 @@ const Project: React.FC<Props> = ({ project }: Props) => {
             <Head>
                 <title>Hadrien Smet - {project.name}</title>
                 <meta name="description" content={project.description} />
+                <meta name="robots" content="index, follow"></meta>
                 <link rel="shortcut icon" href="../favicon.ico" />
             </Head>
             <section className="project-page">

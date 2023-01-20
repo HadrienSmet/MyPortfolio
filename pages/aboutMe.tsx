@@ -11,6 +11,7 @@ const AboutMe = () => {
                     name="description"
                     content="Front-end developer that offers great solutions for your apps and web sites. And creates modern design to highlight your product "
                 />
+                <meta name="robots" content="index, follow"></meta>
                 <link rel="shortcut icon" href="favicon.ico" />
             </Head>
             <section className="about-me-page">

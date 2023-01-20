@@ -130,6 +130,28 @@ const SectionContact = () => {
                             <FaTwitter aria-label="Link to my twitter" />
                         </a>
                     </div>
+                    <div className="contact__cv-container">
+                        <a
+                            href="https://ibb.co/gtf9dqg"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            My CV{" "}
+                            <em>
+                                {"("}en{")"}
+                            </em>
+                        </a>
+                        <a
+                            href="https://ibb.co/ryT10zb"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            My CV{" "}
+                            <em>
+                                {"("}fr{")"}
+                            </em>
+                        </a>
+                    </div>
                 </div>
                 <div
                     className="contact__image-container"

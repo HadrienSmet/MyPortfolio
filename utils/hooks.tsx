@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export const useMousePosition = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -38,24 +38,25 @@ export const useWindowSize = () => {
     useEffect(() => {
         setIsClient(true);
     }, []);
-    const getSize = () => {
+    const getSize = useCallback(() => {
         return {
             width: isClient ? window.innerWidth : undefined,
             height: isClient ? window.innerHeight : undefined,
         };
-    };
+    }, [isClient]);
 
     const [windowSize, setWindowSize] = useState(getSize);
 
     useEffect(() => {
+        console.log("I a called");
         const handleResize = () => {
             setWindowSize(getSize());
+            console.log(getSize());
         };
 
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [getSize]);
 
     return windowSize;
 };

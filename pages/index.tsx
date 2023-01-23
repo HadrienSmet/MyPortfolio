@@ -1,15 +1,24 @@
 import Head from "next/head";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import SectionAbout from "../components/SectionAbout";
 import SectionContact from "../components/SectionContact";
 import SectionIntro from "../components/SectionIntro";
 import { useWindowSize } from "../utils/hooks";
 
 const useIndexOnScroll = () => {
-    const screenWidth = useWindowSize().width;
     let scrollIndex: number = 1;
+    const windowSize = useWindowSize();
+    const [screenWidth, setScreenWidth] = useState<number | undefined>(
+        undefined
+    );
 
     useEffect(() => {
+        if (windowSize.width === undefined) {
+            setScreenWidth(() => window.innerWidth);
+        } else {
+            setScreenWidth(() => windowSize.width);
+        }
+
         const scrollToIndex = () => {
             const minScrollDist =
                 window.innerHeight > 950 ? window.innerHeight : 950;
@@ -45,20 +54,23 @@ const useIndexOnScroll = () => {
             }
         };
         const handleScroll = (event: WheelEvent) => {
-            if (event.deltaY > 0) {
-                increaseScrollIndex();
+            console.log(screenWidth);
+            if (screenWidth && screenWidth > 1025) {
+                if (event.deltaY > 0) {
+                    increaseScrollIndex();
+                } else {
+                    decreaseScrollIndex();
+                }
             } else {
-                decreaseScrollIndex();
+                null;
             }
         };
 
-        if (screenWidth && screenWidth > 1025) {
-            window.addEventListener("wheel", handleScroll);
-            return () => {
-                window.removeEventListener("wheel", handleScroll);
-            };
-        }
-    }, [scrollIndex, screenWidth]);
+        window.addEventListener("wheel", handleScroll);
+        return () => {
+            window.removeEventListener("wheel", handleScroll);
+        };
+    }, [scrollIndex, windowSize.width, screenWidth, windowSize]);
 };
 
 const index = () => {

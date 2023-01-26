@@ -82,7 +82,7 @@ export const projects: ProjectInterface[] = [
             "Page to add a sauce, screenshot from my exam",
         ],
         description:
-            "The goal of this project was to teach us how to create a REST with NodeJS. The front-end was already set we just had to create the routes, the middlewares and the controllers in order to realize a CRUD.",
+            "The goal of this project was to teach us how to create a REST with NodeJS. The front-end was already set we just had to create the routes, the middlewares and the controllers in order to realize a CRUD. We had to create an app where the user can add, delete or modificate a sauce of his invention. And also like or dislike the sauce on the app",
         tools: ["NodeJS", "multer"],
         codeLink: "https://github.com/HadrienSmet/Projet6",
     },
@@ -101,7 +101,7 @@ export const projects: ProjectInterface[] = [
             "Home page (screenshot took during my presentation. The data base does not exist anymore",
         ],
         description:
-            "For this project we had to build a really basic social network from scratch and we had to use a framework between Angular, React and Vue. I chose React.",
+            "For this project we had to build a really basic social network from scratch and we had to use a framework between Angular, React and Vue. I chose React. We had to set a logic to signin up and sign in on the app thanks to a mail adress and a password. Then the user had to be able to realise some posts on the platform. The user had to be able to modificate or delete each one of his posts. An admin had to have the same rights on every posts made on the app. Each user had to be able to like or dislike the posts. I also implemented a logic to let the user provides a picture a chose a pseudo",
         tools: [
             "Sass",
             "JavaScript",
@@ -134,7 +134,7 @@ export const projects: ProjectInterface[] = [
             "The viewport of the home page of the mobile version",
         ],
         description:
-            "When I started developping this website I was dreaming about a tool that would help and fit to any kind of travellers. I wanted to create a place were we could meet and talk to people, share pictures from your trip and precise where you took it on a map, book hostels and plane tickets and save all those data in the same place in the user's phone, share your trip and all kinds of tips like that an algo that could have offer great trip to the futur users based on the data provided by the users and even warns you to hard to cross borders and provides you all the links to your ambassy to get you visa. Well I was young. Now that I am 2 months older I can clearly see that if I want to do that alone I mostly have to learn how to be a better developper if I want to build this huge app",
+            "When I started developping this website I was dreaming about a tool that would help and fit to any kind of travellers. I wanted to create a place where we could meet and talk to people, share pictures from your trip and precise where you took it on a map, book hostels and plane tickets and save all those data in the same place in the user's phone, share your trip and all kinds of tips like that an algo could have offer great trip to the futur users based on the data provided by the users. And even warns you about hard to cross borders and provides you all the links to your ambassy to get you visa. Well I was young. Now that I am 2 months older I can clearly see that if I want to do that alone I mostly have to learn how to be a better developper if I want to build this huge app",
         tools: [
             "Sass",
             "JavaScript",

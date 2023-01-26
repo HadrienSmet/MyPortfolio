@@ -98,20 +98,23 @@
             font-weight: 200;
             span.name {
                 display: inline-block;
-                transform: rotateX(90deg);
-                animation: rotateX 0.1s 1.1s ease-in-out forwards;
+                transform: rotateX(-90deg);
+                transform-origin: top;
+                animation: rotateX 0.3s 1.1s ease-in-out forwards;
             }
             span.js {
                 display: inline-block;
                 font-weight: 600;
-                transform: rotateX(90deg);
-                animation: rotateX 0.1s 1.2s ease-in-out forwards;
+                transform: rotateX(-90deg);
+                transform-origin: top;
+                animation: rotateX 0.3s 1.3s ease-in-out forwards;
             }
             strong {
                 display: inline-block;
                 font-weight: 900;
-                transform: rotateX(90deg);
-                animation: rotateX 0.1s 1.3s ease-in-out forwards;
+                transform: rotateX(-90deg);
+                transform-origin: top;
+                animation: rotateX 0.3s 1.5s ease-in-out forwards;
             }
         }
         p {
@@ -127,8 +130,8 @@
             color: $fourth-color;
 
             display: inline-block;
-            transform: rotateX(90deg);
-            animation: rotateX 0.1s 1.4s ease-in-out forwards;
+            transform: rotateX(-90deg);
+            animation: rotateX 0.3s 1.7s ease-in-out forwards;
         }
     }
     &__img-container {

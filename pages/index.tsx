@@ -1,76 +1,58 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import SectionAbout from "../components/SectionAbout";
-import SectionContact from "../components/SectionContact";
-import SectionIntro from "../components/SectionIntro";
-import { useWindowSize } from "../utils/hooks";
+import SectionAbout from "../components/pageIndex/about/SectionAbout";
+import SectionContact from "../components/pageIndex/contact/SectionContact";
+import SectionIntro from "../components/pageIndex/intro/SectionIntro";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 const useIndexOnScroll = () => {
-    let scrollIndex: number = 1;
     const windowSize = useWindowSize();
+    const [isScrollAble, setIsScrollAble] = useState(false);
     const [screenWidth, setScreenWidth] = useState<number | undefined>(
         undefined
     );
-
     useEffect(() => {
         if (windowSize.width === undefined) {
             setScreenWidth(() => window.innerWidth);
         } else {
             setScreenWidth(() => windowSize.width);
         }
+    }, [windowSize.width]);
 
-        const scrollToIndex = () => {
-            const minScrollDist =
-                window.innerHeight > 950 ? window.innerHeight : 950;
-            if (scrollIndex === 1) {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            } else if (scrollIndex === 2) {
-                window.scrollTo({
-                    top: minScrollDist,
-                    behavior: "smooth",
-                });
-            } else {
-                window.scrollTo({
-                    top: 2.5 * minScrollDist + 383,
-                    behavior: "smooth",
-                });
-            }
-        };
-
-        const increaseScrollIndex = () => {
-            if (scrollIndex <= 3) {
-                if (scrollIndex < 3) {
-                    scrollIndex++;
-                }
-                scrollToIndex();
-            }
-        };
-        const decreaseScrollIndex = () => {
-            if (scrollIndex >= 1) {
-                if (scrollIndex > 1) {
-                    scrollIndex--;
-                }
-                scrollToIndex();
-            }
-        };
+    useEffect(() => {
         const handleScroll = (event: WheelEvent) => {
-            console.log(screenWidth);
-            if (screenWidth && screenWidth > 1025) {
-                if (event.deltaY > 0) {
-                    increaseScrollIndex();
-                } else {
-                    decreaseScrollIndex();
-                }
-            } else {
-                null;
-            }
+            if (isScrollAble === false) event.preventDefault();
         };
 
-        window.addEventListener("wheel", handleScroll);
-        return () => {
-            window.removeEventListener("wheel", handleScroll);
+        const isBrowser = typeof window !== "undefined";
+        const contactEl =
+            isBrowser && (document.getElementById("contact") as Element);
+
+        const options = {
+            root: null,
+            threshold: 0.8,
+            rootMargin: "0px",
         };
-    }, [scrollIndex, windowSize.width, screenWidth, windowSize]);
+        const observer = new IntersectionObserver(function (entries, observer) {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setIsScrollAble(() => true);
+                    document.body.classList.remove("fixed");
+                } else {
+                    setIsScrollAble(() => false);
+                    document.body.classList.add("fixed");
+                }
+            });
+        }, options);
+        if (contactEl !== false) observer.observe(contactEl);
+
+        if (screenWidth && screenWidth >= 1025) {
+            window.addEventListener("wheel", handleScroll, { passive: false });
+            return () => {
+                window.removeEventListener("wheel", handleScroll);
+            };
+        }
+    }, [screenWidth, isScrollAble]);
 };
 
 const index = () => {

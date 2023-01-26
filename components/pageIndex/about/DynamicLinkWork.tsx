@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import { useMyCursorContext } from "./CursorContext";
-import { useMousePosition } from "../utils/hooks";
+import { useMyCursorContext } from "../../../context/CursorContext";
+import { useMousePosition } from "../../../hooks/useMousePosition";
 
 const useDynamicWorkOnMouseMove = () => {
     const workLinkRef = useRef<HTMLDivElement | null>(null);
@@ -147,7 +147,7 @@ const useWorkBubbleOnScroll = () => {
 
         const options = {
             root: null,
-            threshold: 0,
+            threshold: 0.5,
             rootMargin: "0px",
         };
         const observer = new IntersectionObserver(function (entries, observer) {

@@ -1,10 +1,16 @@
-import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import {
+    FaAngleUp,
+    FaFacebook,
+    FaGithub,
+    FaLinkedin,
+    FaTwitter,
+} from "react-icons/fa";
 import Image from "next/image";
-import handsomeYoungDevelopper from "../assets/images/photo-cv_151222.webp";
+import handsomeYoungDevelopper from "../../../public/img/photo-cv_151222-bgless.webp";
 import ContactForm from "./ContactForm";
-import { useMyCursorContext } from "./CursorContext";
+import { useMyCursorContext } from "../../../context/CursorContext";
 import { useEffect, useRef } from "react";
-import { useScrollPosition } from "../utils/hooks";
+import { useScrollPosition } from "../../../hooks/useScrollPosition";
 
 const useContactOnScroll = () => {
     const containerContactImgRef = useRef<HTMLDivElement | null>(null);
@@ -79,7 +85,10 @@ const SectionContact = () => {
     } = useContactOnScroll();
 
     return (
-        <section className="contact">
+        <section className="contact" id="contact">
+            <a href="#about" id="contact-to-about">
+                <FaAngleUp />
+            </a>
             <h2>Wants to work together?</h2>
             <div className="contact__first-row">
                 <div className="contact__media-side">

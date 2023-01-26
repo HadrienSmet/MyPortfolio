@@ -5,7 +5,7 @@ import {
     useRef,
     useState,
 } from "react";
-import { useMyCursorContext } from "./CursorContext";
+import { useMyCursorContext } from "../context/CursorContext";
 
 const useHeader = () => {
     const isBrowser = typeof window !== "undefined";

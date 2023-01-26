@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MutableRefObject, useRef } from "react";
-import { useMyCursorContext } from "./CursorContext";
+import { useMyCursorContext } from "../context/CursorContext";
 
 const useNavigation = () => {
     const isBrowser = typeof window !== "undefined";
@@ -19,6 +19,7 @@ const useNavigation = () => {
     };
 
     const classRemover = () => {
+        document.body.classList.remove("fixed");
         document.body.classList.remove("opened");
         if (button) button.classList.remove("opened");
         if (defBar) defBar.classList.remove("opened");

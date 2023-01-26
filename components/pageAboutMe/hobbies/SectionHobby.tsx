@@ -1,12 +1,17 @@
-import { MouseEvent, useState } from "react";
-import HobbyImage from "../components/HobbyImage";
-import hobbiesData from "../utils/hobbiesData";
-import { useMousePosition, useWindowSize } from "../utils/hooks";
-import { useMyCursorContext } from "./CursorContext";
+import { MouseEvent, useEffect, useState } from "react";
+import HobbyImage from "./HobbyImage";
+import hobbiesData from "../../../data/hobbiesData";
+import { useMousePosition } from "../../../hooks/useMousePosition";
+import { useWindowSize } from "../../../hooks/useWindowSize";
+import { useMyCursorContext } from "../../../context/CursorContext";
 import HobbyGallery from "./HobbyGallery";
 
 const useSectionHobby = () => {
+    const [screenWidth, setScreenWidth] = useState<number | undefined>(
+        undefined
+    );
     const [activeIndex, setActiveIndex] = useState(-1);
+    const windowSize = useWindowSize();
     const [, setIsCursorHover] = useMyCursorContext();
 
     const handleMouseEnter = () => {
@@ -15,6 +20,7 @@ const useSectionHobby = () => {
     const handleMouseLeave = () => {
         setIsCursorHover(false);
     };
+
     const handleActiveIndex = (event: MouseEvent<HTMLLIElement>) => {
         const element = event.target as HTMLElement;
         const elementIndex = element.id.split("-")[1];
@@ -23,8 +29,18 @@ const useSectionHobby = () => {
     const resetActiveIndex = () => {
         setActiveIndex(-1);
     };
+
+    useEffect(() => {
+        if (windowSize.width === undefined) {
+            setScreenWidth(() => window.innerWidth);
+        } else {
+            setScreenWidth(() => windowSize.width);
+        }
+    }, [windowSize.width]);
+
     return {
         activeIndex,
+        screenWidth,
         handleActiveIndex,
         resetActiveIndex,
         handleMouseEnter,
@@ -35,13 +51,13 @@ const useSectionHobby = () => {
 const SectionHobby = () => {
     const {
         activeIndex,
+        screenWidth,
         handleActiveIndex,
         resetActiveIndex,
         handleMouseEnter,
         handleMouseLeave,
     } = useSectionHobby();
     const { x, y } = useMousePosition();
-    const screenWidth = useWindowSize().width;
 
     return (
         <div className="about-me-page__hobbies-side">

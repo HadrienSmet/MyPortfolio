@@ -1,9 +1,11 @@
 import Image from "next/image";
-import { useEffect, useRef } from "react";
-import handsomeYoungDevelopper from "../assets/images/photo-cv_151222.webp";
-import { useScrollPosition } from "../utils/hooks";
+import { useEffect, useRef, useState } from "react";
+import handsomeYoungDevelopper from "../../../public/img/photo-cv_151222-bgless.webp";
+import { useScrollPosition } from "../../../hooks/useScrollPosition";
 import BackgroundIntro from "./BackgroundIntro";
-import { useMyCursorContext } from "./CursorContext";
+import { useMyCursorContext } from "../../../context/CursorContext";
+import { FaAngleDown } from "react-icons/fa";
+import { useWindowSize } from "../../../hooks/useWindowSize";
 
 const useIntroOnScroll = () => {
     const introImgRef = useRef<HTMLImageElement | null>(null);
@@ -35,7 +37,6 @@ const useIntroOnScroll = () => {
 const SectionIntro = () => {
     const { introImgRef, handleMouseEnter, handleMouseLeave } =
         useIntroOnScroll();
-    const isBrowser = typeof window !== "undefined";
 
     return (
         <section className="intro" id="intro">
@@ -66,6 +67,9 @@ const SectionIntro = () => {
                     />
                 </div>
             </div>
+            <a href="#about" id="intro-to-about">
+                <FaAngleDown />
+            </a>
         </section>
     );
 };

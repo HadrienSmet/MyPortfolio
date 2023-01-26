@@ -1,7 +1,7 @@
 import Head from "next/head";
-import SectionFormation from "../components/SectionFormation";
-import SectionHardSkills from "../components/SectionHardSkills";
-import SectionProjects from "../components/SectionProjects";
+import SectionFormation from "../components/pageAboutWork/SectionFormation";
+import SectionHardSkills from "../components/pageAboutWork/SectionHardSkills";
+import SectionProjects from "../components/pageAboutWork/projects/SectionProjects";
 
 const aboutMyWork = () => {
     return (

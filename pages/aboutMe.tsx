@@ -1,6 +1,6 @@
 import Head from "next/head";
-import SectionHobby from "../components/SectionHobby";
-import SectionSoftSkills from "../components/SectionSoftSkills";
+import SectionHobby from "../components/pageAboutMe/hobbies/SectionHobby";
+import SectionSoftSkills from "../components/pageAboutMe/softSkills/SectionSoftSkills";
 
 const AboutMe = () => {
     return (

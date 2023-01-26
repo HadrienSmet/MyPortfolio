@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import CursorContext from "./CursorContext";
+import CursorContext from "../context/CursorContext";
 import Footer from "./Footer";
 import Header from "./Header";
 import Navigation from "./Navigation";

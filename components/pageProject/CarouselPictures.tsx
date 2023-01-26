@@ -1,15 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import Image from "next/image";
-import { ProjectInterface } from "../interfaces/models";
-import { useMyCursorContext } from "./CursorContext";
-import { useWindowSize } from "../utils/hooks";
+import { ProjectInterface } from "../../interfaces/models";
+import { useMyCursorContext } from "../../context/CursorContext";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 type Props = {
     project: ProjectInterface;
 };
 
 const useCarouselPictures = ({ project }: Props) => {
+    const [screenHeight, setScreenHeight] = useState<number | undefined>(
+        undefined
+    );
+    const [screenWidth, setScreenWidth] = useState<number | undefined>(
+        undefined
+    );
     const [posIndex, setPosIndex] = useState(0);
     const [isFirst, setIsFirst] = useState(true);
     const [isLast, setIsLast] = useState(false);
@@ -17,8 +23,19 @@ const useCarouselPictures = ({ project }: Props) => {
     const nextBtnRef = useRef<HTMLDivElement | null>(null);
     const carouselContentRef = useRef<HTMLDivElement | null>(null);
     const [, setIsCursorHover] = useMyCursorContext();
-    const screenWidth = useWindowSize().width;
-    const screenHeight = useWindowSize().height;
+    const windowSize = useWindowSize();
+    useEffect(() => {
+        if (windowSize.width === undefined) {
+            setScreenWidth(() => window.innerWidth);
+        } else {
+            setScreenWidth(() => windowSize.width);
+        }
+        if (windowSize.height === undefined) {
+            setScreenHeight(() => window.innerHeight);
+        } else {
+            setScreenHeight(() => windowSize.height);
+        }
+    }, [windowSize.width, windowSize.height]);
 
     const handleCursorEnter = () => {
         setIsCursorHover(true);

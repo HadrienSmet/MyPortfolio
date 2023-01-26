@@ -1,17 +1,30 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { ProjectInterface } from "../interfaces/models";
-import { useMyCursorContext } from "./CursorContext";
+import { ProjectInterface } from "../../../interfaces/models";
+import { useMyCursorContext } from "../../../context/CursorContext";
+import { useWindowSize } from "../../../hooks/useWindowSize";
 
 type Props = {
     project: ProjectInterface;
 };
 
 const useProjectCard = ({ project }: Props) => {
+    const [screenWidth, setScreenWidth] = useState<number | undefined>(
+        undefined
+    );
     const [isHover, setIsHover] = useState(false);
     const imgRef = useRef<HTMLImageElement>(null);
     const [, setIsCursorHover] = useMyCursorContext();
+    const windowSize = useWindowSize();
+
+    useEffect(() => {
+        if (windowSize.width === undefined) {
+            setScreenWidth(window.innerWidth);
+        } else {
+            setScreenWidth(windowSize.width);
+        }
+    }, [windowSize.width]);
 
     const handleCursorEnter = () => {
         setIsCursorHover(true);
@@ -53,14 +66,16 @@ const useProjectCard = ({ project }: Props) => {
             }
         };
 
-        if (isHover) {
-            window.addEventListener("mousemove", handleMouseMove);
+        if (screenWidth && screenWidth >= 1025) {
+            if (isHover) {
+                window.addEventListener("mousemove", handleMouseMove);
 
-            return () => {
-                window.removeEventListener("mousemove", handleMouseMove);
-            };
+                return () => {
+                    window.removeEventListener("mousemove", handleMouseMove);
+                };
+            }
         }
-    }, [isHover, project.id]);
+    }, [isHover, project.id, screenWidth]);
 
     return {
         imgRef,

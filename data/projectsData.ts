@@ -1,4 +1,4 @@
-import { ProjectInterface } from "./interfaces/models";
+import { ProjectInterface } from "../interfaces/models";
 export const projects: ProjectInterface[] = [
     {
         id: "1",

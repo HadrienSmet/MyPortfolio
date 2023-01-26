@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { ProjectInterface } from "../../interfaces/models";
-import { projects } from "../../projectsData";
-import MuiGradientBorder from "../../components/MuiGradientBorder";
-import { useMyCursorContext } from "../../components/CursorContext";
-import CarouselPictures from "../../components/CarouselPictures";
+import { projects } from "../../data/projectsData";
+import MuiGradientBorder from "../../components/mui/MuiGradientBorder";
+import { useMyCursorContext } from "../../context/CursorContext";
+import CarouselPictures from "../../components/pageProject/CarouselPictures";
 import Head from "next/head";
 
 type Props = {

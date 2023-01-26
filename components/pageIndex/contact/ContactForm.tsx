@@ -1,7 +1,7 @@
 import { useForm, ValidationError } from "@formspree/react";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
-import { useMyCursorContext } from "./CursorContext";
-import MuiGradientBorder from "./MuiGradientBorder";
+import { useMyCursorContext } from "../../../context/CursorContext";
+import MuiGradientBorder from "../../mui/MuiGradientBorder";
 
 const useContactForm = () => {
     const [mailValue, setMailValue] = useState("");

@@ -15,6 +15,7 @@ body {
     &::-webkit-scrollbar {
         width: 16px;
         background-color: transparent;
+        transition: display 0.2s ease-in-out;
     }
     &:not([no-y-overflow])::-webkit-scrollbar-thumb {
         height: 56px;
@@ -41,6 +42,11 @@ body.opened {
         display: none;
     }
 }
+body.fixed {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
 main {
     display: flex;
     flex-direction: column;
@@ -48,13 +54,6 @@ main {
     gap: 50px;
 }
 section {
-    // @media screen and (min-width: 1025px) {
-    //     padding: 0 450px;
-    //     margin-bottom: 200px;
-    //     @media screen and (max-height: 900px) {
-    //         padding: 0 150px;
-    //     }
-    // }
     @media screen and (min-width: 768px) and (max-width: 1024px) {
         padding: 0 80px;
         margin-bottom: 80px;

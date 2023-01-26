@@ -1,7 +1,7 @@
 import { MutableRefObject, useEffect, useRef } from "react";
 import Image from "next/image";
-import pictureAboutWork from "../public/img/graphic-picture.webp";
-import pictureAboutMe from "../public/img/photo-cv_151222-bgless.webp";
+import pictureAboutWork from "../../../public/img/graphic-picture.webp";
+import pictureAboutMe from "../../../public/img/photo-cv_151222-bgless.webp";
 
 const handleDoubleImageTranslateX = (
     ratio: number,
@@ -77,7 +77,7 @@ const useImageOnScroll = () => {
 
         const options = {
             root: null,
-            threshold: 0.7,
+            threshold: 1,
             rootMargin: "0px",
         };
         const observer = new IntersectionObserver(function (entries, observer) {

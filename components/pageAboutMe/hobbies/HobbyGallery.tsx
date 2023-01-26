@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import hobbiesData from "../utils/hobbiesData";
+import hobbiesData from "../../../data/hobbiesData";
 
 const HobbyGallery = () => {
     return (

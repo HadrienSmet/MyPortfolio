@@ -5,8 +5,8 @@ import {
     FaLinkedin,
     FaRegEnvelope,
 } from "react-icons/fa";
-import { handleScrollToTop } from "../utils/hooks";
-import { useMyCursorContext } from "./CursorContext";
+import { handleScrollToTop } from "../utils/handleScrollToTop";
+import { useMyCursorContext } from "../context/CursorContext";
 
 const Footer = () => {
     const [, setIsCursorHover] = useMyCursorContext();

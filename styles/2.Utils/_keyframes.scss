@@ -158,6 +158,29 @@
 }
 
 /*******************************Special element animated********************************/
+// @keyframes titleAppear {
+//     0% {
+//         transform: rotateX(90deg);
+//         opacity: 0;
+//     }
+//     20%,
+//     100% {
+//         opacity: 1;
+//     }
+//     100% {
+//         transform: rotateX(0deg);
+//     }
+// }
+@keyframes rotateX {
+    0% {
+        transform: rotateX(90deg);
+    }
+
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
 @keyframes increaseGradientDimensions {
     0% {
         width: 5%;

@@ -1,17 +1,17 @@
 import { FaGitAlt } from "react-icons/fa";
-import SvgVsCode from "./SvgVsCode";
-import SvgHTML from "./SvgHTML";
-import SvgCSS from "./SvgCSS";
-import SvgSass from "./SvgSass";
-import SvgTypeScript from "./SvgTypeScript";
-import SvgJavaScript from "./SvgJavaScript";
-import SvgNodeJS from "./SvgNodeJS";
-import SvgMongoDB from "./SvgMongoDB";
-import SvgReact from "./SvgReact";
-import SvgNextJS from "./SvgNextJS";
-import SvgThreeJS from "./SvgThreeJS";
-import SvgFigma from "./SvgFigma";
-import { projects } from "../projectsData";
+import SvgCSS from "../../../assets/svg/SvgCSS";
+import SvgFigma from "../../../assets/svg/SvgFigma";
+import SvgHTML from "../../../assets/svg/SvgHTML";
+import SvgJavaScript from "../../../assets/svg/SvgJavaScript";
+import SvgMongoDB from "../../../assets/svg/SvgMongoDB";
+import SvgNextJS from "../../../assets/svg/SvgNextJS";
+import SvgNodeJS from "../../../assets/svg/SvgNodeJS";
+import SvgReact from "../../../assets/svg/SvgReact";
+import SvgSass from "../../../assets/svg/SvgSass";
+import SvgThreeJS from "../../../assets/svg/SvgThreeJS";
+import SvgTypeScript from "../../../assets/svg/SvgTypeScript";
+import SvgVsCode from "../../../assets/svg/SvgVsCode";
+import { projects } from "../../../data/projectsData";
 import ProjectCard from "./ProjectCard";
 
 const SectionProjects = () => {

@@ -2,8 +2,17 @@ import Head from "next/head";
 import SectionFormation from "../components/pageAboutWork/SectionFormation";
 import SectionHardSkills from "../components/pageAboutWork/SectionHardSkills";
 import SectionProjects from "../components/pageAboutWork/projects/SectionProjects";
+import { useEffect } from "react";
+
+const useAboutMyWork = () => {
+    useEffect(() => {
+        document.body.classList.remove("fixed");
+    });
+};
 
 const aboutMyWork = () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useAboutMyWork();
     return (
         <>
             <Head>

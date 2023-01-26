@@ -19,7 +19,6 @@ const useNavigation = () => {
     };
 
     const classRemover = () => {
-        document.body.classList.remove("fixed");
         document.body.classList.remove("opened");
         if (button) button.classList.remove("opened");
         if (defBar) defBar.classList.remove("opened");

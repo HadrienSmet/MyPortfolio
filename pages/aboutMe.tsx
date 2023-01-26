@@ -1,8 +1,16 @@
 import Head from "next/head";
+import { useEffect } from "react";
 import SectionHobby from "../components/pageAboutMe/hobbies/SectionHobby";
 import SectionSoftSkills from "../components/pageAboutMe/softSkills/SectionSoftSkills";
 
+const useAboutMe = () => {
+    useEffect(() => {
+        document.body.classList.remove("fixed");
+    });
+};
+
 const AboutMe = () => {
+    useAboutMe();
     return (
         <>
             <Head>

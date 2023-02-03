@@ -27,8 +27,10 @@
         @media screen and (max-width: 310px) {
             font-size: 1.3em;
         }
-        font-weight: 900;
-        color: $fifth-color;
+        // font-weight: 900;
+        text-align: center;
+        font-family: "title-fonts";
+        color: $fourth-color;
     }
     &__carousel-area {
         @media screen and (min-width: 1025px) {
@@ -83,6 +85,7 @@
                 width: 100%;
                 font-size: 1em;
             }
+            color: rgba($fourth-color, 0.8);
             font-size: 1.2em;
             line-height: 32px;
         }

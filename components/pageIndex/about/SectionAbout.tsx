@@ -7,6 +7,10 @@ import { handleScrollToTop } from "../../../utils/handleScrollToTop";
 const SectionAbout = () => {
     return (
         <section className="about" id="about">
+            <div className="slope-container">
+                <div className="left-slope"></div>
+                <div className="right-slope"></div>
+            </div>
             <FaAngleUp id="to-intro" onClick={handleScrollToTop} />
             <div className="about__dynamic-links-container">
                 <DynamicLinkWork />

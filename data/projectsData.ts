@@ -7,7 +7,7 @@ export const projects: ProjectInterface[] = [
         images: ["booki.webp", "booki-mobile.webp", "booki-pad.webp"],
         legends: ["Desktop version", "Mobile version", "Pad version"],
         description:
-            "The goal of this project was to teach us how to integrate a basic template only using HTML and CSS. So we learned how to improve our workflow and wich details required most attention",
+            "The goal of this project was to teach us how to integrate a basic template only using HTML and CSS. So we learned how to improve our workflow and wich details required most attention.",
         tools: ["HTML", "CSS"],
         codeLink: "https://github.com/HadrienSmet/OpenClassroom-P2",
     },
@@ -22,7 +22,7 @@ export const projects: ProjectInterface[] = [
             "Pad version of the home page",
         ],
         description:
-            "The goal of this project was to teach us how to integrate a template and to handle basic animations only using HTML and Sass . So we learned how to handle pseudo-classes, pseudo-elements and pseudo-selectors",
+            "The goal of this project was to teach us how to integrate a template and to handle basic animations only using HTML and CSS, but we were allowed to compile our style sheets with Sass. So we learned how to handle pseudo-classes, pseudo-elements and pseudo-selectors but also the keyframes to implement more complexe animations",
         tools: ["HTML", "Sass"],
         codeLink: "https://github.com/HadrienSmet/OpenClassroom-P3",
     },
@@ -61,7 +61,7 @@ export const projects: ProjectInterface[] = [
             "Basket page",
         ],
         description:
-            "The goal of this project was to introduce us JavaScript. We only had to develop the JS, the HTML, CSS and the back were already done. We had to connect the pages together, to set a basket and all the functionalities related to it. Basically, we had to learn how to create a dynamic website",
+            "The goal of this project was to introduce us JavaScript. We only had to develop the JS, the HTML, CSS and the back were already done. We had to connect the pages together, to set a basket and all the functionalities related to it. Basically, we had to learn how to create a dynamic website using functions and loops",
         tools: ["JavaScript"],
         codeLink: "https://github.com/HadrienSmet/go-fullstack",
     },
@@ -101,7 +101,7 @@ export const projects: ProjectInterface[] = [
             "Home page (screenshot took during my presentation. The data base does not exist anymore",
         ],
         description:
-            "For this project we had to build a really basic social network from scratch and we had to use a framework between Angular, React and Vue. I chose React. We had to set a logic to signin up and sign in on the app thanks to a mail adress and a password. Then the user had to be able to realise some posts on the platform. The user had to be able to modificate or delete each one of his posts. An admin had to have the same rights on every posts made on the app. Each user had to be able to like or dislike the posts. I also implemented a logic to let the user provides a picture a chose a pseudo",
+            "For this project we had to build a really basic social network from scratch. The use a framework between Angular, React and Vue was mandatory. I chose React. We had to set a logic to signing up and signing in on the app thanks to a mail adress and a password. Then the user had to be able to realise some posts on the platform. The user had to be able to modificate or delete each one of his posts. An admin had to have the same rights on every posts made on the app. Each user had to be able to like or dislike the posts. I also implemented a logic to let the user provides a picture and chose a pseudo",
         tools: [
             "Sass",
             "JavaScript",
@@ -134,7 +134,7 @@ export const projects: ProjectInterface[] = [
             "The viewport of the home page of the mobile version",
         ],
         description:
-            "When I started developping this website I was dreaming about a tool that would help and fit to any kind of travellers. I wanted to create a place where we could meet and talk to people, share pictures from your trip and precise where you took it on a map, book hostels and plane tickets and save all those data in the same place in the user's phone, share your trip and all kinds of tips like that an algo could have offer great trip to the futur users based on the data provided by the users. And even warns you about hard to cross borders and provides you all the links to your ambassy to get you visa. Well I was young. Now that I am 2 months older I can clearly see that if I want to do that alone I mostly have to learn how to be a better developper if I want to build this huge app",
+            "When I started developping this website I was dreaming about a tool that would help and fit to any kind of travellers. I wanted to create a place where we could meet and talk to people, share pictures from your trip and precise where you took it on a map, book hostels and plane tickets and save all those data in the same place in the user's phone, share your trip and all kinds of tips like that an algo could have offer great trip to the futur users based on the data provided by the users. And even warns you about hard to cross borders and provides you all the links to your ambassy to get you visa. But this app will probably never possess all those functionalities. I implemented a signing in form made of three steps. The first one is for the authentification data, the second one for his personal data like the user's name and the third one is for the extra data (all the data that will be public). Every user can create a post containing a text and or a picture. After creating it he can delete it or edit it if he wants. An admin possess the same rights to insure that the app remains a secure area for all the users. All the posts can be filtered by country. A like and dislike logic has been implemented on the posts. Every user has his own profile page where he can add some more extra data, like new trips he made or create a new album containing all the pictures he made during his trip. Each user can follow or unfollow the other users.",
         tools: [
             "Sass",
             "JavaScript",

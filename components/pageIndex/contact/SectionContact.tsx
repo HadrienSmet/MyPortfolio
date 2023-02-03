@@ -86,6 +86,10 @@ const SectionContact = () => {
 
     return (
         <section className="contact" id="contact">
+            <div className="slope-container">
+                <div className="left-slope"></div>
+                <div className="right-slope"></div>
+            </div>
             <a href="#about" id="contact-to-about">
                 <FaAngleUp />
             </a>
@@ -99,10 +103,7 @@ const SectionContact = () => {
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <FaGithub
-                                id="github"
-                                aria-label="Link to my github"
-                            />
+                            <span className="link-circle"></span>
                             <FaGithub aria-label="Link to my github" />
                         </a>
                         <a
@@ -110,10 +111,7 @@ const SectionContact = () => {
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <FaLinkedin
-                                id="linkedin"
-                                aria-label="Link to my linkedIn"
-                            />
+                            <span className="link-circle"></span>
                             <FaLinkedin aria-label="Link to my linkedIn" />
                         </a>
                         <a
@@ -121,10 +119,7 @@ const SectionContact = () => {
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <FaFacebook
-                                id="facebook"
-                                aria-label="Link to my facebook"
-                            />
+                            <span className="link-circle"></span>
                             <FaFacebook aria-label="Link to my facebook" />
                         </a>
                         <a
@@ -132,10 +127,7 @@ const SectionContact = () => {
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                         >
-                            <FaTwitter
-                                id="twitter"
-                                aria-label="Link to my twitter"
-                            />
+                            <span className="link-circle"></span>
                             <FaTwitter aria-label="Link to my twitter" />
                         </a>
                     </div>

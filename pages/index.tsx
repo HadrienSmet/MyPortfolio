@@ -30,7 +30,7 @@ const useIndexOnScroll = () => {
 
         const options = {
             root: null,
-            threshold: 0.8,
+            threshold: 0.7,
             rootMargin: "0px",
         };
         const observer = new IntersectionObserver(function (entries, observer) {

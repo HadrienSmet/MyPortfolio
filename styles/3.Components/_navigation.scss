@@ -1,5 +1,5 @@
 nav {
-    background-color: $clr-1;
+    background-color: $third-color;
     position: fixed;
     top: 0;
     left: 0;
@@ -30,12 +30,18 @@ nav {
         flex-direction: column;
         gap: 10px;
         li {
+            &:nth-child(3) {
+                box-shadow: -4px 1px 2px 1px rgba($fourth-color, 0.2);
+                &::before {
+                    box-shadow: 0px 2px 2px 1px rgba($fourth-color, 0.2);
+                }
+            }
             @media screen and (min-width: 1025px) {
                 font-size: 4em;
                 &:hover {
                     transform: skewY(-10deg) translateX(-100px);
                     letter-spacing: 1px;
-                    background-color: $fourth-color;
+                    background-color: $first-color;
                 }
             }
             @media screen and (max-width: 1024px) {
@@ -53,7 +59,7 @@ nav {
                 font-size: 0.9em;
             }
             padding: 15px 25px;
-            background-color: $first-color;
+            background-color: $third-color;
             color: $clr-1;
             position: relative;
             transition: 0.3s ease-in-out;
@@ -113,7 +119,7 @@ nav {
                 position: absolute;
                 left: 0;
                 width: 100%;
-                background-color: $third-color;
+                background-color: $fourth-color;
                 transform-origin: bottom;
                 transform: skewX(55deg);
             }

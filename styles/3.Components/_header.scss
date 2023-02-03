@@ -12,7 +12,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: $first-color;
+        background-color: $third-color;
         color: $clr-1;
         transition: 0.3s ease-in-out;
         transform: translateY(-100%);
@@ -26,10 +26,10 @@
 }
 .header__default-bar.opened {
     background-color: transparent !important;
-    color: $first-color !important;
-    .line {
-        stroke: $first-color !important;
-    }
+    // color: $third-color !important;
+    // .line {
+    // stroke: $third-color !important;
+    // }
 }
 .menu {
     @media screen and (min-width: 768px) {

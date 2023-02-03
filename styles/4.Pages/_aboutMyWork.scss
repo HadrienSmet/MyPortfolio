@@ -32,9 +32,11 @@
         @media screen and (max-width: 310px) {
             font-size: 1.4em;
         }
+        text-align: center;
         margin-top: 130px;
         text-transform: uppercase;
-        color: $fifth-color;
+        font-family: "title-fonts";
+        color: $fourth-color;
         opacity: 0;
         animation: increaseOpacity 0.1s ease-in-out 0.4s forwards;
     }
@@ -48,7 +50,7 @@
         @media screen and (max-width: 310px) {
             font-size: 1.2em;
         }
-        color: $second-color;
+        color: rgba($third-color, 0.9);
         position: relative;
         opacity: 0;
         animation: increaseOpacity 0.1s ease-in-out forwards;
@@ -168,6 +170,7 @@
             @media screen and (max-width: 310px) {
                 font-size: 1em;
             }
+            color: rgba($fourth-color, 0.8);
             display: flex;
             justify-content: center;
             width: 100%;
@@ -264,7 +267,7 @@
                 @media screen and (min-width: 1025px) {
                     @media screen and (min-height: 901px) {
                         &:hover {
-                            color: $clr-1;
+                            color: $fifth-color;
                             &::before {
                                 transform: scaleX(7000%);
                             }
@@ -275,7 +278,7 @@
                     }
                     @media screen and (max-height: 900px) {
                         &.visible {
-                            color: $clr-1;
+                            color: $fifth-color;
                             &::before {
                                 transform: scaleX(7000%);
                             }
@@ -285,9 +288,10 @@
                         }
                     }
                 }
+                color: rgba($fourth-color, 0.8);
                 @media screen and (max-width: 1024px) {
                     &.visible {
-                        color: $clr-1;
+                        color: $fifth-color;
                         &::before {
                             transform: scaleX(5000%);
                         }

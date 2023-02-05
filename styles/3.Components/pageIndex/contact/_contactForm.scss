@@ -1,37 +1,62 @@
-.contact {
-    form {
-        @media screen and (min-width: 768px) {
+@media screen and (min-width: 1025px) {
+    .contact-form__button-container:hover {
+        animation: buttonFormHover 0.8s ease-in-out infinite;
+    }
+}
+@media screen and (min-width: 768px) {
+    .contact {
+        form {
             gap: 45px;
         }
-        @media screen and (max-width: 767px) {
-            gap: 25px;
-        }
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 100%;
-    }
-    &-form {
-        &__left-column {
-            @media screen and (min-width: 768px) {
+        &-form {
+            &__left-column {
                 width: 80%;
                 gap: 35px;
             }
-            @media screen and (max-width: 767px) {
+            &__right-column {
+                width: 80%;
+            }
+            &__button-container {
+                width: 55%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .contact {
+        form {
+            gap: 25px;
+        }
+        &-form {
+            &__left-column {
                 width: 100%;
                 align-items: center;
                 gap: 10px;
             }
-            display: flex;
-            flex-direction: column;
+            &__right-column {
+                width: 100%;
+            }
+            &__button-container {
+                width: calc(90% - 4px);
+            }
+        }
+    }
+}
+
+.contact {
+    form {
+        position: relative;
+        width: 100%;
+        @include flexColumnFullCenter;
+    }
+    &-form {
+        &__left-column {
+            @include flexColumn;
             > div {
                 position: relative;
                 width: 100%;
                 height: 65px;
                 input {
-                    // border: 2px solid $second-color;
                     border: none;
                     border-radius: 4px;
                     height: 100%;
@@ -121,12 +146,6 @@
             }
         }
         &__right-column {
-            @media screen and (min-width: 768px) {
-                width: 80%;
-            }
-            @media screen and (max-width: 767px) {
-                width: 100%;
-            }
             position: relative;
             textarea {
                 padding-top: 15px;
@@ -175,7 +194,6 @@
                 top: 16px;
                 left: 10px;
                 padding: 5px 10px;
-                // background-color: $clr-1;
                 color: $fifth-color;
                 text-transform: uppercase;
                 letter-spacing: 2px;
@@ -207,23 +225,9 @@
             }
         }
         &__button-container {
-            @media screen and (min-width: 1025px) {
-                &:hover {
-                    animation: buttonFormHover 0.8s ease-in-out infinite;
-                }
-            }
-            @media screen and (min-width: 768px) {
-                width: 55%;
-            }
-            @media screen and (max-width: 767px) {
-                width: calc(90% - 4px);
-            }
             margin-bottom: 60px;
             height: 60px;
             .gradient {
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 height: 100%;
                 width: 100%;
                 border-radius: 4px;
@@ -237,6 +241,7 @@
                     );
                 background-clip: padding-box, border-box;
                 background-origin: border-box;
+                @include flexFullCenter;
                 button {
                     display: inline-block;
                     text-transform: uppercase;

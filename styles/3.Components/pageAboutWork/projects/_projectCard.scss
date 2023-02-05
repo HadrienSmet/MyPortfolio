@@ -1,10 +1,64 @@
-.project {
-    @media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) {
+    .project {
         height: calc(((100vw - 715px) / 3));
+        &-content {
+            ul {
+                @media screen and (max-width: 1750px) {
+                    display: none;
+                }
+                @media screen and (max-height: 900px) {
+                    display: none;
+                }
+            }
+            a {
+                &:hover {
+                    color: $third-color;
+                    border-color: $third-color;
+                    transform: scaleX(1.2) !important;
+                }
+            }
+        }
     }
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1750px) {
+        .project-content ul {
+            display: none;
+        }
+    }
+    @media screen and (max-height: 900px) {
+        .project-content ul {
+            display: none;
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .project {
         height: calc(((100vw - 180px) / 2));
+        &-content ul {
+            display: none;
+        }
     }
+    @media screen and (min-width: 768px) {
+        .project-content h3 {
+            height: 26px;
+            width: calc((100vw - 230px) / 2);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        @media screen and (max-height: 900px) {
+            .project-content {
+                h3 {
+                    transform: translateY(-300px);
+                }
+                a {
+                    transform: translateY(300px);
+                }
+            }
+        }
+    }
+}
+
+.project {
     @media screen and (max-width: 767px) {
         height: calc(100vw - 80px);
     }
@@ -53,22 +107,9 @@
         position: relative;
         height: 100%;
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
         transition: 0.3s ease-in;
+        @include flexColumnCenterXEvenlyY;
         h3 {
-            @media screen and (min-width: 768px) and (max-width: 1024px) {
-                @media screen and (max-height: 900px) {
-                    transform: translateY(-300px);
-                }
-                height: 26px;
-                width: calc((100vw - 230px) / 2);
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
             text-align: center;
             font-size: 1.5em;
             font-weight: 900;
@@ -77,22 +118,10 @@
             transform: translateY(-150px);
         }
         ul {
-            @media screen and (min-width: 1025px) {
-                @media screen and (max-width: 1750px) {
-                    display: none;
-                }
-                @media screen and (max-height: 900px) {
-                    display: none;
-                }
-            }
-            @media screen and (max-width: 1024px) {
-                display: none;
-            }
             width: 75%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
             gap: 5px;
+            flex-wrap: wrap;
+            @include flexCenterX;
             li {
                 padding: 5px 15px;
                 background-color: $first-color;
@@ -108,22 +137,6 @@
             }
         }
         a {
-            @media screen and (min-width: 1025px) {
-                &:hover {
-                    color: $third-color;
-                    border-color: $third-color;
-                    transform: scaleX(1.2) !important;
-                }
-            }
-            @media screen and (min-width: 768px) and (max-width: 1024px) {
-                @media screen and (max-height: 900px) {
-                    transform: translateY(300px);
-                }
-            }
-            display: inline-block;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             width: 50%;
             height: 45px;
             border: 2px solid $first-color;
@@ -133,6 +146,7 @@
             transform: translateY(150px);
             transition: 0.25s ease-out;
             z-index: 5;
+            @include flexFullCenter;
         }
     }
 }

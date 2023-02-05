@@ -3,6 +3,7 @@ import SectionFormation from "../components/pageAboutWork/SectionFormation";
 import SectionHardSkills from "../components/pageAboutWork/SectionHardSkills";
 import SectionProjects from "../components/pageAboutWork/projects/SectionProjects";
 import { useEffect } from "react";
+import SectionTools from "../components/pageAboutWork/SectionTools";
 
 const useAboutMyWork = () => {
     useEffect(() => {
@@ -25,6 +26,7 @@ const aboutMyWork = () => {
                 <link rel="shortcut icon" href="favicon.ico" />
             </Head>
             <h1 className="about-work__main-title">About my work</h1>
+            <SectionTools />
             <SectionProjects />
             <SectionHardSkills />
             <SectionFormation />

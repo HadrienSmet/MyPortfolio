@@ -1,0 +1,167 @@
+@media screen and (min-width: 1025px) {
+    .soft-skills-side ul li {
+        &:first-child:hover {
+            > span:first-child {
+                svg {
+                    transform-origin: center;
+                    &:nth-child(1) {
+                        animation: spinLeft 0.8s linear infinite;
+                    }
+                    &:nth-child(2) {
+                        animation: spinRight 0.8s linear infinite;
+                    }
+                    &:nth-child(3) {
+                        animation: spinLeft 0.8s linear infinite;
+                    }
+                }
+            }
+        }
+        &:nth-child(2):hover {
+            svg {
+                transform: scale(1.5) translateY(-1px);
+            }
+        }
+        &:nth-child(3):hover {
+            svg {
+                transform-origin: 3px 3px;
+                animation: wrenchAnimation 0.8s linear 2;
+            }
+        }
+        &:nth-child(4):hover {
+            span:first-child {
+                transform: translateX(35px);
+            }
+            &::after {
+                transform: scaleX(1);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .soft-skills-side {
+        ul {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            li {
+                span:last-child {
+                    font-size: 1.5em;
+                }
+                &:nth-child(2) {
+                    transform: translateX(50%);
+                    animation: halfTranslateLeft 0.2s ease-in-out 0.5s forwards;
+                }
+                &:nth-child(4) {
+                    transform: translateX(50%);
+                    animation: halfTranslateLeft 0.2s ease-in-out 0.8s forwards;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .soft-skills-side {
+        ul {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, 1fr);
+            li {
+                span:last-child {
+                    font-size: 1.2em;
+                }
+                &:nth-child(2) {
+                    transform: translateX(-50%);
+                    animation: halfTranslateRight 0.2s ease-in-out 0.6s forwards;
+                }
+                &:nth-child(4) {
+                    transform: translateX(-50%);
+                    animation: halfTranslateRight 0.2s ease-in-out 0.8s forwards;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 310px) {
+    .soft-skills-side {
+        ul > li span:last-child {
+            font-size: 1em;
+        }
+    }
+}
+
+.soft-skills-side {
+    ul {
+        display: grid;
+        gap: 15px;
+        li {
+            color: $clr-1;
+            text-align: center;
+            position: relative;
+            background-color: $first-color;
+            border-radius: 8px;
+            z-index: 2;
+            height: 80px;
+            @include flexColumnCenterY;
+            &:first-child {
+                animation: halfTranslateRight 0.2s ease-in-out 0.4s forwards;
+                opacity: 0;
+                transform: translateX(-50%);
+                > span:first-child {
+                    position: relative;
+                    height: 30px;
+                    width: 100%;
+                    svg {
+                        position: absolute;
+                        left: 50%;
+                        &:nth-child(1) {
+                            left: calc(50% - 10px);
+                            bottom: 0px;
+                        }
+                        &:nth-child(3) {
+                            left: calc(50% + 10px);
+                            bottom: 0px;
+                        }
+                    }
+                }
+            }
+            span:last-child {
+                text-transform: uppercase;
+            }
+            &:nth-child(2) {
+                opacity: 0;
+                span:first-child {
+                    font-size: 1.5em;
+                }
+            }
+            &:nth-child(3) {
+                opacity: 0;
+                transform: translateX(-50%);
+                animation: halfTranslateRight 0.2s ease-in-out 0.7s forwards;
+                span:first-child {
+                    font-size: 1.5em;
+                }
+            }
+            &:nth-child(4) {
+                opacity: 0;
+                span:first-child {
+                    font-size: 1.5em;
+                    transition: 0.2s ease-in-out;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 35px;
+                    height: 2px;
+                    background-color: $clr-1;
+                    bottom: 45px;
+                    left: calc(50% - 8px);
+                    transform-origin: left;
+                    transition: 0.2s ease-in-out;
+                    transform: scaleX(0);
+                }
+            }
+            svg {
+                transition: 0.2s ease-in-out;
+            }
+        }
+    }
+}

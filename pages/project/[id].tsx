@@ -1,24 +1,15 @@
 import React, { useEffect } from "react";
 import { ProjectInterface } from "../../interfaces/models";
 import { projects } from "../../data/projectsData";
-import MuiGradientBorder from "../../components/mui/MuiGradientBorder";
-import { useMyCursorContext } from "../../context/CursorContext";
 import CarouselPictures from "../../components/pageProject/CarouselPictures";
 import Head from "next/head";
+import PageProjectContent from "../../components/pageProject/PageProjectContent";
 
 type Props = {
     project: ProjectInterface;
 };
 
 const useProject = () => {
-    const [, setIsCursorHover] = useMyCursorContext();
-    const handleCursorEnter = () => {
-        setIsCursorHover(true);
-    };
-    const handleCursorLeave = () => {
-        setIsCursorHover(false);
-    };
-
     useEffect(() => {
         const isBrowser = typeof window !== "undefined";
         const listEl =
@@ -40,15 +31,10 @@ const useProject = () => {
         }, options);
         if (listEl !== false) observer.observe(listEl);
     }, []);
-
-    return {
-        handleCursorEnter,
-        handleCursorLeave,
-    };
 };
 
 const Project: React.FC<Props> = ({ project }: Props) => {
-    const { handleCursorEnter, handleCursorLeave } = useProject();
+    useProject();
     return (
         <>
             <Head>
@@ -63,24 +49,7 @@ const Project: React.FC<Props> = ({ project }: Props) => {
                     <CarouselPictures project={project} />
                     <em>Click on the image to see it in its full size</em>
                 </div>
-                <div className="project-page__content">
-                    <p>{project.description}</p>
-                    <ul className="tools-used">
-                        {project.tools.map((tool) => (
-                            <li key={tool}>{tool}</li>
-                        ))}
-                    </ul>
-                    <div
-                        className="project-page__content__btn-container"
-                        onMouseEnter={handleCursorEnter}
-                        onMouseLeave={handleCursorLeave}
-                    >
-                        <MuiGradientBorder>
-                            <a href={project.codeLink}>Voir le code</a>
-                        </MuiGradientBorder>
-                    </div>
-                    {project.link && <a href={project.link}>Voir le site</a>}
-                </div>
+                <PageProjectContent project={project} />
             </section>
         </>
     );

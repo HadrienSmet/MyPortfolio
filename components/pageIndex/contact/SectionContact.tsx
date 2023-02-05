@@ -1,29 +1,16 @@
-import {
-    FaAngleUp,
-    FaFacebook,
-    FaGithub,
-    FaLinkedin,
-    FaTwitter,
-} from "react-icons/fa";
+import { FaAngleUp } from "react-icons/fa";
 import Image from "next/image";
 import handsomeYoungDevelopper from "../../../public/img/photo-cv_151222-bgless.webp";
 import ContactForm from "./ContactForm";
-import { useMyCursorContext } from "../../../context/CursorContext";
 import { useEffect, useRef } from "react";
 import { useScrollPosition } from "../../../hooks/useScrollPosition";
+import ContactMediasContainer from "./ContactMediasContainer";
+import ContactCvContainer from "./ContactCvContainer";
 
 const useContactOnScroll = () => {
     const containerContactImgRef = useRef<HTMLDivElement | null>(null);
     const contactImgRef = useRef<HTMLImageElement | null>(null);
     const scrollY = useScrollPosition();
-    const [, setIsCursorHover] = useMyCursorContext();
-
-    const handleMouseEnter = () => {
-        setIsCursorHover(true);
-    };
-    const handleMouseLeave = () => {
-        setIsCursorHover(false);
-    };
 
     useEffect(() => {
         const isBrowser = typeof window !== "undefined";
@@ -71,18 +58,11 @@ const useContactOnScroll = () => {
     return {
         contactImgRef,
         containerContactImgRef,
-        handleMouseEnter,
-        handleMouseLeave,
     };
 };
 
 const SectionContact = () => {
-    const {
-        contactImgRef,
-        containerContactImgRef,
-        handleMouseEnter,
-        handleMouseLeave,
-    } = useContactOnScroll();
+    const { contactImgRef, containerContactImgRef } = useContactOnScroll();
 
     return (
         <section className="contact" id="contact">
@@ -97,62 +77,8 @@ const SectionContact = () => {
             <div className="contact__first-row">
                 <div className="contact__media-side">
                     <h3>Get in touch with me via social media or mail</h3>
-                    <div className="contact__media-icons-container">
-                        <a
-                            href="https://github.com/HadrienSmet"
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            <span className="link-circle"></span>
-                            <FaGithub aria-label="Link to my github" />
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/hadrien-smet-b80022207/"
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            <span className="link-circle"></span>
-                            <FaLinkedin aria-label="Link to my linkedIn" />
-                        </a>
-                        <a
-                            href="https://www.facebook.com/hadrien.smet/"
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            <span className="link-circle"></span>
-                            <FaFacebook aria-label="Link to my facebook" />
-                        </a>
-                        <a
-                            href="https://twitter.com/hadrien_smet"
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            <span className="link-circle"></span>
-                            <FaTwitter aria-label="Link to my twitter" />
-                        </a>
-                    </div>
-                    <div className="contact__cv-container">
-                        <a
-                            href="https://ibb.co/gtf9dqg"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            My CV{" "}
-                            <em>
-                                {"("}en{")"}
-                            </em>
-                        </a>
-                        <a
-                            href="https://ibb.co/ryT10zb"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            My CV{" "}
-                            <em>
-                                {"("}fr{")"}
-                            </em>
-                        </a>
-                    </div>
+                    <ContactMediasContainer />
+                    <ContactCvContainer />
                 </div>
                 <div
                     className="contact__image-container"

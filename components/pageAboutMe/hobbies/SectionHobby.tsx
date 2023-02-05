@@ -3,8 +3,8 @@ import HobbyImage from "./HobbyImage";
 import hobbiesData from "../../../data/hobbiesData";
 import { useMousePosition } from "../../../hooks/useMousePosition";
 import { useWindowSize } from "../../../hooks/useWindowSize";
-import { useMyCursorContext } from "../../../context/CursorContext";
 import HobbyGallery from "./HobbyGallery";
+import HobbiesList from "./HobbiesList";
 
 const useSectionHobby = () => {
     const [screenWidth, setScreenWidth] = useState<number | undefined>(
@@ -12,14 +12,6 @@ const useSectionHobby = () => {
     );
     const [activeIndex, setActiveIndex] = useState(-1);
     const windowSize = useWindowSize();
-    const [, setIsCursorHover] = useMyCursorContext();
-
-    const handleMouseEnter = () => {
-        setIsCursorHover(true);
-    };
-    const handleMouseLeave = () => {
-        setIsCursorHover(false);
-    };
 
     const handleActiveIndex = (event: MouseEvent<HTMLLIElement>) => {
         const element = event.target as HTMLElement;
@@ -43,70 +35,24 @@ const useSectionHobby = () => {
         screenWidth,
         handleActiveIndex,
         resetActiveIndex,
-        handleMouseEnter,
-        handleMouseLeave,
     };
 };
 
 const SectionHobby = () => {
-    const {
-        activeIndex,
-        screenWidth,
-        handleActiveIndex,
-        resetActiveIndex,
-        handleMouseEnter,
-        handleMouseLeave,
-    } = useSectionHobby();
+    const { activeIndex, screenWidth, handleActiveIndex, resetActiveIndex } =
+        useSectionHobby();
     const { x, y } = useMousePosition();
 
     return (
-        <div className="about-me-page__hobbies-side">
+        <div className="hobbies-side">
             <h2>Hobbies</h2>
             {screenWidth && screenWidth < 1025 && <HobbyGallery />}
-            <div className="about-me-page__list-container">
-                <ul
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                >
-                    <li
-                        onMouseEnter={handleActiveIndex}
-                        onMouseLeave={resetActiveIndex}
-                        id="hobby-0"
-                    >
-                        Travelling, love to travel alone.
-                    </li>
-                    <li
-                        onMouseEnter={handleActiveIndex}
-                        onMouseLeave={resetActiveIndex}
-                        id="hobby-1"
-                    >
-                        Watching series.
-                    </li>
-                    <li
-                        onMouseEnter={handleActiveIndex}
-                        onMouseLeave={resetActiveIndex}
-                        id="hobby-2"
-                    >
-                        Watching stand-up
-                    </li>
-                    <li
-                        onMouseEnter={handleActiveIndex}
-                        onMouseLeave={resetActiveIndex}
-                        id="hobby-3"
-                    >
-                        Coding
-                    </li>
-                    <li
-                        onMouseEnter={handleActiveIndex}
-                        onMouseLeave={resetActiveIndex}
-                        id="hobby-4"
-                    >
-                        Reading old philosophers
-                    </li>
-                </ul>
-            </div>
+            <HobbiesList
+                handleActiveIndex={(e) => handleActiveIndex(e)}
+                resetActiveIndex={resetActiveIndex}
+            />
             {screenWidth && screenWidth > 1024 && (
-                <div className="about-me-page__hobbies-data">
+                <div className="hobbies-data">
                     {hobbiesData.map(({ mediaUrl }, index) => {
                         const isActive = index === activeIndex;
                         const xPos = isActive ? x : 0;

@@ -4,7 +4,7 @@ import hobbiesData from "../../../data/hobbiesData";
 
 const HobbyGallery = () => {
     return (
-        <ul className="about-me-page__hobbies-gallery">
+        <ul className="hobbies-gallery">
             {hobbiesData.map(({ mediaUrl }, index) => (
                 <li key={index}>
                     <Image

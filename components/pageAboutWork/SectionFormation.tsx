@@ -2,8 +2,8 @@ import React from "react";
 
 const SectionFormation = () => {
     return (
-        <section className="about-work about-work__formation-section">
-            <div className="about-work__formation-side">
+        <section className="about-work formation-section">
+            <div className="formation-side">
                 <h2>Formation</h2>
                 <p>
                     <em>

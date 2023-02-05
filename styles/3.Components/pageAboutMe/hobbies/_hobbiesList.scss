@@ -1,0 +1,77 @@
+@media screen and (min-width: 1025px) {
+    .list-container {
+        flex-direction: column;
+        ul {
+            &:hover {
+                li {
+                    opacity: 0.2;
+                }
+            }
+            li {
+                transition: 0.1s ease-in-out;
+                opacity: 1;
+                line-height: 80px;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .list-container {
+        position: relative;
+        ul {
+            gap: 25px;
+            width: 100%;
+            @include flexColumn;
+            li {
+                width: 100%;
+                height: 90px;
+                background-color: rgba($clr-1, 0.5);
+                @include flexFullCenter;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .list-container {
+        ul {
+            font-size: 1.8em;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .list-container {
+        ul {
+            font-size: 1.2em;
+        }
+    }
+}
+
+@media screen and (max-width: 310px) {
+    .list-container {
+        ul {
+            font-size: 1em;
+            li {
+                line-height: 36px;
+            }
+        }
+    }
+}
+.list-container {
+    width: 100%;
+    @include flexFullCenter;
+    ul {
+        z-index: 1;
+        li {
+            font-family: "graphic-fonts";
+            font-size: 1.5em;
+            color: $first-color;
+            z-index: 2;
+        }
+    }
+}

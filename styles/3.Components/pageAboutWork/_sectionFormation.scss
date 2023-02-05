@@ -1,0 +1,39 @@
+@media screen and (min-width: 768px) {
+    .formation-side > p > em {
+        width: 75%;
+    }
+}
+@media screen and (max-width: 767px) {
+    .formation-side > p > em {
+        width: 95%;
+    }
+}
+@media screen and (max-width: 310px) {
+    .formation-side > p {
+        font-size: 1em;
+    }
+}
+
+.formation {
+    &-section {
+        position: relative;
+        margin-bottom: 100px;
+        > div {
+            width: 100%;
+        }
+    }
+    &-side {
+        gap: 20px;
+        margin-bottom: 0;
+        @include flexColumn;
+        p {
+            color: rgba($fourth-color, 0.8);
+            width: 100%;
+            font-size: 1.4em;
+            @include flexCenterX;
+            em {
+                line-height: 32px;
+            }
+        }
+    }
+}

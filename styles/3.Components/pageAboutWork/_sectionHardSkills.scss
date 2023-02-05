@@ -1,0 +1,193 @@
+@media screen and (min-width: 1025px) {
+    .hard-skills-side {
+        align-items: flex-start;
+        width: calc(100% - 600px);
+        ul {
+            width: 50vw;
+            padding: 50px 20px 40px;
+            overflow: hidden;
+            &:hover {
+                li {
+                    color: rgba($clr-2, 0.3);
+                }
+            }
+            &::before {
+                top: 10px;
+            }
+            &::after {
+                bottom: 30px;
+            }
+            li {
+                &::before {
+                    transition: 0.2s ease-out;
+                }
+                &::after {
+                    transition: 0.2s ease-out;
+                }
+            }
+        }
+    }
+    @media screen and (min-height: 901px) {
+        .hard-skills-side {
+            ul {
+                li {
+                    &:hover {
+                        color: $fifth-color;
+                        &::before {
+                            transform: scaleX(7000%);
+                        }
+                        &::after {
+                            transform: scaleX(7000%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-height: 900px) {
+        .hard-skills-side ul li {
+            &.visible {
+                color: $fifth-color;
+                &::before {
+                    transform: scaleX(7000%);
+                }
+                &::after {
+                    transform: scaleX(7000%);
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .hard-skills-side {
+        width: calc(100% - 160px);
+        align-items: center;
+        h2 {
+            width: 100%;
+            margin-left: 16px;
+        }
+        ul {
+            width: calc(100vw - 200px);
+        }
+    }
+    @media screen and (min-width: 768px) {
+        .hard-skills-side ul {
+            &::before {
+                top: -40px;
+            }
+            &::after {
+                bottom: -10px;
+            }
+            li.visible {
+                color: $fifth-color;
+                &::before {
+                    transform: scaleX(5000%);
+                }
+                &::after {
+                    transform: scaleX(5000%);
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    .hard-skills-side ul li {
+        &::before {
+            top: -30px;
+        }
+        &::after {
+            top: -40px;
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .hard-skills-side {
+        width: calc(100% - 80px);
+        ul {
+            width: calc(100vw - 160px);
+            overflow: hidden;
+            padding: 30px 50px 30px;
+            &::before {
+                top: -20px;
+            }
+            &::after {
+                bottom: -30px;
+            }
+            li {
+                &::before {
+                    top: -10px;
+                }
+                &::after {
+                    top: -20px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 310px) {
+    .hard-skills-side ul li {
+        font-size: 0.9em;
+    }
+}
+.hard-skills-side {
+    margin-bottom: 0;
+    h2 {
+        align-self: flex-start;
+    }
+    ul {
+        position: relative;
+        margin-top: 25px;
+        gap: 20px;
+        @include flexColumnCenterX;
+        &::before {
+            content: "";
+            position: absolute;
+            height: 10px;
+            width: 100px;
+            right: -10px;
+            background-color: $third-color;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            height: 10px;
+            width: 100px;
+            left: -10px;
+            // bottom: -10px;
+            background-color: $first-color;
+        }
+        li {
+            color: rgba($fourth-color, 0.8);
+            text-align: center;
+            transform-origin: left;
+            font-size: 1.4em;
+            position: relative;
+            padding: 0 25px;
+            width: calc(100% - 50px);
+            transition: 0.3s ease-in-out;
+            height: 50px;
+            &::before {
+                content: "";
+                position: absolute;
+                left: -20px;
+                width: 10px;
+                height: calc(100% + 40px);
+                background-color: $first-color;
+                transform-origin: left;
+                transition: 0.5s ease-out;
+                z-index: -1;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                right: -20px;
+                width: 10px;
+                height: calc(100% + 40px);
+                background-color: $third-color;
+                transform-origin: right;
+                transition: 0.5s ease-out;
+                z-index: -1;
+            }
+        }
+    }
+}

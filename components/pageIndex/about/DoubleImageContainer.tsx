@@ -101,12 +101,9 @@ const DoubleImageContainer = () => {
         <div
             id="double-image"
             ref={doubleImgRef}
-            className="about__double-img-container"
+            className="double-img-container"
         >
-            <div
-                ref={firstImgContainerRef}
-                className="about__first-img-container"
-            >
+            <div ref={firstImgContainerRef} className="first-img-container">
                 <Image
                     src={pictureAboutWork}
                     alt="Illustration of myself"
@@ -114,10 +111,7 @@ const DoubleImageContainer = () => {
                     height={420}
                 />
             </div>
-            <div
-                ref={secondImgContainerRef}
-                className="about__second-img-container"
-            >
+            <div ref={secondImgContainerRef} className="second-img-container">
                 <Image
                     src={pictureAboutMe}
                     alt="Picture of myself"

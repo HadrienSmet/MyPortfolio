@@ -1,37 +1,58 @@
-.about-work {
-    @media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) {
+    .about-work {
         width: calc(100% - 600px);
         padding: 0 300px;
-    }
-    @media screen and (min-width: 768px) and (max-width: 1024px) {
-        width: calc(100% - 160px);
-        padding: 0 80px;
-    }
-    @media screen and (max-width: 767px) {
-        width: calc(100% - 80px);
-        padding: 0 40px;
-    }
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    gap: 50px;
-    &__main-title {
-        @media screen and (min-width: 1025px) {
+        &__main-title {
             width: calc(100% - 600px);
             font-size: 4.5em;
         }
-        @media screen and (max-width: 1024px) {
+    }
+}
+@media screen and (max-width: 1024px) {
+    .about-work__main-title {
+        width: calc(100% - 160px);
+        font-size: 2.8em;
+        text-align: center;
+    }
+    @media screen and (min-width: 768px) {
+        .about-work {
             width: calc(100% - 160px);
-            font-size: 2.8em;
-            text-align: center;
+            padding: 0 80px;
         }
-        @media screen and (max-width: 767px) {
+    }
+}
+@media screen and (min-width: 768px) {
+    .about-work h2 {
+        font-size: 2.5em;
+    }
+}
+@media screen and (max-width: 767px) {
+    .about-work {
+        width: calc(100% - 80px);
+        padding: 0 40px;
+        &__main-title {
             width: calc(100% - 80px);
         }
-        @media screen and (max-width: 310px) {
+        h2 {
+            font-size: 2em;
+        }
+    }
+}
+@media screen and (max-width: 310px) {
+    .about-work {
+        &__main-title {
             font-size: 1.4em;
         }
+        h2 {
+            font-size: 1.2em;
+        }
+    }
+}
+
+.about-work {
+    gap: 50px;
+    @include flexColumnCenterXAroundY;
+    &__main-title {
         text-align: center;
         margin-top: 130px;
         text-transform: uppercase;
@@ -41,15 +62,6 @@
         animation: increaseOpacity 0.1s ease-in-out 0.4s forwards;
     }
     h2 {
-        @media screen and (min-width: 768px) {
-            font-size: 2.5em;
-        }
-        @media screen and (max-width: 767px) {
-            font-size: 2em;
-        }
-        @media screen and (max-width: 310px) {
-            font-size: 1.2em;
-        }
         color: rgba($third-color, 0.9);
         position: relative;
         opacity: 0;
@@ -68,290 +80,6 @@
             width: 5px;
             height: 1em;
             background-color: $first-color;
-        }
-    }
-    &__projects-and-tools-section {
-        @media screen and (min-width: 1025px) {
-            width: calc(100% - 600px);
-        }
-        @media screen and (max-width: 1024px) {
-            width: calc(100% - 160px);
-        }
-        @media screen and (max-width: 767px) {
-            width: calc(100% - 80px);
-        }
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        margin-bottom: 0;
-    }
-    &__tools {
-        &-side {
-            @media screen and (max-width: 1024px) {
-            }
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 100%;
-            h2 {
-                animation-delay: 0.5s;
-            }
-        }
-        &-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            svg {
-                @media screen and (min-width: 1025px) {
-                    width: 90px;
-                    height: 90px;
-                }
-                @media screen and (max-width: 1024px) {
-                    height: 60px;
-                    width: 60px;
-                }
-                @media screen and (max-width: 767px) {
-                    height: 45px;
-                    width: 45px;
-                }
-                opacity: 0;
-                animation: increaseOpacity 0.2s ease-in forwards;
-                @for $i from 1 through 14 {
-                    &:nth-child(#{$i}) {
-                        animation-delay: counterToolDelay($i);
-                    }
-                }
-            }
-        }
-    }
-    &__projects {
-        &-side {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 35px;
-            h2 {
-                animation-delay: 0.7s;
-            }
-        }
-        &-container {
-            @media screen and (min-width: 1025px) {
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(2, 1fr);
-                gap: 35px;
-            }
-            @media screen and (max-width: 1024px) {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(4, 1fr);
-                gap: 20px;
-            }
-            @media screen and (max-width: 767px) {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(7, 1fr);
-                gap: 20px;
-            }
-            display: grid;
-        }
-    }
-    &__formation-section {
-        position: relative;
-        margin-bottom: 100px;
-        > div {
-            width: 100%;
-        }
-    }
-    &__formation-side {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        margin-bottom: 0;
-        p {
-            @media screen and (max-width: 310px) {
-                font-size: 1em;
-            }
-            color: rgba($fourth-color, 0.8);
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            font-size: 1.4em;
-            em {
-                @media screen and (min-width: 768px) {
-                    width: 75%;
-                }
-                @media screen and (max-width: 767px) {
-                    width: 95%;
-                }
-                line-height: 32px;
-            }
-        }
-    }
-    &__hard-skills-side {
-        @media screen and (min-width: 1025px) {
-            align-items: flex-start;
-            width: calc(100% - 600px);
-        }
-        @media screen and (max-width: 1024px) {
-            width: calc(100% - 160px);
-            align-items: center;
-            h2 {
-                width: 100%;
-                margin-left: 16px;
-            }
-        }
-        @media screen and (max-width: 767px) {
-            width: calc(100% - 80px);
-        }
-        margin-bottom: 0;
-        ul {
-            @media screen and (min-width: 1025px) {
-                width: 50vw;
-                &:hover {
-                    li {
-                        color: rgba($clr-2, 0.3);
-                    }
-                }
-                padding: 50px 20px 40px;
-                overflow: hidden;
-            }
-            @media screen and (max-width: 1024px) {
-                width: calc(100vw - 200px);
-            }
-            @media screen and (max-width: 767px) {
-                width: calc(100vw - 160px);
-                overflow: hidden;
-                padding: 30px 50px 30px;
-            }
-            position: relative;
-            margin-top: 25px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            &::before {
-                @media screen and (min-width: 1025px) {
-                    top: 10px;
-                }
-                @media screen and (min-width: 768px) and (max-width: 1024px) {
-                    top: -40px;
-                }
-                @media screen and (max-width: 767px) {
-                    top: -20px;
-                }
-                content: "";
-                position: absolute;
-                height: 10px;
-                width: 100px;
-                right: -10px;
-                background-color: $third-color;
-            }
-            &::after {
-                @media screen and (min-width: 1025px) {
-                    bottom: 30px;
-                }
-                @media screen and (min-width: 768px) and (max-width: 1024px) {
-                    bottom: -10px;
-                }
-                @media screen and (max-width: 767px) {
-                    bottom: -30px;
-                }
-                content: "";
-                position: absolute;
-                height: 10px;
-                width: 100px;
-                left: -10px;
-                bottom: -10px;
-                background-color: $first-color;
-            }
-            li {
-                @media screen and (min-width: 1025px) {
-                    @media screen and (min-height: 901px) {
-                        &:hover {
-                            color: $fifth-color;
-                            &::before {
-                                transform: scaleX(7000%);
-                            }
-                            &::after {
-                                transform: scaleX(7000%);
-                            }
-                        }
-                    }
-                    @media screen and (max-height: 900px) {
-                        &.visible {
-                            color: $fifth-color;
-                            &::before {
-                                transform: scaleX(7000%);
-                            }
-                            &::after {
-                                transform: scaleX(7000%);
-                            }
-                        }
-                    }
-                }
-                color: rgba($fourth-color, 0.8);
-                @media screen and (max-width: 1024px) {
-                    &.visible {
-                        color: $fifth-color;
-                        &::before {
-                            transform: scaleX(5000%);
-                        }
-                        &::after {
-                            transform: scaleX(5000%);
-                        }
-                    }
-                }
-                @media screen and (max-width: 310px) {
-                    font-size: 0.9em;
-                }
-                text-align: center;
-                transform-origin: left;
-                font-size: 1.4em;
-                position: relative;
-                padding: 0 25px;
-                width: calc(100% - 50px);
-                transition: 0.3s ease-in-out;
-                height: 50px;
-                &::before {
-                    @media screen and (min-width: 1025px) {
-                        transition: 0.2s ease-out;
-                    }
-                    @media screen and (min-width: 768px) {
-                        top: -30px;
-                    }
-                    @media screen and (max-width: 767px) {
-                        top: -10px;
-                    }
-                    content: "";
-                    position: absolute;
-                    left: -20px;
-                    width: 10px;
-                    height: calc(100% + 40px);
-                    background-color: $first-color;
-                    transform-origin: left;
-                    transition: 0.5s ease-out;
-                    z-index: -1;
-                }
-                &::after {
-                    @media screen and (min-width: 1025px) {
-                        transition: 0.2s ease-out;
-                    }
-                    @media screen and (min-width: 768px) {
-                        top: -40px;
-                    }
-                    @media screen and (max-width: 767px) {
-                        top: -20px;
-                    }
-                    content: "";
-                    position: absolute;
-                    right: -20px;
-                    width: 10px;
-                    height: calc(100% + 40px);
-                    background-color: $third-color;
-                    transform-origin: right;
-                    transition: 0.5s ease-out;
-                    z-index: -1;
-                }
-            }
         }
     }
 }

@@ -1,0 +1,39 @@
+@media screen and (min-width: 768px) {
+    .hobbies-data {
+        img {
+            max-width: 30%;
+            min-height: 35%;
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .hobbies-data {
+        img {
+            max-width: 55%;
+            min-height: 35%;
+        }
+    }
+}
+
+.hobbies-side {
+    h2 {
+        animation: increaseOpacity 0.2s ease-in-out 1.2s forwards;
+    }
+}
+.hobbies-data {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    img {
+        opacity: 0;
+        position: absolute;
+        width: auto;
+        height: auto;
+        pointer-events: none;
+        &.is-active {
+            opacity: 1;
+        }
+    }
+}

@@ -6,7 +6,7 @@ import {
 } from "react-icons/md";
 const SectionSoftSkills = () => {
     return (
-        <div className="about-me-page__soft-skills-side">
+        <div className="soft-skills-side">
             <div className="about-me-page__list-container">
                 <ul>
                     <li>

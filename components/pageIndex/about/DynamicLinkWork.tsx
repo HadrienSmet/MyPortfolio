@@ -231,35 +231,13 @@ const DynamicLinkWork = () => {
     useWorkBubbleOnScroll();
 
     return (
-        <div
-            ref={workLinkRef}
-            id="work"
-            className="about__dynamic-links__to-work"
-        >
-            <span
-                ref={firstWorkBubbleRef}
-                className="about__animated-circle"
-            ></span>
-            <span
-                ref={scdWorkBubbleRef}
-                className="about__animated-circle"
-            ></span>
-            <span
-                ref={thrdWorkBubbleRef}
-                className="about__animated-circle"
-            ></span>
-            <span
-                ref={fourthWorkBubbleRef}
-                className="about__animated-circle"
-            ></span>
-            <span
-                ref={fifthWorkBubbleRef}
-                className="about__animated-circle"
-            ></span>
-            <span
-                ref={sixthWorkBubbleRef}
-                className="about__animated-circle"
-            ></span>
+        <div ref={workLinkRef} id="work" className="dynamic-link__to-work">
+            <span ref={firstWorkBubbleRef}></span>
+            <span ref={scdWorkBubbleRef}></span>
+            <span ref={thrdWorkBubbleRef}></span>
+            <span ref={fourthWorkBubbleRef}></span>
+            <span ref={fifthWorkBubbleRef}></span>
+            <span ref={sixthWorkBubbleRef}></span>
             <Link
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -267,7 +245,7 @@ const DynamicLinkWork = () => {
             >
                 More about <em>My work</em>
             </Link>
-            <ul className="about__dynamic-links__to-work__details">
+            <ul className="dynamic-link__to-work__details">
                 <li>
                     <span ref={projectsRef}>Projects</span>
                 </li>

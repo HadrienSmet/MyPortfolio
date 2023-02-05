@@ -29,7 +29,7 @@ const useHardSkillsOnScroll = () => {
 const SectionHardSkills = () => {
     useHardSkillsOnScroll();
     return (
-        <section className="about-work about-work__hard-skills-side">
+        <section className="about-work hard-skills-side">
             <h2>Hard skills</h2>
             <ul>
                 <li className="hard-skill" id="dom">

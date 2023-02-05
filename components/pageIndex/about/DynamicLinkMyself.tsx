@@ -207,31 +207,13 @@ const DynamicLinkMyself = () => {
     useMyBubbleOnScroll();
 
     return (
-        <div ref={myLinkRef} id="me" className="about__dynamic-links__to-me">
-            <span
-                ref={firstMyBubbleRef}
-                className="about__animated-circle"
-            ></span>
-            <span
-                ref={scdMyBubbleRef}
-                className="about__animated-circle"
-            ></span>
-            <span
-                ref={thrdMyBubbleRef}
-                className="about__animated-circle"
-            ></span>
-            <span
-                ref={fourthMyBubbleRef}
-                className="about__animated-circle"
-            ></span>
-            <span
-                ref={fifthMyBubbleRef}
-                className="about__animated-circle"
-            ></span>
-            <span
-                ref={sixthMyBubbleRef}
-                className="about__animated-circle"
-            ></span>
+        <div ref={myLinkRef} id="me" className="dynamic-link__to-me">
+            <span ref={firstMyBubbleRef}></span>
+            <span ref={scdMyBubbleRef}></span>
+            <span ref={thrdMyBubbleRef}></span>
+            <span ref={fourthMyBubbleRef}></span>
+            <span ref={fifthMyBubbleRef}></span>
+            <span ref={sixthMyBubbleRef}></span>
             <Link
                 href="/aboutMe"
                 onMouseEnter={handleMouseEnter}
@@ -239,7 +221,7 @@ const DynamicLinkMyself = () => {
             >
                 More about <em>Me</em>
             </Link>
-            <ul className="about__dynamic-links__to-me__details">
+            <ul className="dynamic-link__to-me__details">
                 <li>
                     <span ref={hobbiesRef}>Hobbies</span>
                 </li>

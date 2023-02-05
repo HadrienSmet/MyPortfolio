@@ -1,0 +1,30 @@
+@media screen and (max-width: 767px) {
+    .media-icons-container {
+        flex-wrap: wrap;
+    }
+}
+
+.media-icons-container {
+    display: flex;
+    gap: 25px;
+    svg {
+        @media screen and (min-width: 768px) {
+            font-size: 60px;
+        }
+        @media screen and (max-width: 767px) {
+            font-size: 45px;
+        }
+    }
+    > a:first-child {
+        color: $clr-2;
+    }
+    #linkedin {
+        color: #0172b1;
+    }
+    #facebook {
+        color: #1972eb;
+    }
+    #twitter {
+        color: #1c96e8;
+    }
+}

@@ -1,0 +1,59 @@
+/***************************FLEXBOX*********************************/
+@mixin flexBetweenX {
+    display: flex;
+    justify-content: space-between;
+}
+@mixin flexCenterX {
+    display: flex;
+    justify-content: center;
+}
+@mixin flexFullCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/***************************FLEXBOX - column *********************************/
+@mixin flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+@mixin flexColumnBetweenY {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+@mixin flexColumnCenterXAroundY {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+@mixin flexColumnCenterXEvenlyY {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+@mixin flexColumnCenterX {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@mixin flexColumnCenterY {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+@mixin flexColumnFullCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/***************************ANIMATIONS*********************************/
+@mixin rotateFromTopToAppear {
+    display: inline-block;
+    transform: rotateX(-90deg);
+    transform-origin: top;
+    animation: rotateX 0.3s 1.1s ease-in-out forwards;
+}

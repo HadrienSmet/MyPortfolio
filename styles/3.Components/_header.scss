@@ -1,3 +1,15 @@
+@media screen and (min-width: 768px) {
+    .menu {
+        transform: scale(0.75);
+    }
+}
+@media screen and (max-width: 767px) {
+    .menu {
+        transform: scale(1);
+        width: 60px;
+    }
+}
+
 .header {
     z-index: 10;
     width: 100%;
@@ -9,14 +21,15 @@
     &__default-bar {
         padding: 0px 40px;
         width: calc(100% - 80px);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         background-color: $third-color;
         color: $clr-1;
         transition: 0.3s ease-in-out;
         transform: translateY(-100%);
         animation: translateDown 0.1s 0.2s ease-in-out forwards;
+        @include flexBetweenXCenterY;
+        &.opened {
+            background-color: transparent !important;
+        }
         em {
             font-family: "graphic-fonts";
             opacity: 0;
@@ -24,21 +37,7 @@
         }
     }
 }
-.header__default-bar.opened {
-    background-color: transparent !important;
-    // color: $third-color !important;
-    // .line {
-    // stroke: $third-color !important;
-    // }
-}
 .menu {
-    @media screen and (min-width: 768px) {
-        transform: scale(0.75);
-    }
-    @media screen and (max-width: 767px) {
-        transform: scale(1);
-        width: 60px;
-    }
     background-color: transparent;
     border: none;
     display: flex;

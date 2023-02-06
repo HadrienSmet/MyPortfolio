@@ -13,11 +13,14 @@
     }
     @media screen and (min-height: 901px) {
         .double-img-container {
-            width: 60%;
-            min-width: calc(950px * 0.6);
-            > div > img {
-                width: calc((100vw - 900px) * 0.6);
-                min-width: calc(950px * 0.6);
+            width: 40%;
+            min-width: calc(950px * 0.4);
+            > div {
+                height: 45vh !important;
+                > img {
+                    width: calc((100vw - 900px) * 0.4);
+                    min-width: calc(950px * 0.4);
+                }
             }
         }
     }
@@ -45,10 +48,10 @@
             }
         }
         .double-img-container.visible {
-            > .about__first-img-container {
+            > .first-img-container {
                 animation: decreaseWidth 0.8s ease-in-out forwards;
             }
-            > .about__second-img-container {
+            > .second-img-container {
                 animation: increaseWidth 0.8s ease-in-out forwards;
             }
         }
@@ -96,13 +99,13 @@
 }
 @media screen and (max-width: 767px) {
     .double-img-container {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%, -35vh);
         height: 35vh;
         width: calc(100% - 80px);
         flex-direction: column;
-        position: absolute;
+        position: absolute !important;
         > div {
             width: 100%;
             > img {
@@ -112,10 +115,10 @@
         }
     }
     .double-img-container.visible {
-        > .about__first-img-container {
+        > .first-img-container {
             animation: decreaseHeight 0.8s ease-in-out forwards;
         }
-        > .about__second-img-container {
+        > .second-img-container {
             animation: increaseHeight 0.8s ease-in-out forwards;
         }
     }

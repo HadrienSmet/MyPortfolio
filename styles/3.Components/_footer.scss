@@ -1,20 +1,63 @@
-.footer {
-    @media screen and (max-width: 310px) {
+@media screen and (min-width: 1025px) {
+    .footer__link-container:hover {
+        svg:first-child {
+            transform: translateY(0);
+        }
+        svg:last-child {
+            transform: translateY(75px);
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    .footer {
+        &__links-container {
+            font-size: 60px;
+        }
+        &__link-container {
+            width: 60px;
+            height: 60px;
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .footer {
+        > svg {
+            display: none;
+        }
+        em {
+            display: none;
+        }
+        &__links-container {
+            font-size: 45px;
+        }
+        &__link-container {
+            width: 45px;
+            height: 45px;
+        }
+    }
+}
+@media screen and (max-width: 310px) {
+    .footer {
         justify-content: center;
         align-items: flex-end;
+        > svg {
+            transform: translateY(-120px);
+        }
+        &__links-container {
+            font-size: 30px;
+            gap: 5px;
+        }
     }
+}
+
+.footer {
     padding: 20px 35px;
     width: calc(100% - 70px);
     height: 150px;
     background-color: $fourth-color;
     color: $clr-1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flexBetweenXCenterY;
     > svg {
-        @media screen and (max-width: 310px) {
-            transform: translateY(-120px);
-        }
         font-size: 45px;
         z-index: 2;
     }
@@ -22,22 +65,9 @@
         color: $clr-1;
     }
     em {
-        @media screen and (max-width: 767px) {
-            display: none;
-        }
         font-family: "graphic-fonts";
     }
     &__links-container {
-        @media screen and (min-width: 768px) {
-            font-size: 60px;
-        }
-        @media screen and (max-width: 767px) {
-            font-size: 45px;
-        }
-        @media screen and (max-width: 310px) {
-            font-size: 30px;
-            gap: 5px;
-        }
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -54,29 +84,9 @@
         }
     }
     &__link-container {
-        @media screen and (min-width: 1025px) {
-            &:hover {
-                svg:first-child {
-                    transform: translateY(0);
-                }
-                svg:last-child {
-                    transform: translateY(75px);
-                }
-            }
-        }
-        @media screen and (min-width: 768px) {
-            width: 60px;
-            height: 60px;
-        }
-        @media screen and (max-width: 767px) {
-            width: 45px;
-            height: 45px;
-        }
         position: relative;
         overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flexFullCenter;
         svg {
             position: absolute;
             transition: 0.2s ease-in-out;

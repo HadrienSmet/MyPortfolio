@@ -12,6 +12,11 @@
     align-items: center;
     justify-content: center;
 }
+@mixin flexBetweenXCenterY {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 /***************************FLEXBOX - column *********************************/
 @mixin flexColumn {
     display: flex;

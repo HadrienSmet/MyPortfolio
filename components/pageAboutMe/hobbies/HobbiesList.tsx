@@ -32,7 +32,7 @@ const HobbiesList = ({ handleActiveIndex, resetActiveIndex }: Props) => {
                     onMouseLeave={resetActiveIndex}
                     id="hobby-0"
                 >
-                    Travelling, love to travel alone.
+                    Travelling abroad.
                 </li>
                 <li
                     onMouseEnter={handleActiveIndex}
@@ -46,21 +46,21 @@ const HobbiesList = ({ handleActiveIndex, resetActiveIndex }: Props) => {
                     onMouseLeave={resetActiveIndex}
                     id="hobby-2"
                 >
-                    Watching stand-up
+                    Watching stand-up.
                 </li>
                 <li
                     onMouseEnter={handleActiveIndex}
                     onMouseLeave={resetActiveIndex}
                     id="hobby-3"
                 >
-                    Coding
+                    Coding.
                 </li>
                 <li
                     onMouseEnter={handleActiveIndex}
                     onMouseLeave={resetActiveIndex}
                     id="hobby-4"
                 >
-                    Reading old philosophers
+                    Reading philosophy.
                 </li>
             </ul>
         </div>

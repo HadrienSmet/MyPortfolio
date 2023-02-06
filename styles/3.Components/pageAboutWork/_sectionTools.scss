@@ -35,11 +35,10 @@
 .tools {
     &-side {
         gap: 20px;
-        // width: 100%;
         @include flexColumn;
         h2 {
             align-self: flex-start;
-            animation-delay: 0.5s;
+            animation-delay: 0.5s !important;
         }
     }
     &-container {

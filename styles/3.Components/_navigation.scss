@@ -1,3 +1,84 @@
+@media screen and (min-width: 1025px) {
+    nav ul {
+        width: 520px;
+        li {
+            font-size: 4em;
+            &:hover {
+                transform: skewY(-10deg) translateX(-100px);
+                letter-spacing: 1px;
+                background-color: $first-color;
+            }
+            &::before {
+                left: -105px;
+                width: 105px;
+                height: 105px;
+            }
+            &::after {
+                top: -73px;
+                height: 73px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    nav ul {
+        width: 60vw;
+        li {
+            font-size: 2.9em;
+            &::before {
+                left: -83px;
+                width: 83px;
+                height: 83px;
+            }
+            &::after {
+                top: -57px;
+                height: 57px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    nav ul {
+        width: calc(100vw - 163px);
+        transform: translateX(40px);
+        li {
+            font-size: 1.3em;
+            &::before {
+                left: -55px;
+                width: 55px;
+                height: 55px;
+            }
+            &::after {
+                top: -38px;
+                height: 38px;
+            }
+            a {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+@media screen and (max-width: 310px) {
+    nav ul {
+        width: calc(100vw - 123px);
+        transform: translateX(20px);
+        li {
+            font-size: 0.9em;
+            &::before {
+                left: -47px;
+                width: 47px;
+                height: 47px;
+            }
+            &::after {
+                top: -33px;
+                height: 33px;
+            }
+        }
+    }
+}
+
 nav {
     background-color: $third-color;
     position: fixed;
@@ -5,58 +86,19 @@ nav {
     left: 0;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: 0.6s ease-in;
     transform: translateY(-100%);
     z-index: 2;
+    @include flexFullCenter;
     ul {
-        @media screen and (min-width: 1025px) {
-            width: 520px;
-        }
-        @media screen and (max-width: 1024px) {
-            width: 60vw;
-        }
-        @media screen and (max-width: 767px) {
-            width: calc(100vw - 163px);
-            transform: translateX(40px);
-        }
-        @media screen and (max-width: 310px) {
-            width: calc(100vw - 123px);
-            transform: translateX(20px);
-        }
-        display: flex;
-        flex-direction: column;
         gap: 10px;
+        @include flexColumn;
         li {
             &:nth-child(3) {
                 box-shadow: -4px 1px 2px 1px rgba($fourth-color, 0.2);
                 &::before {
                     box-shadow: 0px 2px 2px 1px rgba($fourth-color, 0.2);
                 }
-            }
-            @media screen and (min-width: 1025px) {
-                font-size: 4em;
-                &:hover {
-                    transform: skewY(-10deg) translateX(-100px);
-                    letter-spacing: 1px;
-                    background-color: $first-color;
-                }
-            }
-            @media screen and (max-width: 1024px) {
-                font-size: 2.9em;
-            }
-            @media screen and (max-width: 767px) {
-                font-size: 1.3em;
-                a {
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                }
-            }
-            @media screen and (max-width: 310px) {
-                font-size: 0.9em;
             }
             padding: 15px 25px;
             background-color: $third-color;
@@ -71,26 +113,6 @@ nav {
                 }
             }
             &::before {
-                @media screen and (min-width: 1025px) {
-                    left: -105px;
-                    width: 105px;
-                    height: 105px;
-                }
-                @media screen and (max-width: 1024px) {
-                    left: -83px;
-                    width: 83px;
-                    height: 83px;
-                }
-                @media screen and (max-width: 767px) {
-                    left: -55px;
-                    width: 55px;
-                    height: 55px;
-                }
-                @media screen and (max-width: 310px) {
-                    left: -47px;
-                    width: 47px;
-                    height: 47px;
-                }
                 content: "";
                 position: absolute;
                 top: 0;
@@ -99,22 +121,6 @@ nav {
                 transform-origin: right;
             }
             &::after {
-                @media screen and (min-width: 1025px) {
-                    top: -73px;
-                    height: 73px;
-                }
-                @media screen and (max-width: 1024px) {
-                    top: -57px;
-                    height: 57px;
-                }
-                @media screen and (max-width: 767px) {
-                    top: -38px;
-                    height: 38px;
-                }
-                @media screen and (max-width: 310px) {
-                    top: -33px;
-                    height: 33px;
-                }
                 content: "";
                 position: absolute;
                 left: 0;

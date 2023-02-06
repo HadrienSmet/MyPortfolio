@@ -1,19 +1,32 @@
+@media screen and (min-width: 768px) {
+    .cv-container {
+        width: 100%;
+        a {
+            width: 45% !important;
+        }
+    }
+}
 @media screen and (max-width: 767px) {
     .cv-container {
+        width: calc(100vw - 80px) !important;
         flex-direction: column;
+        a {
+            width: calc(100% - 34px);
+        }
+    }
+}
+@media screen and (max-width: 310px) {
+    .cv-container {
+        width: calc(100vw - 40px) !important;
     }
 }
 
 .cv-container {
-    width: 100%;
     position: relative;
     gap: 25px;
     @include flexBetweenX;
     a {
-        @media screen and (max-width: 767px) {
-            width: 100%;
-        }
-        width: 45% !important;
+        height: 50px;
         font-weight: 700;
         letter-spacing: 1px;
         color: $clr-1;

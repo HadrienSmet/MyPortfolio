@@ -1,4 +1,43 @@
+@import "../2.Utils/mixins";
 @import "../2.Utils/variables";
+
+@media screen and (min-width: 1025px) {
+    body {
+        cursor: none;
+        &::-webkit-scrollbar-thumb {
+            cursor: none;
+        }
+        a {
+            cursor: none;
+        }
+        input,
+        textarea {
+            cursor: none;
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .personalised-cursor {
+        display: none;
+    }
+    @media screen and (min-width: 768px) {
+        section {
+            padding: 0 80px;
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    section {
+        padding: 0 40px;
+        padding-bottom: 80px;
+    }
+}
+@media screen and (max-width: 310px) {
+    section {
+        padding: 0 20px;
+        padding-bottom: 50px;
+    }
+}
 html {
     scroll-behavior: smooth;
 }
@@ -7,9 +46,6 @@ html {
     padding: 0;
 }
 body {
-    @media screen and (min-width: 1025px) {
-        cursor: none;
-    }
     font-family: "main-fonts";
     box-sizing: border-box;
     &::-webkit-scrollbar {
@@ -24,9 +60,6 @@ body {
         background-clip: content-box;
     }
     &::-webkit-scrollbar-thumb {
-        @media screen and (min-width: 1025px) {
-            cursor: none;
-        }
         height: 56px;
         border-radius: 8px;
         border: 4px solid transparent;
@@ -48,30 +81,10 @@ body.fixed {
     }
 }
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
-}
-section {
-    @media screen and (min-width: 768px) and (max-width: 1024px) {
-        padding: 0 80px;
-        margin-bottom: 80px;
-    }
-    @media screen and (max-width: 767px) {
-        padding: 0 40px;
-        margin-bottom: 80px;
-    }
-    @media screen and (max-width: 310px) {
-        padding: 0 20px;
-        margin-bottom: 50px;
-    }
+    @include flexColumnCenterX;
 }
 a {
     text-decoration: none;
-    @media screen and (min-width: 1025px) {
-        cursor: none;
-    }
 }
 ul {
     list-style: none;
@@ -79,16 +92,7 @@ ul {
 img {
     object-fit: cover;
 }
-input,
-textarea {
-    @media screen and (min-width: 1025px) {
-        cursor: none;
-    }
-}
 .personalised-cursor {
-    @media screen and (max-width: 1024px) {
-        display: none;
-    }
     background-color: rgba($color: rgb(0, 231, 255), $alpha: 0.5);
     border-radius: 50%;
     position: absolute;

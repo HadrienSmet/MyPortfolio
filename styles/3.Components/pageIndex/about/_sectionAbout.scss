@@ -1,7 +1,7 @@
 @media screen and (min-width: 1025px) {
     .about {
-        padding-top: 160px;
-        max-height: calc(100vh - 210px);
+        // height: calc(45vh + 193px);
+        // min-height: calc(100vh - 300px);
         gap: 40px;
         &__dynamic-links-container {
             > div > a {
@@ -29,7 +29,7 @@
     @media screen and (min-height: 901px) {
         .about {
             width: calc(100% - 900px);
-            padding: 160px 450px 200px;
+            padding: 160px 450px 280px;
             min-width: 950px;
             &::after {
                 width: calc(100% - 100px);
@@ -39,6 +39,7 @@
     }
     @media screen and (max-height: 900px) {
         .about {
+            padding: 0 150px;
             width: calc(100% - 300px);
             &::after {
                 width: calc(100% - 300px);
@@ -67,8 +68,11 @@
     @media screen and (min-width: 768px) {
         .about {
             width: calc(100% - 160px);
-            height: calc(100vh - 185px);
+            // height: calc(100vh - 185px);
+            height: calc(50vh + 300px);
             min-height: 600px;
+            // padding-top: 150px;
+            padding-bottom: 200px;
             &::after {
                 width: calc(100% - 160px);
                 left: 80px;
@@ -79,8 +83,9 @@
 @media screen and (min-width: 768px) {
     .about {
         justify-content: space-between;
+        // padding-bottom: 150px;
         &__dynamic-links-container {
-            @include flexFullCenter;
+            @include flexBetweenXCenterY;
         }
     }
 }
@@ -89,6 +94,7 @@
         width: calc(100% - 80px);
         height: 80vh;
         justify-content: center;
+        padding-bottom: 100px;
         &::after {
             display: none;
         }
@@ -114,7 +120,6 @@
 
 .about {
     background-color: $sixth-color;
-    padding-bottom: 200px;
     position: relative;
     @include flexColumnCenterX;
     flex-wrap: nowrap;
@@ -129,7 +134,7 @@
     }
     > .slope-container {
         position: absolute;
-        top: -100px;
+        top: -99px;
         width: 100%;
         height: 100px;
         overflow: hidden;
@@ -155,13 +160,13 @@
     }
     > #to-intro {
         position: absolute;
-        top: 110px;
+        top: 100px;
         font-size: 45px;
         color: $first-color;
     }
     > #to-contact {
         position: absolute;
-        bottom: 120px;
+        bottom: 200px;
         font-size: 45px;
         color: $first-color;
     }

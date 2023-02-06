@@ -185,19 +185,19 @@
 @keyframes buttonHover {
     0%,
     8% {
-        transform: translate(-50%, 0);
+        transform: translateY(0);
         box-shadow: $btn-shadow;
         -webkit-box-shadow: $btn-shadow;
         -moz-box-shadow: $btn-shadow;
     }
     50% {
-        transform: translate(-50%, -8%) scaleX(1.05);
+        transform: translateY(-8%) scaleX(1.05);
         box-shadow: $btn-shadowHover;
         -webkit-box-shadow: $btn-shadowHover;
         -moz-box-shadow: $btn-shadowHover;
     }
     100% {
-        transform: translate(-50%, 0);
+        transform: translateY(0);
         box-shadow: $btn-shadow;
         -webkit-box-shadow: $btn-shadow;
         -moz-box-shadow: $btn-shadow;

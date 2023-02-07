@@ -50,6 +50,7 @@
 }
 @media screen and (max-width: 1024px) {
     .about {
+        padding-bottom: 200px;
         > #to-intro {
             display: none;
         }
@@ -67,12 +68,11 @@
     }
     @media screen and (min-width: 768px) {
         .about {
+            padding-top: 100px;
             width: calc(100% - 160px);
-            // height: calc(100vh - 185px);
             height: calc(50vh + 300px);
             min-height: 600px;
-            // padding-top: 150px;
-            padding-bottom: 200px;
+            // padding-bottom: 200px;
             &::after {
                 width: calc(100% - 160px);
                 left: 80px;
@@ -83,7 +83,6 @@
 @media screen and (min-width: 768px) {
     .about {
         justify-content: space-between;
-        // padding-bottom: 150px;
         &__dynamic-links-container {
             @include flexBetweenXCenterY;
         }
@@ -94,7 +93,7 @@
         width: calc(100% - 80px);
         height: 80vh;
         justify-content: center;
-        padding-bottom: 100px;
+        padding-bottom: 200px;
         &::after {
             display: none;
         }
@@ -140,7 +139,7 @@
         overflow: hidden;
         > .left-slope {
             position: absolute;
-            z-index: -1;
+            // z-index: -1;
             background-color: $sixth-color;
             width: 60%;
             height: 100%;
@@ -150,7 +149,7 @@
         > .right-slope {
             position: absolute;
             right: 0;
-            z-index: -1;
+            // z-index: -1;
             background-color: $sixth-color;
             width: 60%;
             height: 100%;

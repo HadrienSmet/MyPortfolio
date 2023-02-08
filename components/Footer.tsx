@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    FaAngleUp,
+    FaAngleDoubleUp,
     FaFacebook,
     FaLinkedin,
     FaRegEnvelope,
@@ -18,7 +18,7 @@ const Footer = () => {
     };
     return (
         <footer className="footer">
-            <FaAngleUp onClick={handleScrollToTop} />
+            <FaAngleDoubleUp onClick={handleScrollToTop} />
             <em>Hadri</em>
             <div className="footer__links-container">
                 <a

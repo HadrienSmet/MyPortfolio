@@ -47,7 +47,10 @@
 @media screen and (max-width: 767px) {
     .list-container {
         ul {
-            font-size: 1.2em;
+            font-size: 0.9em;
+            li {
+                color: $fourth-color !important;
+            }
         }
     }
 }
@@ -55,7 +58,7 @@
 @media screen and (max-width: 310px) {
     .list-container {
         ul {
-            font-size: 1em;
+            font-size: 0.6em;
             li {
                 line-height: 36px;
             }

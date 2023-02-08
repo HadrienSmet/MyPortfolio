@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect, useRef } from "react";
 import Image from "next/image";
-import pictureAboutWork from "../../../public/img/photo-cv_pochoir.webp";
+import pictureAboutWork from "../../../public/img/photo-cv_pochoir-rsz.webp";
 // import pictureAboutWork from "../../../public/img/graphic-picture.webp";
 import pictureAboutMe from "../../../public/img/photo-cv_151222-bgless.webp";
 

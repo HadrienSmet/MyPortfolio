@@ -53,11 +53,16 @@ export const projects: ProjectInterface[] = [
         id: "4",
         name: "Kanap - Fourth project for OpenClassrooms",
         imageLink: "kanap-square.webp",
-        images: ["kanap.webp", "kanap.webp", "kanap.webp", "kanap.webp"],
+        images: [
+            "kanap-home.webp",
+            "kanap-products.webp",
+            "kanap-basket.webp",
+            "kanap.webp",
+        ],
         legends: [
             "Viewport of the home page",
             "Products standing on the home page",
-            "Page of a product",
+            "Basket page",
             "Basket page",
         ],
         description:

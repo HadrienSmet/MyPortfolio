@@ -114,6 +114,15 @@
                 bottom: -30px;
             }
             li {
+                &.visible {
+                    color: $fifth-color;
+                    &::before {
+                        transform: scaleX(5000%);
+                    }
+                    &::after {
+                        transform: scaleX(5000%);
+                    }
+                }
                 &::before {
                     top: -10px;
                 }
@@ -126,7 +135,7 @@
 }
 @media screen and (max-width: 310px) {
     .hard-skills-side ul li {
-        font-size: 0.9em;
+        font-size: 0.9em !important;
     }
 }
 .hard-skills-side {

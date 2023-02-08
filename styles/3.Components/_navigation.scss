@@ -100,9 +100,8 @@ nav {
                     box-shadow: 0px 2px 2px 1px rgba($fourth-color, 0.2);
                 }
             }
-            padding: 15px 25px;
-            background-color: $third-color;
-            color: $clr-1;
+            background-color: $fourth-color;
+            // color: $first-color;
             position: relative;
             transition: 0.3s ease-in-out;
             transform-origin: left;
@@ -116,7 +115,7 @@ nav {
                 content: "";
                 position: absolute;
                 top: 0;
-                background-color: $second-color;
+                background-color: $sixth-color;
                 transform: skewY(35deg);
                 transform-origin: right;
             }
@@ -125,15 +124,16 @@ nav {
                 position: absolute;
                 left: 0;
                 width: 100%;
-                background-color: $fourth-color;
+                background-color: $second-color;
                 transform-origin: bottom;
                 transform: skewX(55deg);
             }
             a {
                 display: block;
-                width: 100%;
-                color: $clr-1;
+                width: calc(100% - 50px);
+                color: $sixth-color;
                 cursor: none;
+                padding: 15px 25px;
             }
         }
     }

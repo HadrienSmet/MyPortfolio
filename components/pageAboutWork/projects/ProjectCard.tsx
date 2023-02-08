@@ -104,6 +104,7 @@ const ProjectCard = ({ project }: Props) => {
             onMouseLeave={handleMouseLeave}
         >
             <Image
+                priority
                 src={"/img/" + project.imageLink}
                 alt={"illustration du projet:" + project.name}
                 width={500}

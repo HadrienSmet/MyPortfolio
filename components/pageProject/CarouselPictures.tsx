@@ -165,6 +165,7 @@ const CarouselPictures = ({ project }: Props) => {
                         onMouseLeave={handleCursorLeave}
                     >
                         <Image
+                            priority
                             src={"/img/" + image}
                             alt={"Screenshoot du projet " + project.name}
                             width={700}

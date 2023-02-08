@@ -18,6 +18,7 @@
             > div {
                 height: 45vh !important;
                 > img {
+                    height: auto;
                     width: calc((100vw - 900px) * 0.4);
                     min-width: calc(950px * 0.4);
                 }
@@ -28,6 +29,7 @@
         .double-img-container {
             width: 45%;
             > div > img {
+                height: auto;
                 width: calc((100vw - 300px) * 0.45);
             }
         }
@@ -44,6 +46,7 @@
     @media screen and (min-width: 768px) {
         .double-img-container {
             > div > img {
+                height: auto;
                 width: calc(100vw - 160px);
             }
         }
@@ -59,6 +62,7 @@
             .double-img-container {
                 width: 70%;
                 > div > img {
+                    height: auto;
                     width: calc((100vw - 160px) * 0.7);
                 }
             }
@@ -67,6 +71,7 @@
             .double-img-container {
                 width: 50%;
                 > div > img {
+                    height: auto;
                     width: calc((100vw - 160px) * 0.5);
                 }
             }
@@ -79,7 +84,7 @@
             height: 50vh;
             max-height: calc(100vh - 353px);
             > img {
-                height: 100%;
+                // height: 100%;
                 top: 0;
             }
         }

@@ -10,13 +10,14 @@
 }
 @media screen and (max-width: 310px) {
     .formation-side > p {
-        font-size: 1em;
+        font-size: 1em !important;
     }
 }
 
 .formation {
     &-section {
         position: relative;
+        margin-top: 30px;
         margin-bottom: 100px;
         > div {
             width: 100%;

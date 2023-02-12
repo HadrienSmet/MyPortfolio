@@ -2,6 +2,7 @@ import { ProjectInterface } from "../interfaces/models";
 export const projects: ProjectInterface[] = [
     {
         id: "1",
+        idInNumber: 1,
         name: "Booki - First project for OpenClassrooms",
         imageLink: "booki-square.webp",
         images: ["booki.webp", "booki-mobile.webp", "booki-pad.webp"],
@@ -13,6 +14,7 @@ export const projects: ProjectInterface[] = [
     },
     {
         id: "2",
+        idInNumber: 2,
         name: "OhMyFood - Second project for OpenClassrooms",
         imageLink: "ohMyFood-square.webp",
         images: ["ohMyFood.webp", "ohmyfood-home.webp", "ohmyfood-pad.webp"],
@@ -28,6 +30,7 @@ export const projects: ProjectInterface[] = [
     },
     {
         id: "3",
+        idInNumber: 3,
         name: "LaPanthere - Third project for OpenClassrooms",
         imageLink: "lapanthere-square.webp",
         images: [
@@ -51,6 +54,7 @@ export const projects: ProjectInterface[] = [
     },
     {
         id: "4",
+        idInNumber: 4,
         name: "Kanap - Fourth project for OpenClassrooms",
         imageLink: "kanap-square.webp",
         images: [
@@ -72,6 +76,7 @@ export const projects: ProjectInterface[] = [
     },
     {
         id: "5",
+        idInNumber: 5,
         name: "PIIIQUANTE - Fifth project for OpenClassrooms",
         imageLink: "piiiquante-square.webp",
         images: [
@@ -93,6 +98,7 @@ export const projects: ProjectInterface[] = [
     },
     {
         id: "6",
+        idInNumber: 6,
         name: "Groupomania - Sixth project for OpenClassrooms",
         imageLink: "groupomania-square.webp",
         images: [
@@ -120,6 +126,7 @@ export const projects: ProjectInterface[] = [
     },
     {
         id: "7",
+        idInNumber: 7,
         name: "Travel App - First project on my own",
         imageLink: "travelApp-profile.webp",
         images: [

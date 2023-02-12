@@ -6,9 +6,11 @@ const SectionProjects = () => {
         <section className="about-work projects-side">
             <h2>My projects</h2>
             <div className="projects-container">
-                {projects.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                ))}
+                {projects
+                    .sort((a, b) => b.idInNumber - a.idInNumber)
+                    .map((project) => (
+                        <ProjectCard key={project.id} project={project} />
+                    ))}
             </div>
         </section>
     );

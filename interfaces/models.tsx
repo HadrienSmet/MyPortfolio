@@ -1,5 +1,6 @@
 export interface ProjectInterface {
     id: string;
+    idInNumber: number;
     name: string;
     images: string[];
     legends: string[];

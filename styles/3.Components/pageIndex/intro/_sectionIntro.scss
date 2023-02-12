@@ -123,6 +123,7 @@
         font-size: 45px;
         color: $first-color;
         bottom: 50px;
+        animation: downArrowAnimation 3s linear 0s infinite;
     }
     &__content {
         position: relative;

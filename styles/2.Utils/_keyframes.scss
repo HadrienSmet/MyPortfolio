@@ -48,7 +48,7 @@
         width: 0%;
     }
     100% {
-        width: 50%;
+        width: 100%;
     }
 }
 @keyframes decreaseWidth {
@@ -56,7 +56,7 @@
         width: 100%;
     }
     100% {
-        width: 50%;
+        width: 0%;
     }
 }
 @keyframes increaseHeight {
@@ -64,7 +64,7 @@
         height: 0%;
     }
     100% {
-        height: 50%;
+        height: 100%;
     }
 }
 @keyframes decreaseHeight {
@@ -72,7 +72,7 @@
         height: 100%;
     }
     100% {
-        height: 50%;
+        height: 0%;
     }
 }
 @keyframes spinLeft {
@@ -238,5 +238,24 @@
     }
     100% {
         transform: rotate(0deg);
+    }
+}
+@keyframes downArrowAnimation {
+    0%,
+    20% {
+        transform: translateY(0) scale(1);
+    }
+    28% {
+        transform: translateY(15px) scale(1.2);
+    }
+    36% {
+        transform: translateY(0) scale(1.1);
+    }
+    44% {
+        transform: translateY(15px) scale(1.2);
+    }
+    52%,
+    100% {
+        transform: translateY(0) scale(1);
     }
 }

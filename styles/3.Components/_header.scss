@@ -30,6 +30,9 @@
         &.opened {
             background-color: transparent !important;
         }
+        a {
+            color: $clr-1;
+        }
         em {
             font-family: "graphic-fonts";
             opacity: 0;

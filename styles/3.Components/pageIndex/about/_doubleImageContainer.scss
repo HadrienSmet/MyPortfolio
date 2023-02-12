@@ -52,10 +52,10 @@
         }
         .double-img-container.visible {
             > .first-img-container {
-                animation: decreaseWidth 0.8s ease-in-out forwards;
+                animation: increaseWidth 0.8s ease-in-out forwards;
             }
             > .second-img-container {
-                animation: increaseWidth 0.8s ease-in-out forwards;
+                animation: decreaseWidth 0.8s ease-in-out forwards;
             }
         }
         @media screen and (min-height: 901px) {
@@ -104,9 +104,6 @@
 }
 @media screen and (max-width: 767px) {
     .double-img-container {
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%, -35vh);
         height: 35vh;
         width: calc(100% - 80px);
         flex-direction: column;
@@ -121,10 +118,10 @@
     }
     .double-img-container.visible {
         > .first-img-container {
-            animation: decreaseHeight 0.8s ease-in-out forwards;
+            animation: increaseHeight 0.8s ease-in-out forwards;
         }
         > .second-img-container {
-            animation: increaseHeight 0.8s ease-in-out forwards;
+            animation: decreaseHeight 0.8s ease-in-out forwards;
         }
     }
     .first-img-container {

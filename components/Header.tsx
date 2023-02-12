@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
     MouseEvent,
     MutableRefObject,
@@ -77,7 +78,9 @@ const Header = () => {
     return (
         <header className="header">
             <div ref={defaultBarRef} className="header__default-bar">
-                <em>Hadri</em>
+                <Link href={"/"}>
+                    <em>Hadri</em>
+                </Link>
                 <button
                     className="menu"
                     onMouseEnter={handleMouseEnter}

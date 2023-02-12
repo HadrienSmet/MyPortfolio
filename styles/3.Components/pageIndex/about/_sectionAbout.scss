@@ -98,7 +98,7 @@
             display: none;
         }
         &__dynamic-links-container {
-            height: calc(35vh + 172px);
+            height: calc(35vh + 212px);
             @include flexColumnBetweenY;
         }
     }

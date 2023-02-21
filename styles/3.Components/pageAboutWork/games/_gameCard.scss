@@ -3,8 +3,6 @@
         height: calc(((100vw - 715px) / 3));
         width: calc(((100vw - 715px) / 3));
         img {
-            // position: absolute;
-            // z-index: -1;
             left: -20%;
             top: -20%;
             width: 140%;
@@ -19,6 +17,15 @@
                 }
             }
         }
+    }
+    #illugame-1 {
+        transform: translate(var(--img1-trans-x), var(--img1-trans-y));
+    }
+    #illugame-2 {
+        transform: translate(var(--img2-trans-x), var(--img2-trans-y));
+    }
+    #illugame-3 {
+        transform: translate(var(--img3-trans-x), var(--img3-trans-y));
     }
     @media screen and (max-width: 1750px) {
         .game-content ul {
@@ -89,10 +96,6 @@
     img {
         position: absolute;
         z-index: -1;
-        // left: -20%;
-        // top: -20%;
-        // width: 140%;
-        // height: 140%;
     }
     &:hover {
         transform: scale(0.95);
@@ -161,13 +164,4 @@
             @include flexFullCenter;
         }
     }
-}
-#illugame-1 {
-    transform: translate(var(--img1-trans-x), var(--img1-trans-y));
-}
-#illugame-2 {
-    transform: translate(var(--img2-trans-x), var(--img2-trans-y));
-}
-#illugame-3 {
-    transform: translate(var(--img3-trans-x), var(--img3-trans-y));
 }

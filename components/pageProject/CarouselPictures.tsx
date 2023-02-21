@@ -81,7 +81,7 @@ const useCarouselPictures = ({ project }: Props) => {
             } else if (screenWidth >= 768 && screenWidth < 1025) {
                 imgWidth = window.innerWidth - 326 + 225;
             } else {
-                imgWidth = window.innerWidth - 80 + 225;
+                imgWidth = window.innerWidth - 160 + 225;
             }
             const options = {
                 top: 0,

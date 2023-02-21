@@ -12,6 +12,7 @@
 @media screen and (max-width: 1024px) {
     .games-side {
         width: calc(100% - 160px);
+        background-color: lighten($second-color, 25);
     }
     .games-container {
         grid-template-columns: repeat(2, 1fr);
@@ -33,7 +34,7 @@
 .games {
     &-side {
         gap: 35px;
-        margin-bottom: 50px;
+        padding-bottom: 30px !important;
         @include flexColumn;
         h2 {
             align-self: flex-start;

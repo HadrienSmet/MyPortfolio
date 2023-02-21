@@ -86,7 +86,7 @@ nav {
     left: 0;
     width: 100vw;
     height: 100vh;
-    transition: 0.6s ease-in;
+    transition: 0.4s ease-in-out;
     transform: translateY(-100%);
     z-index: 2;
     @include flexFullCenter;

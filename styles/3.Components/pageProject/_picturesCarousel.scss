@@ -56,14 +56,15 @@
             position: absolute;
             height: 100%;
             &.next {
-                right: 0;
+                right: -20px;
             }
             svg.active {
                 color: $third-color;
             }
         }
         &__content {
-            width: 100%;
+            width: calc(100% - 80px);
+            left: 40px;
         }
     }
 }

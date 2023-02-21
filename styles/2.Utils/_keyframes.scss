@@ -259,3 +259,17 @@
         transform: translateY(0) scale(1);
     }
 }
+@keyframes backgroundRotate {
+    0%,
+    30% {
+        opacity: 0;
+    }
+    95% {
+        opacity: 0.4;
+        transform: rotate(0deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(2deg);
+    }
+}

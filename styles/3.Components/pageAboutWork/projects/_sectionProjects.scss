@@ -4,7 +4,7 @@
             width: calc(100% - 600px);
         }
         &-container {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(2, 1fr);
             gap: 35px;
         }
@@ -13,6 +13,8 @@
 @media screen and (max-width: 1024px) {
     .projects-side {
         width: calc(100% - 160px);
+        background-color: lighten($second-color, 25);
+        padding-top: 15px !important;
     }
     .projects-container {
         grid-template-columns: repeat(2, 1fr);
@@ -33,7 +35,7 @@
 .projects {
     &-side {
         gap: 35px;
-        margin-bottom: 50px;
+        padding-bottom: 50px !important;
         @include flexColumn;
         h2 {
             align-self: flex-start;

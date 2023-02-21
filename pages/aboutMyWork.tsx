@@ -28,6 +28,9 @@ const aboutMyWork = () => {
             </Head>
             <h1 className="about-work__main-title">About my work</h1>
             <SectionTools />
+            <div className="background-shape-container">
+                <div className="background-shape"></div>
+            </div>
             <SectionProjects />
             <SectionGames />
             <SectionHardSkills />

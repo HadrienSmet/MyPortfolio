@@ -7,6 +7,23 @@
             font-size: 4.5em;
         }
     }
+    .background-shape {
+        position: absolute;
+        height: 147vh;
+        width: 150vw;
+        opacity: 0;
+        animation: backgroundRotate 2s ease-in-out 0s forwards;
+        transform-origin: top left;
+        background-color: lighten($second-color, 25);
+        &-container {
+            z-index: -1;
+            position: absolute;
+            width: 100%;
+            height: 300vh;
+            top: 55vh;
+            overflow: hidden;
+        }
+    }
 }
 @media screen and (max-width: 1024px) {
     .about-work__main-title {

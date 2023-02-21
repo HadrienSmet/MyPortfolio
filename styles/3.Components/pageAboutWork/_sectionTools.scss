@@ -35,6 +35,7 @@
 .tools {
     &-side {
         gap: 20px;
+        margin-bottom: 50px;
         @include flexColumn;
         h2 {
             align-self: flex-start;

@@ -1,0 +1,107 @@
+@media screen and (min-width: 1025px) {
+    @media screen and (min-height: 901px) {
+        .game-page__content__btn-container:hover {
+            animation: buttonHover 0.8s ease-in-out infinite;
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    .game-page__content {
+        p {
+            padding: 0 100px;
+            text-align: center;
+            width: calc(100% - 200px);
+        }
+        ul {
+            padding: 0 100px;
+            width: calc(100% - 200px);
+            li {
+                font-size: 1.5em;
+                padding: 5px 15px;
+            }
+        }
+        &__btn-container {
+            width: 300px;
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .game-page__content {
+        p {
+            padding: 0 20px;
+            text-align: center;
+            width: calc(100% - 40px);
+        }
+        ul {
+            padding: 0 20px;
+            width: calc(100% - 40px);
+            li {
+                font-size: 1.2em;
+                padding: 7px 15px;
+            }
+        }
+        &__btn-container {
+            width: calc(100vw - 80px);
+        }
+    }
+}
+.game-page__content p {
+    padding: 0;
+    width: 100%;
+    font-size: 1em;
+}
+
+.game-page__content {
+    gap: 50px;
+    position: relative;
+    @include flexColumnFullCenter;
+    p {
+        padding: 0;
+        width: 100%;
+        color: rgba($fourth-color, 0.8);
+        font-size: 1.2em;
+        line-height: 32px;
+    }
+    ul {
+        gap: 25px;
+        flex-wrap: wrap;
+        @include flexFullCenter;
+        &.visible {
+            li {
+                animation: increaseOpacity 0.1s ease-in-out forwards;
+                @for $i from 1 through 9 {
+                    &:nth-child(#{$i}) {
+                        animation-delay: counterLiDelay($i);
+                    }
+                }
+            }
+        }
+        li {
+            opacity: 0;
+            background-color: $first-color;
+            color: $clr-1;
+            border-radius: 5px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
+    }
+    &__btn-container {
+        // position: relative;
+        height: 70px;
+        .gradient {
+            height: 100%;
+            width: 100%;
+            border-radius: 4px;
+            border: 2px solid transparent;
+            @include flexFullCenter;
+            a {
+                display: inline-block;
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 1.2em;
+                letter-spacing: 2px;
+                color: $first-color;
+            }
+        }
+    }
+}

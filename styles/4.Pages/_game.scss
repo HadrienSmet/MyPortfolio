@@ -1,0 +1,48 @@
+@media screen and (min-width: 1025px) {
+    @media screen and (min-height: 901px) {
+        .game-page {
+            width: calc(100vw - 900px);
+            min-width: 800px;
+        }
+    }
+    @media screen and (max-height: 900px) {
+        .game-page {
+            width: calc(100vw - 316px);
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    .game-page h1 {
+        font-size: 2.5em;
+    }
+}
+@media screen and (max-width: 767px) {
+    .game-page {
+        width: calc(100vw - 80px);
+        h1 {
+            font-size: 2em;
+        }
+        img {
+            height: 45vh;
+        }
+    }
+}
+@media screen and (max-width: 310px) {
+    .game-page h1 {
+        font-size: 1.3em;
+    }
+}
+.game-page {
+    padding-top: 150px;
+    margin-bottom: 80px;
+    gap: 50px;
+    @include flexColumnCenterY;
+    h1 {
+        text-align: center;
+        font-family: "title-fonts";
+        color: $fourth-color;
+    }
+    img {
+        width: 100%;
+    }
+}

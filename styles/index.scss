@@ -22,8 +22,11 @@
 @import "./3.Components/pageAboutWork/sectionFormation";
 @import "./3.Components/pageAboutWork/sectionHardSkills";
 @import "./3.Components/pageAboutWork/sectionTools";
+@import "./3.Components/pageAboutWork/games/gameCard";
+@import "./3.Components/pageAboutWork/games/gamesSection";
 @import "./3.Components/pageAboutWork/projects/sectionProjects";
 @import "./3.Components/pageAboutWork/projects/projectCard";
+@import "./3.Components/pageGame/gameContent";
 @import "./3.Components/pageProject/picturesCarousel";
 @import "./3.Components/pageProject/pageProjectContent";
 @import "./3.Components/footer";
@@ -33,4 +36,5 @@
 @import "./3.Components/svgThreeJS.scss";
 @import "./4.Pages/aboutMe";
 @import "./4.Pages/aboutMyWork";
+@import "./4.Pages/game";
 @import "./4.Pages/project";

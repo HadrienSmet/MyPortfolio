@@ -4,6 +4,7 @@ import SectionHardSkills from "../components/pageAboutWork/SectionHardSkills";
 import SectionProjects from "../components/pageAboutWork/projects/SectionProjects";
 import { useEffect } from "react";
 import SectionTools from "../components/pageAboutWork/SectionTools";
+import SectionGames from "../components/pageAboutWork/games/SectionGames";
 
 const useAboutMyWork = () => {
     useEffect(() => {
@@ -28,6 +29,7 @@ const aboutMyWork = () => {
             <h1 className="about-work__main-title">About my work</h1>
             <SectionTools />
             <SectionProjects />
+            <SectionGames />
             <SectionHardSkills />
             <SectionFormation />
         </>

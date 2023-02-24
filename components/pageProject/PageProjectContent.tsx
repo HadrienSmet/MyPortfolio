@@ -41,7 +41,11 @@ const PageProjectContent = ({ project }: Props) => {
                 <MuiGradientBorder>
                     <a href={project.codeLink}>Voir le code</a>
                 </MuiGradientBorder>
-                {project.link && <a href={project.link}>Voir le site</a>}
+                {project.link && (
+                    <MuiGradientBorder>
+                        <a href={project.link}>Voir le site</a>
+                    </MuiGradientBorder>
+                )}
             </div>
         </div>
     );

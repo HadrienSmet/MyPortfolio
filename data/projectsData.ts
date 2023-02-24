@@ -159,4 +159,23 @@ export const projects: ProjectInterface[] = [
         ],
         codeLink: "https://github.com/HadrienSmet/travel-app",
     },
+    {
+        id: "8",
+        idInNumber: 8,
+        name: "Tinyclip - Third project on my own (the second is the portfolio)",
+        imageLink: "tinyclip-square.webp",
+        images: [
+            "tinyclip.webp",
+            "tinyclip-snakepage.webp",
+            "tinyclip-pongpage.webp",
+            "tinyclip-tetrispage.webp",
+            "tinyclip-flappypage.webp",
+        ],
+        legends: ["Home Page", "Snake", "Pong", "Tetris", "Flappy Bird"],
+        description:
+            "In order to improve my skills in programming I coded a few small games. And I created a website to gather them. I called it tinyclip in memory of the website called miniclip wich stole a lot of hours to my youth. This website is only available on desktop version for now. Even if the home page is responsive, you can not play yet with your phone or tablet!",
+        tools: ["Sass", "React", "TypeScript"],
+        codeLink: "https://github.com/HadrienSmet/Tinyclip",
+        link: "https://hs-tinyclip.netlify.app/",
+    },
 ];

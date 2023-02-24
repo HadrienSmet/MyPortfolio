@@ -1,6 +1,10 @@
 @media screen and (min-width: 1025px) {
+    .project-page__content__btn-container {
+        width: 80%;
+        justify-content: space-between;
+    }
     @media screen and (min-height: 901px) {
-        .project-page__content__btn-container:hover {
+        .project-page__content__btn-container > div:hover {
             animation: buttonHover 0.8s ease-in-out infinite;
         }
     }
@@ -21,7 +25,11 @@
             }
         }
         &__btn-container {
-            width: 300px;
+            display: flex;
+            gap: 25px;
+            > div {
+                width: 300px !important;
+            }
         }
     }
 }
@@ -42,6 +50,9 @@
         }
         &__btn-container {
             width: calc(100vw - 80px);
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
     }
 }
@@ -87,7 +98,9 @@
     }
     &__btn-container {
         // position: relative;
-        height: 70px;
+        > div {
+            height: 70px !important;
+        }
         .gradient {
             height: 100%;
             width: 100%;

@@ -178,4 +178,26 @@ export const projects: ProjectInterface[] = [
         codeLink: "https://github.com/HadrienSmet/Tinyclip",
         link: "https://hs-tinyclip.netlify.app/",
     },
+    {
+        id: "9",
+        idInNumber: 9,
+        name: "Cloned Gartic Phone, Fourth project on my own",
+        imageLink: "cloned-square.webp",
+        images: [
+            "cloned-home-page.webp",
+            "cloned-room-page.webp",
+            "cloned-canvas-page.webp",
+            "cloned-results-page.webp",
+        ],
+        legends: [
+            "Home Page",
+            "Room Page",
+            "Game page (drawing round)",
+            "Results Page",
+        ],
+        description:
+            "I wanted to learn more about web sockets and I wanted to work based on templates made by a professional so I choose to clone famous web game Gartic Phone. It seamed me that it was a good project to challenge myself. Here is the version I ended up with. The responsive is not made yet! For now you can only play on desktop, it won't work on tablet or phone. There is only one tool and one mode to play",
+        tools: ["NextJS", "React", "TypeScript", "Socket.IO"],
+        codeLink: "https://github.com/HadrienSmet/gartic-clone",
+    },
 ];

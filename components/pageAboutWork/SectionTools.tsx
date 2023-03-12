@@ -12,6 +12,7 @@ import SvgReact from "../../assets/svg/SvgReact";
 import SvgSass from "../../assets/svg/SvgSass";
 import SvgThreeJS from "../../assets/svg/SvgThreeJS";
 import SvgTypeScript from "../../assets/svg/SvgTypeScript";
+import SvgSocketIO from "../../assets/svg/SvgSocketIO";
 
 const SectionTools = () => {
     return (
@@ -27,6 +28,7 @@ const SectionTools = () => {
                 <SvgMongoDB />
                 <SvgReact />
                 <SvgNextJS />
+                <SvgSocketIO />
                 <SvgThreeJS />
                 <FaGitAlt />
                 <SvgVsCode />

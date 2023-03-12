@@ -2,8 +2,6 @@
     .project {
         height: calc(((100vw - 715px) / 4));
         img {
-            // position: absolute;
-            // z-index: -1;
             left: -10%;
             top: -10%;
             width: 120%;
@@ -43,6 +41,12 @@
     }
     #illuprojet-7 {
         transform: translate(var(--img7-trans-x), var(--img7-trans-y));
+    }
+    #illuprojet-8 {
+        transform: translate(var(--img8-trans-x), var(--img8-trans-y));
+    }
+    #illuprojet-9 {
+        transform: translate(var(--img9-trans-x), var(--img9-trans-y));
     }
     @media screen and (max-width: 1750px) {
         .project-content ul {

@@ -1,12 +1,26 @@
 @media screen and (min-width: 1025px) {
     .project-page__content__btn-container {
-        width: 80%;
-        // justify-content: space-between;
+        width: 100%;
         justify-content: center;
+        flex-wrap: wrap;
+        > div {
+            width: 300px !important;
+        }
     }
     @media screen and (min-height: 901px) {
         .project-page__content__btn-container > div:hover {
             animation: buttonHover 0.8s ease-in-out infinite;
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .project-page__content__btn-container {
+        display: flex;
+        flex-direction: column;
+    }
+    @media screen and (min-width: 768px) {
+        .project-page__content__btn-container {
+            width: calc(100vw - 300px);
         }
     }
 }
@@ -27,10 +41,6 @@
         }
         &__btn-container {
             display: flex;
-            gap: 25px;
-            > div {
-                width: 300px !important;
-            }
         }
     }
 }
@@ -51,9 +61,6 @@
         }
         &__btn-container {
             width: calc(100vw - 80px);
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
         }
     }
 }
@@ -98,6 +105,7 @@
         }
     }
     &__btn-container {
+        gap: 25px;
         > div {
             height: 70px !important;
         }
@@ -108,7 +116,11 @@
             border: 2px solid transparent;
             @include flexFullCenter;
             a {
-                display: inline-block;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 text-transform: uppercase;
                 font-weight: 600;
                 font-size: 1.2em;

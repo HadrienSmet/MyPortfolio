@@ -8,6 +8,7 @@ export interface ProjectInterface {
     description: string;
     tools: string[];
     codeLink: string;
+    codeServerLink?: string;
     link?: string;
 }
 export interface GameInterface {
@@ -19,5 +20,6 @@ export interface GameInterface {
     description: string;
     tools: string[];
     codeLink: string;
+    codeServerLink?: string;
     link?: string;
 }

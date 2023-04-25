@@ -157,7 +157,9 @@ export const projects: ProjectInterface[] = [
             "Multer",
             "Mongoose",
         ],
-        codeLink: "https://github.com/HadrienSmet/travel-app",
+        codeLink: "https://github.com/HadrienSmet/travel-app-client",
+        codeServerLink: "https://github.com/HadrienSmet/travel-app-server",
+        link: "https://travel-app-client.netlify.app/",
     },
     {
         id: "8",
@@ -199,6 +201,7 @@ export const projects: ProjectInterface[] = [
             "I wanted to learn more about web sockets and I wanted to work based on templates made by a professional so I choose to clone famous web game Gartic Phone. It seamed me that it was a good project to challenge myself. Here is the version I ended up with. The responsive is made but you need a mouse to be able to play!! There is only one tool and one mode to play",
         tools: ["NextJS", "React", "TypeScript", "Socket.IO"],
         codeLink: "https://github.com/HadrienSmet/gartic-clone",
+        codeServerLink: "https://github.com/HadrienSmet/gartic-clone-server",
         link: "https://hs-gartic-clone.netlify.app",
     },
 ];

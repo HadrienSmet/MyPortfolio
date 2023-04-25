@@ -39,11 +39,16 @@ const PageProjectContent = ({ project }: Props) => {
                 onMouseLeave={handleCursorLeave}
             >
                 <MuiGradientBorder>
-                    <a href={project.codeLink}>Voir le code</a>
+                    <a href={project.codeLink}>See the code</a>
                 </MuiGradientBorder>
+                {project.codeServerLink && (
+                    <MuiGradientBorder>
+                        <a href={project.codeServerLink}>See the server code</a>
+                    </MuiGradientBorder>
+                )}
                 {project.link && (
                     <MuiGradientBorder>
-                        <a href={project.link}>Voir le site</a>
+                        <a href={project.link}>Visit the website</a>
                     </MuiGradientBorder>
                 )}
             </div>

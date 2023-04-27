@@ -64,7 +64,7 @@ const index = () => {
                 <title>Hadrien Smet</title>
                 <meta
                     name="description"
-                    content="Welcome on my portfolio. I am a web developer specialized in front-end. I use React, typeScript and Next to build the applications that my clients desires"
+                    content="Hadrien Smet, fullstack junior developer enthousiast to the idea to tackle new challenges"
                 />
                 <meta name="robots" content="index, follow"></meta>
                 <link rel="shortcut icon" href="favicon.ico" />

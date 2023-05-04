@@ -159,7 +159,7 @@ export const projects: ProjectInterface[] = [
         ],
         codeLink: "https://github.com/HadrienSmet/travel-app-client",
         codeServerLink: "https://github.com/HadrienSmet/travel-app-server",
-        link: "https://travel-app-client.netlify.app/",
+        // link: "https://travel-app-client.netlify.app/",
     },
     {
         id: "8",
@@ -202,6 +202,6 @@ export const projects: ProjectInterface[] = [
         tools: ["NextJS", "React", "TypeScript", "Socket.IO"],
         codeLink: "https://github.com/HadrienSmet/gartic-clone",
         codeServerLink: "https://github.com/HadrienSmet/gartic-clone-server",
-        link: "https://hs-gartic-clone.netlify.app",
+        // link: "https://hs-gartic-clone.netlify.app",
     },
 ];

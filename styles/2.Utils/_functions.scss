@@ -21,7 +21,7 @@
     @return $delay;
 }
 @function counterMyBubbleDelay($i) {
-    $delay: 1.8s + ($i * 0.2s);
+    $delay: 0.8s + ($i * 0.2s);
     @return $delay;
 }
 @function counterHobbieDelay($i) {

@@ -2,7 +2,7 @@
     .double-img-container {
         transform: translateX(var(--div-translation));
         > div {
-            max-height: calc(100vh - 353px);
+            max-height: calc(100vh - 453px);
         }
     }
     .first-img-container {
@@ -84,7 +84,7 @@
             height: 50vh;
             max-height: calc(100vh - 353px);
             > img {
-                // height: 100%;
+                height: 100%;
                 top: 0;
             }
         }

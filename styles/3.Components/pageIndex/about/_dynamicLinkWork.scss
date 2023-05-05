@@ -121,7 +121,7 @@
             }
             > ul {
                 li {
-                    animation: halfTranslateRight 0.3s ease-in-out forwards;
+                    animation: halfTranslateRight 0.18s ease-in-out forwards;
                     @for $i from 1 through 5 {
                         &:nth-child(#{$i}) {
                             animation-delay: counterBubbleDelay($i);

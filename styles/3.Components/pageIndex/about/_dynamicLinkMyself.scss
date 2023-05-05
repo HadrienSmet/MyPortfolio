@@ -88,7 +88,7 @@
         transform: translateX(-50%);
         &.visible {
             @media screen and (min-width: 768px) {
-                animation: halfTranslateRight 0.3s ease-in-out 1.6s forwards;
+                animation: halfTranslateRight 0.2s ease-in-out 0.8s forwards;
             }
             > span {
                 animation: getYourScale 0.6s ease-in-out forwards;
@@ -154,7 +154,7 @@
     .dynamic-link__to-me {
         height: 86px !important;
         &.visible {
-            animation: halfTranslateRight 0.3s ease-in-out 0.4s forwards;
+            animation: halfTranslateRight 0.2s ease-in-out 0.2s forwards;
         }
         > span {
             display: none !important;

@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import { useScrollPosition } from "../../../hooks/useScrollPosition";
 import ContactMediasContainer from "./ContactMediasContainer";
 import ContactCvContainer from "./ContactCvContainer";
+import { useMyCursorContext } from "../../../context/CursorContext";
 
 const useContactOnScroll = () => {
     const containerContactImgRef = useRef<HTMLDivElement | null>(null);
@@ -63,6 +64,14 @@ const useContactOnScroll = () => {
 
 const SectionContact = () => {
     const { contactImgRef, containerContactImgRef } = useContactOnScroll();
+    const [, setIsCursorHover] = useMyCursorContext();
+
+    const handleMouseEnter = () => {
+        setIsCursorHover(true);
+    };
+    const handleMouseLeave = () => {
+        setIsCursorHover(false);
+    };
 
     return (
         <section className="contact" id="contact">
@@ -71,7 +80,10 @@ const SectionContact = () => {
                 <div className="right-slope"></div>
             </div>
             <a href="#about" id="contact-to-about">
-                <FaAngleUp />
+                <FaAngleUp
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                />
             </a>
             <h2>Wants to work together?</h2>
             <div className="contact__first-row">

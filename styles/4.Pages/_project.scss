@@ -60,8 +60,8 @@
     }
     &__carousel-area {
         position: relative;
-        min-height: 50vh;
-        margin-bottom: 50px;
+        height: 50vh;
+        max-height: 50vh;
         @include flexFullCenter;
         em {
             position: absolute;

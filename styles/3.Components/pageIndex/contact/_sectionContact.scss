@@ -2,6 +2,8 @@
     .contact {
         position: relative;
         padding-top: 50px;
+        padding-bottom: 190px !important;
+        justify-content: flex-start !important;
         &__first-row {
             a:hover {
                 span {

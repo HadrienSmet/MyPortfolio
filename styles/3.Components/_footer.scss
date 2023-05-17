@@ -1,10 +1,16 @@
 @media screen and (min-width: 1025px) {
-    .footer__link-container:hover {
-        svg:first-child {
-            transform: translateY(0);
+    .footer {
+        &.welcome {
+            position: absolute;
+            transform: translateY(-190px);
         }
-        svg:last-child {
-            transform: translateY(75px);
+        &__link-container:hover {
+            svg:first-child {
+                transform: translateY(0);
+            }
+            svg:last-child {
+                transform: translateY(75px);
+            }
         }
     }
 }

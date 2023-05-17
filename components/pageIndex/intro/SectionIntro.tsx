@@ -68,7 +68,10 @@ const SectionIntro = () => {
                 </div>
             </div>
             <a href="#about" id="intro-to-about">
-                <FaAngleDown />
+                <FaAngleDown
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                />
             </a>
         </section>
     );

@@ -1,0 +1,6 @@
+@media screen and (min-width: 1025px) {
+    main.welcome section {
+        scroll-snap-align: start;
+        scroll-snap-stop: normal;
+    }
+}

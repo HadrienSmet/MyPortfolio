@@ -2,6 +2,9 @@
 @import "../2.Utils/variables";
 
 @media screen and (min-width: 1025px) {
+    html {
+        scroll-snap-type: y mandatory;
+    }
     body {
         cursor: none;
         &::-webkit-scrollbar-thumb {

@@ -53,7 +53,7 @@
 @media screen and (min-width: 768px) {
     .intro {
         height: calc((100vh - 80px) * 0.7);
-        margin-top: calc(15vh + 80px);
+        padding-top: calc(15vh + 80px);
         margin-bottom: 18vh;
         &__details {
             h1 {

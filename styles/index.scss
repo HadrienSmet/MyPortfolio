@@ -1,9 +1,11 @@
 @import "./1.Base/fonts";
 @import "./1.Base/global";
+
 @import "./2.Utils/functions";
 @import "./2.Utils/keyframes";
 @import "./2.Utils/mixins";
 @import "./2.Utils/variables";
+
 @import "./3.Components/pageIndex/intro/backgroundIntro";
 @import "./3.Components/pageIndex/intro/sectionIntro";
 @import "./3.Components/pageIndex/about/doubleImageContainer";
@@ -35,7 +37,9 @@
 @import "./3.Components/navigation";
 @import "./3.Components/svgThreeJS.scss";
 @import "./3.Components/svgSocketIO";
+
 @import "./4.Pages/aboutMe";
 @import "./4.Pages/aboutMyWork";
 @import "./4.Pages/game";
+@import "./4.Pages/index";
 @import "./4.Pages/project";

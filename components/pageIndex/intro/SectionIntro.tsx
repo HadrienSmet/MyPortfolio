@@ -1,11 +1,10 @@
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import handsomeYoungDevelopper from "../../../public/img/photo-cv_151222-bgless.webp";
 import { useScrollPosition } from "../../../hooks/useScrollPosition";
 import BackgroundIntro from "./BackgroundIntro";
 import { useMyCursorContext } from "../../../context/CursorContext";
 import { FaAngleDown } from "react-icons/fa";
-import { useWindowSize } from "../../../hooks/useWindowSize";
 
 const useIntroOnScroll = () => {
     const introImgRef = useRef<HTMLImageElement | null>(null);

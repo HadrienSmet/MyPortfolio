@@ -99,6 +99,7 @@ const GameCard = ({ game }: Props) => {
 
     return (
         <div
+            id={`gamecard-${game.id}`}
             className="game"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}

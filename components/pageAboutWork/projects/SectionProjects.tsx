@@ -53,7 +53,7 @@ const SectionProjects = () => {
                         <li id="NextJS" onClick={handleFilter}>
                             NextJS
                         </li>
-                        <li id="TypesScript" onClick={handleFilter}>
+                        <li id="TypeScript" onClick={handleFilter}>
                             TypeScript
                         </li>
                     </ul>

@@ -14,6 +14,7 @@ const useProjectCard = ({ project }: Props) => {
         undefined
     );
     const [isHover, setIsHover] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
     const imgRef = useRef<HTMLImageElement>(null);
     const [, setIsCursorHover] = useMyCursorContext();
     const windowSize = useWindowSize();
@@ -38,39 +39,27 @@ const useProjectCard = ({ project }: Props) => {
     };
     const handleMouseLeave = () => {
         setIsHover(() => false);
+        containerRef.current!.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
     };
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
-            const rightImageElement = document.querySelector<HTMLImageElement>(
-                `#illuprojet-${project.id}`
-            );
-            const rect = imgRef.current?.getBoundingClientRect();
-            if (rect !== undefined) {
-                const index = imgRef.current?.id.split("-")[1];
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const ratioX = -(x / rect.width) * 40 + 20;
-                const ratioY = -(y / rect.height) * 40 + 20;
-
-                if (rightImageElement !== null) {
-                    rightImageElement.style.setProperty(
-                        `--img${index}-trans-x`,
-                        `${ratioX}px`
-                    );
-                    rightImageElement.style.setProperty(
-                        `--img${index}-trans-y`,
-                        `${ratioY}px`
-                    );
-                }
-            }
+            const rect = containerRef.current!.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const midOfWidth = rect.width / 2;
+            const midOfHeight = rect.height / 2;
+            const angleY = -((x - midOfWidth) / 8);
+            const angleX = (y - midOfHeight) / 8;
+            containerRef.current!.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.1)`;
         };
-
+        let card = containerRef.current;
         if (screenWidth && screenWidth >= 1025) {
             if (isHover) {
                 window.addEventListener("mousemove", handleMouseMove);
 
                 return () => {
+                    card!.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
                     window.removeEventListener("mousemove", handleMouseMove);
                 };
             }
@@ -78,6 +67,7 @@ const useProjectCard = ({ project }: Props) => {
     }, [isHover, project.id, screenWidth]);
 
     return {
+        containerRef,
         imgRef,
         handleMouseEnter,
         handleMouseLeave,
@@ -88,6 +78,7 @@ const useProjectCard = ({ project }: Props) => {
 
 const ProjectCard = ({ project }: Props) => {
     const {
+        containerRef,
         imgRef,
         handleMouseEnter,
         handleMouseLeave,
@@ -99,6 +90,7 @@ const ProjectCard = ({ project }: Props) => {
 
     return (
         <div
+            ref={containerRef}
             className="project"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -110,7 +102,6 @@ const ProjectCard = ({ project }: Props) => {
                 width={500}
                 height={500}
                 ref={imgRef}
-                id={`illuprojet-${project.id}`}
             />
             <div className="project-content">
                 <h3>{project.name}</h3>

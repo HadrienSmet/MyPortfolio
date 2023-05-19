@@ -3,6 +3,16 @@
         &-side {
             padding: 0 300px !important;
             width: calc(100% - 600px) !important;
+            .filters-container__content {
+                ul li,
+                span {
+                    &:hover {
+                        background-color: transparent;
+                        color: $first-color;
+                        transform: scale(1.1, 0.95) translateY(-2px);
+                    }
+                }
+            }
         }
         &-container {
             gap: 5px;
@@ -46,6 +56,8 @@
             h3 {
                 color: rgba($third-color, 0.9);
                 margin-bottom: 10px;
+                opacity: 0;
+                animation: increaseOpacity 0.2s ease-in-out 0.75s forwards;
             }
             &__content {
                 display: flex;
@@ -63,9 +75,12 @@
                         border-radius: 4px;
                         border: 2px solid $first-color;
                         transition: 0.2s ease-in-out;
-                        &:hover {
-                            background-color: transparent;
-                            color: $first-color;
+                        opacity: 0;
+                        animation: increaseOpacity 0.2s ease-in forwards;
+                        @for $i from 1 through 7 {
+                            &:nth-child(#{$i}) {
+                                animation-delay: counterFilterDelay($i);
+                            }
                         }
                     }
                 }
@@ -77,10 +92,8 @@
                     border-radius: 4px;
                     border: 2px solid $first-color;
                     transition: 0.2s ease-in-out;
-                    &:hover {
-                        background-color: transparent;
-                        color: $first-color;
-                    }
+                    opacity: 0;
+                    animation: increaseOpacity 0.2s ease-in-out 0.95s forwards;
                 }
             }
         }

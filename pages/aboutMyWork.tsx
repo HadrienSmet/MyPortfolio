@@ -2,19 +2,16 @@ import Head from "next/head";
 import SectionFormation from "../components/pageAboutWork/SectionFormation";
 import SectionHardSkills from "../components/pageAboutWork/SectionHardSkills";
 import SectionProjects from "../components/pageAboutWork/projects/SectionProjects";
-import { useEffect } from "react";
 import SectionTools from "../components/pageAboutWork/SectionTools";
 import SectionGames from "../components/pageAboutWork/games/SectionGames";
-
-const useAboutMyWork = () => {
-    useEffect(() => {
-        document.body.classList.remove("fixed");
-    });
-};
+import { handleScrollToTop } from "../utils/handleScrollToTop";
+import { useEffect } from "react";
 
 const aboutMyWork = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    useAboutMyWork();
+    useEffect(() => {
+        handleScrollToTop();
+    }, []);
     return (
         <>
             <Head>

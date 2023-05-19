@@ -1,4 +1,3 @@
-import React from "react";
 import { FaGitAlt } from "react-icons/fa";
 import SvgCSS from "../../assets/svg/SvgCSS";
 import SvgFigma from "../../assets/svg/SvgFigma";

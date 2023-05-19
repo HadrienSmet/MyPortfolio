@@ -162,10 +162,16 @@
         overflow: hidden;
         border-radius: 15px;
         transition: 0.4s;
+        box-shadow: 0px 10px 5px -5px $black-op2;
+        opacity: 0;
+        animation: increaseOpacity 0.2s 1.5s ease-in-out forwards;
+        transform: rotateX(var(--intro-img-rotate-x))
+            rotateY(var(--intro-img-rotate-y));
         @include flexFullCenter;
         img {
             position: absolute;
             left: 50%;
+            perspective: 1000px;
             transform: translate(-50%, var(--intro-img-translate-y));
             transition: opacity 0.7s ease-in-out;
             opacity: 0;

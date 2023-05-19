@@ -4,8 +4,7 @@
             width: calc(100% - 600px);
         }
         &-container {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 35px;
+            gap: 15px;
         }
     }
 }
@@ -15,19 +14,16 @@
         background-color: lighten($second-color, 25);
     }
     .games-container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
         gap: 20px;
+        flex-wrap: wrap;
     }
 }
 @media screen and (max-width: 767px) {
     .games-side {
-        width: calc(100% - 80px);
+        width: calc(100% - 30px);
     }
     .games-container {
         width: 100%;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(3, 1fr);
         gap: 20px;
     }
 }
@@ -42,6 +38,7 @@
         }
     }
     &-container {
-        display: grid;
+        display: flex;
+        // flex-wrap: wrap;
     }
 }

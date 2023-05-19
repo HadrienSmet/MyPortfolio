@@ -12,6 +12,10 @@
     $delay: 0.6s + ($i * 0.05s);
     @return $delay;
 }
+@function counterFilterDelay($i) {
+    $delay: 0.8s + ($i * 0.05s);
+    @return $delay;
+}
 @function counterProjectDelay($i) {
     $delay: 2.3s + ($i * 0.1s);
     @return $delay;

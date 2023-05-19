@@ -39,7 +39,8 @@
 }
 @media screen and (max-width: 767px) {
     .about-me-page {
-        width: calc(100% - 80px);
+        width: calc(100% - 30px);
+        padding: 0 15px;
         margin-bottom: 10px;
         h2 {
             font-size: 2em;

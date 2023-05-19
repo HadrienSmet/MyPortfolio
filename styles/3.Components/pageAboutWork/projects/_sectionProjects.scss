@@ -5,8 +5,6 @@
             width: calc(100% - 600px) !important;
         }
         &-container {
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 1fr);
             gap: 5px;
         }
     }
@@ -16,10 +14,12 @@
         width: calc(100% - 160px);
         background-color: lighten($second-color, 25);
         padding-top: 15px !important;
+        .filters-container__content {
+            gap: 15px;
+            flex-direction: column;
+        }
     }
     .projects-container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, 1fr);
         gap: 20px;
     }
 }
@@ -28,8 +28,7 @@
         width: calc(100% - 80px);
     }
     .projects-container {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(7, 1fr);
+        flex-direction: column;
         gap: 20px;
     }
 }
@@ -42,8 +41,52 @@
             align-self: flex-start;
             animation-delay: 0.7s !important;
         }
+        .filters-container {
+            width: 100%;
+            h3 {
+                color: rgba($third-color, 0.9);
+                margin-bottom: 10px;
+            }
+            &__content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    li {
+                        padding: 7px 10px;
+                        background-color: $first-color;
+                        color: $clr-1;
+                        border-radius: 4px;
+                        border: 2px solid $first-color;
+                        transition: 0.2s ease-in-out;
+                        &:hover {
+                            background-color: transparent;
+                            color: $first-color;
+                        }
+                    }
+                }
+                span {
+                    text-transform: uppercase;
+                    padding: 7px 10px;
+                    background-color: $first-color;
+                    color: $clr-1;
+                    border-radius: 4px;
+                    border: 2px solid $first-color;
+                    transition: 0.2s ease-in-out;
+                    &:hover {
+                        background-color: transparent;
+                        color: $first-color;
+                    }
+                }
+            }
+        }
     }
     &-container {
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
     }
 }

@@ -82,7 +82,7 @@
         @include flexFullCenter;
         &.visible {
             li {
-                animation: increaseOpacity 0.1s ease-in-out forwards;
+                animation: projectLiAnim 0.1s ease-in-out forwards;
                 @for $i from 1 through 9 {
                     &:nth-child(#{$i}) {
                         animation-delay: counterLiDelay($i);
@@ -92,6 +92,7 @@
         }
         li {
             opacity: 0;
+            transform: scale(0) translateY(15px);
             background-color: $first-color;
             color: $clr-1;
             border-radius: 5px;

@@ -1,6 +1,7 @@
 @media screen and (min-width: 1025px) {
     .project {
         height: calc(((100vw - 631px) / 4));
+        width: calc(((100vw - 631px) / 4));
         img {
             left: -10%;
             top: -10%;
@@ -62,6 +63,7 @@
 @media screen and (max-width: 1024px) {
     .project {
         height: calc(((100vw - 180px) / 2));
+        width: calc(((100vw - 180px) / 2));
         img {
             left: 0;
             top: 0;
@@ -94,7 +96,8 @@
 }
 @media screen and (max-width: 767px) {
     .project {
-        height: calc(100vw - 80px);
+        height: calc(100vw - 30px);
+        width: calc(100vw - 30px);
         h3 {
             font-size: 1.2em !important;
         }

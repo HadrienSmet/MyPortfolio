@@ -6,11 +6,12 @@
 @media screen and (max-width: 767px) {
     .formation-side > p > em {
         width: 95%;
+        font-size: 0.8em !important;
     }
 }
 @media screen and (max-width: 310px) {
     .formation-side > p {
-        font-size: 1em !important;
+        font-size: 0.8em !important;
     }
 }
 
